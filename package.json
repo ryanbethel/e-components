@@ -47,6 +47,8 @@
     "@enhance/custom-element-mixin": "github:enhance-dev/enhance-custom-element-mixin#dom-diffing-slots",
     "codemirror": "^6.0.1",
     "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
-    "morphdom": "^2.7.2"
+    "morphdom": "^2.7.2",
+    "@enhance/arc-plugin-styles": "^5.0.5",
+    "@enhance/styles-cribsheet": "^0.0.11"
   }
 }

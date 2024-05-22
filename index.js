@@ -4,10 +4,25 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 import eAlert from "./elements/e/alert.mjs";
 import eSeperator from "./elements/e/seperator.mjs";
+import eButton from "./elements/e/button.mjs";
+import eCode from "./elements/e/code.mjs";
+import eInputGroup from "./elements/e/input-group.mjs";
+import eLink from "./elements/e/link.mjs";
+import eMenu from "./elements/e/menu.mjs";
+import eRule from "./elements/e/rule.mjs";
+import eSwitch from "./elements/e/switch.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-seperator": eSeperator,
+  "e-alert": eAlert,
+  "e-button": eButton,
+  "e-code": eCode,
+  "e-input-group": eInputGroup,
+  "e-link": eLink,
+  "e-menu": eMenu,
+  "e-rule": eRule,
+  "e-switch": eSwitch,
 };
 
 const htmlFiles = [
@@ -28,7 +43,6 @@ const htmlFiles = [
   { tag: "e-link", path: "elements/e/link.html" },
   { tag: "e-keyboard", path: "elements/e/keyboard.html" },
   { tag: "e-loader", path: "elements/e/loader.html" },
-  { tag: "e-menu", path: "elements/e/menu.html" },
   { tag: "e-row", path: "elements/e/row.html" },
   { tag: "e-switch", path: "elements/e/switch.html" },
   { tag: "e-table", path: "elements/e/table.html" },
@@ -76,7 +90,6 @@ const eInputGroup = htmlElements["e-input-group"];
 const eLink = htmlElements["e-link"];
 const eKeyboard = htmlElements["e-keyboard"];
 const eLoader = htmlElements["e-loader"];
-const eMenu = htmlElements["e-menu"];
 const eRow = htmlElements["e-row"];
 const eSwitch = htmlElements["e-switch"];
 const eTable = htmlElements["e-table"];
