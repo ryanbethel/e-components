@@ -27,7 +27,6 @@ const mjsElements = {
 
 const htmlFiles = [
   { tag: "e-accordion", path: "elements/e/accordion.html" },
-  { tag: "e-autocomplete", path: "elements/e/autocomplete.html" },
   { tag: "e-badge", path: "elements/e/badge.html" },
   { tag: "e-button", path: "elements/e/button.html" },
   { tag: "e-blockquote", path: "elements/e/blockquote.html" },
@@ -74,7 +73,6 @@ let elements = {
 };
 
 const eAccordion = htmlElements["e-accordion"];
-const eAutocomplete = htmlElements["e-autocomplete"];
 const eBadge = htmlElements["e-badge"];
 const eButton = htmlElements["e-button"];
 const eBlockquote = htmlElements["e-blockquote"];
