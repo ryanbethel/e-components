@@ -34,7 +34,9 @@
     "enhance"
   ],
   "scripts": {
-    "start": "cd example && enhance dev"
+    "prepublish": "npm run wrapComponents",
+    "start": "npm run wrapComponents && cd example && enhance dev",
+    "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {
     "@enhance/cli": "^1.1.0"
@@ -49,6 +51,7 @@
     "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
     "morphdom": "^2.7.2",
     "@enhance/arc-plugin-styles": "^5.0.5",
+    "@enhance/cli": "^1.1.0",
     "@enhance/styles-cribsheet": "^0.0.11"
   }
 }
