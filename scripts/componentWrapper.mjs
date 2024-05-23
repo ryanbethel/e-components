@@ -16,7 +16,7 @@ function createComponentWrappers () {
 }
 
 function componentWrapper(tag, template) {
-  const className = tag.charAt(0).toUpperCase() + tag.slice(1)
+  const className = (tag.charAt(0).toUpperCase() + tag.slice(1)).replace('-', '')
   return `import CustomElement from '@enhance/custom-element'
 
   export default class ${className} extends CustomElement {

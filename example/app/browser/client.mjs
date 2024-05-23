@@ -6,40 +6,33 @@ import TemplateMixin from '@enhance/template-mixin'
 import CustomElementMixin from "@enhance/custom-element-mixin"
 // import morphdom from "morphdom"
 import compiledElements from "../compiledElements.mjs"
-// import {
-//   eAlert,
-//   eCode,
-//   eSeperator,
-//   eList,
-//   // eButton,
-//   // eLink,
-//   // eSwitch,
-//   // eAccordion,
-//   // eAutocomplete,
-//   // eBadge,
-//   // eBlockquote,
-//   // eBox,
-//   // eBreadcrumb,
-//   // eCol,
-//   // eContainer,
-//   // eDetails,
-//   // eDialog,
-//   // eDot,
-//   // eIcon,
-//   // eInputGroup,
-//   // eKeyboard,
-//   // eLoader,
-//   // eMenu,
-//   // eRow,
-//   // eTable,
-//   // eTabs,
-//   // eTag,
-// } from "../../../index.js"
 
-import eAlert from "../../../elements/e/alert.mjs";
-import eCode from "../../../elements/e/code.mjs";
-import eSeperator from "../../../elements/e/seperator.mjs";
-import eList from "../../../elements/e/list.mjs";
+import AccordionElement from "../../../components/e/accordion.mjs";
+import AlertElement from "../../../components/e/alert.mjs";
+import AutoCompleteElement from "../../../components/e/autocomplete.mjs";
+import BadgeElement from "../../../components/e/badge.mjs";
+import BlockquoteElement from "../../../components/e/blockquote.mjs";
+import BoxElement from "../../../components/e/box.mjs";
+import BreadcrumbElement from "../../../components/e/breadcrumb.mjs";
+import ButtonElement from "../../../components/e/button.mjs";
+import CodeElement from "../../../components/e/code.mjs";
+import ColElement from "../../../components/e/col.mjs";
+import ContainerElement from "../../../components/e/container.mjs";
+import DetailsElement from "../../../components/e/details.mjs";
+import DialogElement from "../../../components/e/dialog.mjs";
+import DotElement from "../../../components/e/dot.mjs";
+import IconElement from "../../../components/e/icon.mjs";
+import InputGroupElement from "../../../components/e/input-group.mjs";
+import KbdElement from "../../../components/e/kbd.mjs";
+import LinkElement from "../../../components/e/link.mjs";
+import LoaderElement from "../../../components/e/loader.mjs";
+import MenuElement from "../../../components/e/menu.mjs";
+import RowElement from "../../../components/e/row.mjs";
+import SeparatorElement from "../../../components/e/seperator.mjs";
+import SwitchElement from "../../../components/e/switch.mjs";
+import TableElement from "../../../components/e/table.mjs";
+import TabsElement from "../../../components/e/tabs.mjs";
+import TagElement from "../../../components/e/tag.mjs";
 
 const MorphDomMixin = (superclass) => class extends superclass {
   constructor(args) {

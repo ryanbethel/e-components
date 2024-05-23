@@ -4,25 +4,14 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 import eAlert from "./elements/e/alert.mjs";
 import eSeperator from "./elements/e/seperator.mjs";
-import eButton from "./elements/e/button.mjs";
-import eCode from "./elements/e/code.mjs";
-import eInputGroup from "./elements/e/input-group.mjs";
 import eLink from "./elements/e/link.mjs";
 import eMenu from "./elements/e/menu.mjs";
-import eRule from "./elements/e/rule.mjs";
-import eSwitch from "./elements/e/switch.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-seperator": eSeperator,
-  "e-alert": eAlert,
-  "e-button": eButton,
-  "e-code": eCode,
-  "e-input-group": eInputGroup,
   "e-link": eLink,
   "e-menu": eMenu,
-  "e-rule": eRule,
-  "e-switch": eSwitch,
 };
 
 const htmlFiles = [
@@ -32,6 +21,7 @@ const htmlFiles = [
   { tag: "e-blockquote", path: "elements/e/blockquote.html" },
   { tag: "e-box", path: "elements/e/box.html" },
   { tag: "e-breadcrumb", path: "elements/e/breadcrumb.html" },
+  { tag: "e-code", path: "elements/e/code.html" },
   { tag: "e-col", path: "elements/e/col.html" },
   { tag: "e-container", path: "elements/e/container.html" },
   { tag: "e-details", path: "elements/e/details.html" },
@@ -74,18 +64,18 @@ let elements = {
 
 const eAccordion = htmlElements["e-accordion"];
 const eBadge = htmlElements["e-badge"];
-const eButton = htmlElements["e-button"];
 const eBlockquote = htmlElements["e-blockquote"];
 const eBox = htmlElements["e-box"];
 const eBreadcrumb = htmlElements["e-breadcrumb"];
+const eButton = htmlElements["e-button"];
+const eCode = htmlElements["e-code"];
 const eCol = htmlElements["e-col"];
 const eContainer = htmlElements["e-container"];
 const eDetails = htmlElements["e-details"];
 const eDialog = htmlElements["e-dialog"];
 const eDot = htmlElements["e-dot"];
 const eIcon = htmlElements["e-icon"];
-const eInputGroup = htmlElements["e-input-group"];
-const eLink = htmlElements["e-link"];
+const eInputgroup = htmlElements["e-input-group"];
 const eKeyboard = htmlElements["e-keyboard"];
 const eLoader = htmlElements["e-loader"];
 const eRow = htmlElements["e-row"];
@@ -93,7 +83,6 @@ const eSwitch = htmlElements["e-switch"];
 const eTable = htmlElements["e-table"];
 const eTabs = htmlElements["e-tabs"];
 const eTag = htmlElements["e-tag"];
-const eCode = htmlElements["e-code"];
 const eList = htmlElements["e-list"];
 
 export default elements;
@@ -106,7 +95,6 @@ export {
   eSeperator,
   eSwitch,
   eAccordion,
-  eAutocomplete,
   eBadge,
   eBlockquote,
   eBox,
@@ -117,7 +105,7 @@ export {
   eDialog,
   eDot,
   eIcon,
-  eInputGroup,
+  eInputgroup,
   eKeyboard,
   eLoader,
   eList,
