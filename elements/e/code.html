@@ -1,7 +1,3 @@
-export default function Code({ html, state }) {
-  const { attrs } = state;
-  const format = attrs?.format || "inline";
-  return html`
     <style scope="global">
       /* Base code styles */
       e-code {
@@ -24,8 +20,6 @@ export default function Code({ html, state }) {
         }
       }
     </style>
-    ${format === "inline" ? "<code>" : "<pre>"}
+
     <slot></slot>
-    ${format === "inline" ? "</code>" : "</pre>"}
-  `;
-}
+

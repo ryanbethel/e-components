@@ -1,8 +1,6 @@
 export default function Alert({ html, state }) {
   const { attrs } = state;
-  const dismissible = attrs.dismissible !== "false";
-  const type = attrs?.type;
-  const alert = type === "warn" || type === "error";
+  const isDismissible = attrs.dismissible !== "false"; // string "false"
   return html`
     <style scope="global">
       /* Base styles */
@@ -25,7 +23,7 @@ export default function Alert({ html, state }) {
         }
 
         /* Dismiss button */
-        & e-button[type="remove"]:last-of-type {
+        & e-button:last-of-type:has(button[type=remove]){
           margin-left: auto;
         }
 
@@ -65,9 +63,8 @@ export default function Alert({ html, state }) {
     </style>
 
     <slot></slot>
-    ${dismissible
-      ? '<e-button type=remove aria-label="Dismiss Alert" ></e-button>'
-      : ""}
+
+    ${isDismissible && '<e-button><button type=remove aria-label="Dismiss Alert" ></button></e-button>'}
 
     <script type="module">
       class Alert extends HTMLElement {
@@ -78,9 +75,8 @@ export default function Alert({ html, state }) {
 
         connectedCallback() {
           if (this.getAttribute("dismissible") !== "false") {
-            const dismissBtn = this.querySelector("e-button[type=remove]");
+            const dismissBtn = this.querySelector("e-button button[type=remove]");
             dismissBtn.addEventListener("click", () => this.dismiss());
-            this.append(dismissBtn);
           }
         }
 
