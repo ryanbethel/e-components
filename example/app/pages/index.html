@@ -248,7 +248,7 @@
             <small>Must have a number and be 6 or more characters</small>
           </e-input-group>
           <e-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></e-box>
-          <e-button type="submit" ord="primary" class="mar-t-md">Continue</e-button>
+          <e-button><button type="submit" ord="primary" class="mar-t-md">Continue</button></e-button>
         </form>
       </e-box>
     </e-col>
@@ -319,11 +319,11 @@
     <h1>Modeless</h1>
     <p>This Dialog is opened with the <e-code>show()</e-code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
   </e-dialog>
-  <e-button onclick="document.querySelector('#overflowingcontent dialog').showModal()" ord="primary">Open "overflowing content" Dialog</e-button>
-  <e-button onclick="document.querySelector('#mincontent dialog').showModal()" ord="primary">Open "minimum content" Dialog</e-button>
-  <e-button onclick="document.querySelector('#nocontent dialog').showModal()" ord="primary">Open "no content" Dialog</e-button>
-  <e-button onclick="document.querySelector('#hasform dialog').showModal()" ord="primary">Open "has form" Dialog</e-button>
-  <e-button onclick="document.querySelector('#modeless dialog').show()" ord="primary">Open "modeless" Dialog</e-button>
+  <e-button><button onclick="document.querySelector('#overflowingcontent dialog').showModal()" ord="primary">Open "overflowing content" Dialog</button></e-button>
+  <e-button><button onclick="document.querySelector('#mincontent dialog').showModal()" ord="primary">Open "minimum content" Dialog</button></e-button>
+  <e-button><button onclick="document.querySelector('#nocontent dialog').showModal()" ord="primary">Open "no content" Dialog</button></e-button>
+  <e-button><button onclick="document.querySelector('#hasform dialog').showModal()" ord="primary">Open "has form" Dialog</button></e-button>
+  <e-button><button onclick="document.querySelector('#modeless dialog').show()" ord="primary">Open "modeless" Dialog</button></e-button>
 </e-container>
 <e-rule class="mar-t-sm mar-b-sm"></e-rule>
 <h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
@@ -389,8 +389,8 @@
         <option>Three</option>
       </select>
     </e-input-group>
-    <e-button type="submit" ord="primary">Submit</e-button>
-    <e-button type="button" ord="secondary">Cancel</e-button>
+    <e-button><button type="submit" ord="primary">Submit</button></e-button>
+    <e-button><button type="button" ord="secondary">Cancel</button></e-button>
   </form>
 </e-container>
 <e-rule class="mar-t-sm mar-b-sm"></e-rule>
@@ -410,8 +410,8 @@
   <p>Loader without <e-code>loading</e-code>: <e-loader></e-loader></p>
   <p>Loader with text: <e-loader loading>Searching...</e-loader></p>
   <h4 class="mar-b-xs">Loader used in button</h4>
-  <div>The Loader in this button is <e-code>hidden</e-code> waiting for the user to click... <e-button ord="primary"><e-loader loading hidden></e-loader>Save</e-button></div>
-  <div>When clicked, the app removes <e-code>hidden</e-code> from the Loader and adds <e-code>disabled</e-code> to the button and updates its label: <e-button ord="primary" disabled><e-loader loading></e-loader>Saving</e-button></div>
+  <div>The Loader in this button is <e-code>hidden</e-code> waiting for the user to click... <e-button><button ord="primary"><e-loader loading hidden></e-loader>Save</e-button></button></div>
+  <div>When clicked, the app removes <e-code>hidden</e-code> from the Loader and adds <e-code>disabled</e-code> to the button and updates its label: <e-button><button ord="primary" disabled><e-loader loading></e-loader>Saving</e-button></button></div>
   <h4>Loader and links</h4>
   <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <e-code>loading</e-code> attribute and text based on the state of the process: <e-link href="#"><e-loader loading>Pause</e-loader></e-link> / <e-link href="#"><e-loader>Resume</e-loader></e-link></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
@@ -438,7 +438,7 @@
 <e-container>
   <h4>Basic Menu with links</h4>
   <e-menu>
-    <e-button slot="trigger" ord="primary">Open menu</e-button>
+    <e-button slot="trigger"><button ord="primary">Open menu</button></e-button>
     <div slot="items">
       <e-link href="">Link A</e-link>
       <e-link href="">Link B</e-link>
@@ -447,7 +447,7 @@
   </e-menu>
   <h4>Menu with custom content and min-width: 300px</h4>
   <e-menu>
-    <e-button slot="trigger" ord="primary">Open menu</e-button>
+    <e-button slot="trigger"><button ord="primary">Open menu</button></e-button>
     <div slot="items" class="pad-sm" style="min-width: 300px">
       <div class="fnt-med">Text Here</div>
       <div class="mar-t-xs">Some more text with a <e-link>link</e-link></div>
@@ -534,25 +534,25 @@
 <e-container>
   <h4>Basic tabs</h4>
   <e-tabs role="tablist">
-    <e-button role="tab" aria-selected="true">Accounts</e-button>
-    <e-button role="tab">Payments</e-button>
-    <e-button role="tab">Transfers</e-button>
-    <e-button role="tab">Security</e-button>
+    <e-button role="tab"><button aria-selected="true">Accounts</button></e-button>
+    <e-button role="tab"><button>Payments</button></e-button>
+    <e-button role="tab"><button>Transfers</button></e-button>
+    <e-button role="tab"><button>Security</button></e-button>
   </e-tabs>
   <h4>With icons</h4>
   <e-tabs role="tablist">
-    <e-button role="tab" aria-selected="true"><e-icon name="home"></e-icon> Accounts</e-button>
-    <e-button role="tab"><e-icon name="wallet"></e-icon> Payments</e-button>
-    <e-button role="tab"><e-icon name="attach_money"></e-icon> Transfers</e-button>
-    <e-button role="tab"><e-icon name="lock"></e-icon> Security</e-button>
+    <e-button role="tab" aria-selected="true"><button aria-selected="true"><e-icon name="home"></e-icon>&nbsp;Accounts</button></e-button>
+    <e-button role="tab"><button><e-icon name="wallet"></e-icon>&nbsp;Payments</button></e-button>
+    <e-button role="tab"><button><e-icon name="attach_money"></e-icon>&nbsp;Transfers</button></e-button>
+    <e-button role="tab"><button><e-icon name="lock"></e-icon>&nbsp;Security</button></e-button>
   </e-tabs>
   <h4>Scrollable</h4>
   <div style="width: 318px">
     <e-tabs role="tablist" scrollable>
-      <e-button role="tab" aria-selected="true">Accounts</e-button>
-      <e-button role="tab">Payments</e-button>
-      <e-button role="tab">Transfers</e-button>
-      <e-button role="tab">Security</e-button>
+      <e-button role="tab"><button aria-selected="true">Accounts</button></e-button>
+      <e-button role="tab"><button>Payments</button></e-button>
+      <e-button role="tab"><button>Transfers</button></e-button>
+      <e-button role="tab"><button>Security</button></e-button>
     </e-tabs>
   </div>
 </e-container>
