@@ -65,38 +65,5 @@ export default function Alert({ html, state }) {
     <slot></slot>
 
     ${isDismissible && '<e-button><button type=remove aria-label="Dismiss Alert" ></button></e-button>'}
-
-    <script type="module">
-      class Alert extends HTMLElement {
-        constructor() {
-          super();
-          this.dismiss = this.dismiss.bind(this);
-        }
-
-        connectedCallback() {
-          if (this.getAttribute("dismissible") !== "false") {
-            const dismissBtn = this.querySelector("e-button button[type=remove]");
-            dismissBtn.addEventListener("click", () => this.dismiss());
-          }
-        }
-
-        static get observedAttributes() {
-          return ["autodismiss"];
-        }
-
-        attributeChangedCallback(name, oldVal, newVal) {
-          if (name === "autodismiss") {
-            const seconds = newVal ? parseInt(newVal) * 1000 : 4000;
-            setTimeout(() => this.dismiss(), seconds);
-          }
-        }
-
-        dismiss() {
-          this.dispatchEvent(new CustomEvent("dismiss"));
-          this.remove();
-        }
-      }
-      customElements.define("e-alert", Alert);
-    </script>
   `;
 }
