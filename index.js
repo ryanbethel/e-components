@@ -6,12 +6,14 @@ import eAlert from "./elements/e/alert.mjs";
 import eSeperator from "./elements/e/seperator.mjs";
 import eLink from "./elements/e/link.mjs";
 import eMenu from "./elements/e/menu.mjs";
+import eTheme from "./elements/e/theme.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-seperator": eSeperator,
   "e-link": eLink,
   "e-menu": eMenu,
+  "e-theme": eTheme,
 };
 
 const htmlFiles = [
@@ -39,6 +41,7 @@ const htmlFiles = [
   { tag: "e-tag", path: "elements/e/tag.html" },
   { tag: "e-list", path: "elements/e/list.html" },
   { tag: "e-code", path: "elements/e/code.html" },
+  //{ tag: "e-theme", path: "elements/e/theme.html" },
 ];
 // const elementWrapper = (htmlString) =>
 //   function ({ html, state }) {
@@ -84,6 +87,7 @@ const eTable = htmlElements["e-table"];
 const eTabs = htmlElements["e-tabs"];
 const eTag = htmlElements["e-tag"];
 const eList = htmlElements["e-list"];
+//const eTheme = htmlElements["e-theme"];
 
 export default elements;
 
@@ -114,4 +118,5 @@ export {
   eTable,
   eTabs,
   eTag,
+  eTheme,
 };
