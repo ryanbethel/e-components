@@ -1,5 +1,5 @@
 import CustomElement from '@enhance/custom-element'
-import AutoComplete from '../../elements/e/autocomplete.mjs'
+import AutoComplete from '../elements/e/autocomplete.mjs'
 
 export default class AutoCompleteElement extends CustomElement {
     #initialized = false;

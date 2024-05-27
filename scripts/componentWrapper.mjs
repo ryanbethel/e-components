@@ -5,8 +5,9 @@ import { globSync } from 'glob'
 const __dirname = new URL('..', import.meta.url).pathname;
 
 function createComponentWrappers () {
-  const componentsDir = join(__dirname, 'components', 'e')
-  const files = [ ...globSync('./elements/e/**/*.html') ]
+  const componentsDir = join(__dirname, 'app', 'components', 'e')
+  const files = [ ...globSync('./app/elements/e/**/*.html') ]
+  console.log(files)
   files.forEach((srcPath) => {
     const template = readFileSync(join(__dirname, srcPath), { encoding: 'utf8' })
     const tag = parse(srcPath).name

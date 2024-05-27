@@ -1,5 +1,5 @@
 import CustomElement from '@enhance/custom-element'
-import Alert from '../../elements/e/alert.mjs'
+import Alert from '../elements/e/alert.mjs'
 
 export default class AlertElement extends CustomElement {
     constructor() {

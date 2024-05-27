@@ -2,10 +2,10 @@ import fs from "fs";
 import { join } from "path";
 const __dirname = new URL(".", import.meta.url).pathname;
 
-import eAlert from "./elements/e/alert.mjs";
-import eSeperator from "./elements/e/seperator.mjs";
-import eLink from "./elements/e/link.mjs";
-import eMenu from "./elements/e/menu.mjs";
+import eAlert from "./app/elements/e/alert.mjs";
+import eSeperator from "./app/elements/e/seperator.mjs";
+import eLink from "./app/elements/e/link.mjs";
+import eMenu from "./app/elements/e/menu.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
@@ -15,30 +15,29 @@ const mjsElements = {
 };
 
 const htmlFiles = [
-  { tag: "e-accordion", path: "elements/e/accordion.html" },
-  { tag: "e-badge", path: "elements/e/badge.html" },
-  { tag: "e-button", path: "elements/e/button.html" },
-  { tag: "e-blockquote", path: "elements/e/blockquote.html" },
-  { tag: "e-box", path: "elements/e/box.html" },
-  { tag: "e-breadcrumb", path: "elements/e/breadcrumb.html" },
-  { tag: "e-code", path: "elements/e/code.html" },
-  { tag: "e-col", path: "elements/e/col.html" },
-  { tag: "e-container", path: "elements/e/container.html" },
-  { tag: "e-details", path: "elements/e/details.html" },
-  { tag: "e-dialog", path: "elements/e/dialog.html" },
-  { tag: "e-dot", path: "elements/e/dot.html" },
-  { tag: "e-icon", path: "elements/e/icon.html" },
-  { tag: "e-input-group", path: "elements/e/input-group.html" },
-  { tag: "e-link", path: "elements/e/link.html" },
-  { tag: "e-keyboard", path: "elements/e/keyboard.html" },
-  { tag: "e-loader", path: "elements/e/loader.html" },
-  { tag: "e-row", path: "elements/e/row.html" },
-  { tag: "e-switch", path: "elements/e/switch.html" },
-  { tag: "e-table", path: "elements/e/table.html" },
-  { tag: "e-tabs", path: "elements/e/tabs.html" },
-  { tag: "e-tag", path: "elements/e/tag.html" },
-  { tag: "e-list", path: "elements/e/list.html" },
-  { tag: "e-code", path: "elements/e/code.html" },
+  { tag: "e-accordion", path: "app/elements/e/accordion.html" },
+  { tag: "e-badge", path: "app/elements/e/badge.html" },
+  { tag: "e-button", path: "app/elements/e/button.html" },
+  { tag: "e-blockquote", path: "app/elements/e/blockquote.html" },
+  { tag: "e-box", path: "app/elements/e/box.html" },
+  { tag: "e-breadcrumb", path: "app/elements/e/breadcrumb.html" },
+  { tag: "e-code", path: "app/elements/e/code.html" },
+  { tag: "e-col", path: "app/elements/e/col.html" },
+  { tag: "e-container", path: "app/elements/e/container.html" },
+  { tag: "e-details", path: "app/elements/e/details.html" },
+  { tag: "e-dialog", path: "app/elements/e/dialog.html" },
+  { tag: "e-dot", path: "app/elements/e/dot.html" },
+  { tag: "e-icon", path: "app/elements/e/icon.html" },
+  { tag: "e-input-group", path: "app/elements/e/input-group.html" },
+  { tag: "e-keyboard", path: "app/elements/e/keyboard.html" },
+  { tag: "e-loader", path: "app/elements/e/loader.html" },
+  { tag: "e-row", path: "app/elements/e/row.html" },
+  { tag: "e-switch", path: "app/elements/e/switch.html" },
+  { tag: "e-table", path: "app/elements/e/table.html" },
+  { tag: "e-tabs", path: "app/elements/e/tabs.html" },
+  { tag: "e-tag", path: "app/elements/e/tag.html" },
+  { tag: "e-list", path: "app/elements/e/list.html" },
+  { tag: "e-code", path: "app/elements/e/code.html" },
 ];
 // const elementWrapper = (htmlString) =>
 //   function ({ html, state }) {
