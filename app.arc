@@ -6,3 +6,4 @@ prune true
 
 @plugins
 enhance/arc-plugin-enhance
+wrap-elements
