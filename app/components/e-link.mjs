@@ -1,4 +1,8 @@
-<style scope=global>
+import CustomElement from '@enhance/custom-element'
+
+  export default class Link extends CustomElement {
+      render({ html, state }) {
+          return html`<style scope=global>
   e-link {
     /* Base link styles */
     a, *[role=link] {
@@ -23,3 +27,8 @@
 </style>
 <slot></slot>
 
+`
+      }
+  }
+
+  customElements.define("e-link", Link);

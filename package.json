@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "prepublish": "npm run wrapComponents",
-    "start": "npm run wrapComponents && cd example && enhance dev",
+    "start": "npm run wrapComponents && enhance dev",
     "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import CustomElement from '@enhance/custom-element'
-import Menu from '../../elements/e/menu.mjs'
+import Menu from '../elements/e/menu.mjs'
 
 export default class MenuElement extends CustomElement {
     #initialized = false;

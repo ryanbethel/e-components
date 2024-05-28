@@ -1,5 +1,11 @@
-/* custom-properties.css */
-:root {
+import CustomElement from '@enhance/custom-element'
+
+  export default class Theme extends CustomElement {
+      render({ html, state }) {
+          return html`<style scope="global">
+    e-theme {
+        display: block;
+        :root {
   /* Colors */
   --e-color-gray-1: #f8f8f8;
   --e-color-gray-2: #dedede;
@@ -348,3 +354,11 @@ body {
 }
 
 
+    }
+</style>
+<slot></slot>
+`
+      }
+  }
+
+  customElements.define("e-theme", Theme);
