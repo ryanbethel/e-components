@@ -1,8 +1,8 @@
 import CustomElement from '@enhance/custom-element'
 
-  export default class Theme extends CustomElement {
-      render({ html, state }) {
-          return html`<style scope="global">
+export default class Theme extends CustomElement {
+  render({ html, state }) {
+    return html`<style scope="global">
     e-theme {
         display: block;
         :root {
@@ -345,20 +345,20 @@ body {
 
 
 /* Icon font */
-@font-face {
-    font-family: "e-icons";
-    font-style: normal;
-    font-weight: 400;
+/* @font-face { */
+/*     font-family: "e-icons"; */
+/*     font-style: normal; */
+/*     font-weight: 400; */
 
-    src: url("/_public/e-.woff2") format("woff2");
-}
+/*     src: url("/_public/e-.woff2") format("woff2"); */
+/* } */
 
 
     }
 </style>
 <slot></slot>
 `
-      }
   }
+}
 
-  customElements.define("e-theme", Theme);
+customElements.define("e-theme", Theme);
