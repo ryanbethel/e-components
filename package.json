@@ -13,6 +13,8 @@
     "index.js",
     "elements.js",
     "components.js",
+    "/app/elements/e/",
+    "/app/components/",
     "/app/public/e-global.css"
   ],
   "license": "MIT",
