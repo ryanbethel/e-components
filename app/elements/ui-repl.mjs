@@ -67,7 +67,6 @@ export default function demo({ html, state }) {
       this.codeInput.addEventListener('input', () => {
           clearTimeout(this.timeoutId);
           this.timeoutId = setTimeout(() => {
-             console.log("should submit")
             this.form.submit()
           }, 500);
       });

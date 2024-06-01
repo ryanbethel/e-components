@@ -4,8 +4,8 @@ import { globSync } from 'glob'
 
 const __dirname = new URL('../../..', import.meta.url).pathname
 
-function createComponentWrappers () {
-  const files = [ ...globSync('./app/elements/e/**/*.html') ]
+function createComponentWrappers() {
+  const files = [...globSync('./app/elements/e/**/*.html')]
   files.forEach((srcPath) => {
     wrapOneComponent(srcPath)
   })
@@ -29,7 +29,7 @@ export default class ${className} extends CustomElement {
     }
 }
 
-customElements.define("e-${tag}", ${className});
+if (!customElements.get("e-${tag}")) { customElements.define("e-${tag}", ${className}) };
 `
 }
 

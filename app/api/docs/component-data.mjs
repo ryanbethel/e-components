@@ -56,13 +56,19 @@ const components = [
 <e-box ord="secondary">Secondary content</e-box>
 <p>Content outside a Box is considered neutral</p>`},
   {
+    name: "Blockquote",
+    path: "blockquote",
+    exampleUsage: `
+<e-blockquote>Someone said something.</e-blockquote>
+`},
+  {
     name: "Breadcrumb", path: "breadcrumb", exampleUsage: `
-<e-breadcrumb>
-    <nav>
-        <e-link><a href="#">Home</a></e-link>
-        <e-link><a href="#">Shoes</a></e-link>
-        <span aria-current="page">Women</span>
-    </nav>
+  <e-breadcrumb>
+  <nav>
+    <e-link><a href="#">Home</a></e-link>
+    <e-link><a href="#">Shoes</a></e-link>
+    <span aria-current="page">Women</span>
+  </nav>
 </e-breadcrumb>
 <e-seperator></e-seperator>
 <e-breadcrumb>
@@ -87,7 +93,7 @@ const components = [
 ` },
   {
     name: "Button", path: "button", exampleUsage: `
-<p>Ordinal name</p>
+  <p> Ordinal name</p>
 <e-button><button ord="primary">Primary</button></e-button>
 <e-button><button ord="secondary">Secondary</button></e-button>
 <e-button><button ord="tertiary">Tertiary</button></e-button>
@@ -106,7 +112,7 @@ const components = [
 `},
   {
     name: "Checkbox", path: "checkbox", exampleUsage: `
-<e-input-group>
+  <e-input-group>
     <legend>Languages</legend>
     <input id="html" type="checkbox" name="speed" value="html" checked>
     <label for="html">HTML</label>

@@ -1,7 +1,62 @@
-<style>
+<style scope=global>
+e-blockquote {
     blockquote {
         color: var(--e-color-gray-6);
         font-style: italic;
     }
+}
 </style>
+
 <blockquote><slot></slot></blockquote>
+
+<script type="module">
+class EBlockquote extends HTMLElement {
+    constructor() {
+      super();
+      this.wrapBlockquote = this.wrapBlockquote.bind(this);
+    }
+    
+    connectedCallback() {
+      this.watch = new MutationObserver(this.wrapBlockquote);
+      this.watch.observe(this, { childList: true, subtree: true });
+    }
+    
+    disconnectedCallback() {
+      this.watch.disconnect();
+    }
+
+    wrapBlockquote(mutations) {
+      const children = Array.from(this.childNodes)
+      const blockquote = children.find(child => child?.tagName?.toLowerCase() === 'blockquote');
+      if (blockquote && children.length === 1 ) { return }
+
+      if (blockquote) {
+        const aboveFragment = document.createDocumentFragment();
+        const belowFragment = document.createDocumentFragment();
+        let isAbove = true;
+
+        children.forEach(child => {
+          if (child === blockquote) {
+            isAbove = false;
+          } else if (isAbove) {
+            aboveFragment.appendChild(child);
+          } else {
+            belowFragment.appendChild(child);
+          }
+        });
+
+        blockquote.insertBefore(aboveFragment, blockquote.firstChild);
+        blockquote.appendChild(belowFragment);
+      } else {
+        const newBlockquote = document.createElement('blockquote');
+        while (this.firstChild) {
+          newBlockquote.appendChild(this.firstChild);
+        }
+        this.appendChild(newBlockquote);
+      }
+    }
+  }
+
+  if (!customElements.get('e-blockquote')) {customElements.define('e-blockquote',EBlockquote)}
+
+</script>

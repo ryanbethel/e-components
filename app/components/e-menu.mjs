@@ -8,7 +8,6 @@ export default class MenuElement extends CustomElement {
   constructor() {
     super();
     this.#boundClose = this.close.bind(this);
-    console.log('menu constructor')
   }
 
   connectedCallback() {
@@ -59,6 +58,5 @@ export default class MenuElement extends CustomElement {
     return Menu({ html, state })
   }
 }
-console.log('menuElement Loaded')
 
-customElements.define("e-menu", MenuElement);
+if (!customElements.get('e-menu')) { customElements.define("e-menu", MenuElement) };

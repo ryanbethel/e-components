@@ -4,14 +4,14 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 import eAlert from "./app/elements/e/alert.mjs";
 import eSeperator from "./app/elements/e/seperator.mjs";
-import eLink from "./app/elements/e/link.mjs";
 import eMenu from "./app/elements/e/menu.mjs";
+import eTheme from "./app/elements/e/theme.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-seperator": eSeperator,
-  "e-link": eLink,
   "e-menu": eMenu,
+  "e-theme": eTheme,
 };
 
 const htmlFiles = [
@@ -37,9 +37,9 @@ const htmlFiles = [
   { tag: "e-tabs", path: "app/elements/e/tabs.html" },
   { tag: "e-tag", path: "app/elements/e/tag.html" },
   { tag: "e-list", path: "app/elements/e/list.html" },
+  { tag: "e-link", path: "app/elements/e/link.html" },
   { tag: "e-code", path: "app/elements/e/code.html" },
 
-  { tag: "e-theme", path: "app/elements/e/theme.html" },
 ];
 // const elementWrapper = (htmlString) =>
 //   function ({ html, state }) {
@@ -85,8 +85,8 @@ const eTable = htmlElements["e-table"];
 const eTabs = htmlElements["e-tabs"];
 const eTag = htmlElements["e-tag"];
 const eList = htmlElements["e-list"];
+const eLink = htmlElements["e-link"];
 
-const eTheme = htmlElements["e-theme"];
 
 export default elements;
 

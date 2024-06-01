@@ -11,9 +11,9 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "/elements",
-    "/helpers",
-    "/assets"
+    "elements.js",
+    "components.js",
+    "/app/public/e-global.css"
   ],
   "license": "MIT",
   "contributors": [

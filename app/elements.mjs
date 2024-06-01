@@ -1,2 +1,2 @@
-import elements from "../index.js";
+import elements from "../elements.js";
 export default elements;
