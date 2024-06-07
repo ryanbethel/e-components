@@ -75,12 +75,29 @@ export default class ReactiveChart extends CustomElement {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue !== newValue) {
             if (name === 'type') {
-                this.table.classList.replace(oldValue, newValue);
+                this.updateType(oldValue, newValue)
             } else {
-                this.hasAttribute(name) ?
-                    this.table.classList.add(name) :
-                    this.table.classList.remove(name)
+                this.updateOption(name)
             }
+        }
+    }
+
+    updateOption(name) {
+        const toggleAttribute = (name) => this.hasAttribute(name) ?
+            this.table.classList.add(name) :
+            this.table.classList.remove(name)
+        if (!document.startViewTransition) {
+            toggleAttribute(name)
+        } else {
+            document.startViewTransition(() => toggleAttribute(name))
+        }
+    }
+
+    updateType(oldValue, newValue) {
+        if (!document.startViewTransition) {
+            this.table.classList.replace(oldValue, newValue)
+        } else {
+            document.startViewTransition(() => this.table.classList.replace(oldValue, newValue))
         }
     }
 }
