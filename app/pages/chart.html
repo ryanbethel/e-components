@@ -1,0 +1,60 @@
+<e-container>
+    <e-row>
+        <e-col span="3">
+            <e-box >
+                <h4 class="mar-t-xs">Chart Options</h4>
+                <chart-options>
+                    <e-input-group field-class="flex justify-content-between align-items-center" >
+                        <fieldset>
+                            <label>Multiple</label>
+                            <e-switch >
+                                <input is="switch" type="checkbox" name="multiple" checked>
+                            </e-switch>
+
+                        </fieldset>
+                    </e-input-group>
+                    <e-input-group field-class="flex justify-content-between align-items-center" >
+                        <fieldset>
+                            <label>Show Labels</label>
+                            <e-switch>
+                                <input is="switch" type="checkbox" checked name="show-labels" >
+                            </e-switch>
+                        </fieldset>
+                    </e-input-group>
+                </chart-options>
+            </e-box>
+        </e-col>
+        <e-col>
+            <e-box ord="primary">
+              <reactive-chart
+                data-key="medals"
+                type="bar"
+                heading="2016 Summer Olympics Medal Table"
+                value-key="Country"
+                value-names="Gold,Silver,Bronze"
+                multiple
+                show-labels>
+              </reactive-chart>
+            </e-box>
+            <e-box>
+                <chart-type>
+                    <e-input-group enhanced="✨">
+                        <legend>Chart Type</legend>
+                        <fieldset>
+                            <input type="radio" name="type" value="bar" checked><label>Bar</label>
+                            <input type="radio" name="type" value="column"><label>Column</label>
+                            <input type="radio" name="type" value="area"><label>Area</label>
+                            <input type="radio" name="type" value="line"><label>Line</label>
+                            <input type="radio" name="type" value="pie"><label>Pie</label>
+                            <input type="radio" name="type" value="radial"><label>Radial</label>
+                            <input type="radio" name="type" value="polar"><label>Polar</label>
+                            <input type="radio" name="type" value="radar"><label>Radar</label>
+                        </fieldset>
+                    </e-input-group>
+                </chart-type>
+            </e-box>
+        </e-col>
+    </e-row>
+</e-container>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+<script type="module" src="/_public/browser/chart.mjs"></script>
