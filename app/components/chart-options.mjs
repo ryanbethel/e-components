@@ -4,7 +4,6 @@ export default class ChartOptions extends CustomElement {
     constructor() {
         super()
         this.optionChanged = this.optionChanged.bind(this)
-        this.chart = document.querySelector('reactive-chart')
     }
 
     connectedCallback() {
@@ -16,7 +15,7 @@ export default class ChartOptions extends CustomElement {
     }
 
     optionChanged(evt) {
-        this.chart.dispatchEvent(
+        this.dispatchEvent(
             new CustomEvent("chartoption", {
               bubbles: true,
               detail: {
