@@ -26,5 +26,34 @@ export default function Seperator({ html, state }) {
       }
     </style>
     <hr ${isVertical ? 'aria-orientation="vertical"' : ''} />
+    <script type="module">
+      class Seperator extends HTMLElement {
+
+          constructor() {
+              super();
+              this.verticalChanged = this.verticalChanged.bind(this);
+          }
+
+          connectedCallback() {
+            this.watch = new MutationObserver(this.wrapBlockquote);
+            this.watch.observe(this, { childList: true, subtree: true });
+          }
+
+          static get observedAttributes() {
+              return ["vertical"];
+          }
+          
+          attributeChangedCallback(name, oldValue, newValue) {
+            if (name === "vertical") { this.verticalChanged(newValue) }
+          }
+
+          verticalChanged(value) {
+          }
+
+      }
+
+      if (!customElements.get('e-seperator')) {customElements.define("e-seperator", Seperator)}
+    </script>
+
   `
 }

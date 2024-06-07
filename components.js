@@ -15,7 +15,6 @@ import eContainer from "./app/components/e/container.mjs"
 import eDetails from "./app/components/e/details.mjs"
 import eDialog from "./app/components/e/dialog.mjs"
 import eDot from "./app/components/e/dot.mjs"
-import eIcon from "./app/components/e/icon.mjs"
 import eInputgroup from "./app/components/e/input-group.mjs"
 import eKeyboard from "./app/components/e/keyboard.mjs"
 import eLoader from "./app/components/e/loader.mjs"
@@ -45,7 +44,6 @@ const components = {
   eDetails,
   eDialog,
   eDot,
-  eIcon,
   eInputgroup,
   eKeyboard,
   eLoader,
@@ -79,7 +77,6 @@ export {
   eDetails,
   eDialog,
   eDot,
-  eIcon,
   eInputgroup,
   eKeyboard,
   eLoader,

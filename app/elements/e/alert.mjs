@@ -14,14 +14,6 @@ export default function Alert({ html, state }) {
           margin-top: var(--e-space-sm);
         }
 
-        /* Icon */
-        &[icon]::before {
-          content: attr(icon);
-          font-family: e-icons;
-          font-size: var(--e-font-size-lg);
-          margin-right: var(--e-space-sm);
-        }
-
         /* Dismiss button */
         & e-button:last-of-type:has(button[type=remove]){
           margin-left: auto;

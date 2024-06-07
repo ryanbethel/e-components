@@ -27,7 +27,7 @@ const components = [
 <e-alert type="info">Informational message</e-alert>
 <e-alert type="success">Positive message</e-alert>
 <e-alert type="warn">Cautionary message</e-alert>
-<e-alert type="error" icon="error" dismissible="false">Error message with icon and no dismiss button</e-alert>`},
+<e-alert type="error" dismissible="false">Error message with no dismiss button</e-alert>`},
   {
     name: "Autocomplete",
     path: "autocomplete",
@@ -79,7 +79,7 @@ const components = [
         <e-link><a href="#shoes">Shoes</a></e-link>
         <e-crumb>
             <e-menu>
-                <span role="link" slot="trigger">Womens<e-icon name="arrow_downward" class="txt-xs"></e-icon></span>
+                <span role="link" slot="trigger">Womens ↓</span>
                 <div slot="items">
                     <e-link><a href="#womens-casual">👞 Casual</a></e-link>
                     <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
@@ -197,15 +197,6 @@ const components = [
     <e-box>Centered Row</e-box>
   </e-col>
 </e-row>
-`},
-  {
-    name: "Icons", path: 'icons', exampleUsage: `
-<e-icon name="person"></e-icon>
-<e-icon name="person" fill></e-icon>
-<e-icon name="flag"></e-icon>
-<e-icon name="menu"></e-icon>
-<e-icon name="error"></e-icon>
-<e-icon name="arrow_downward"></e-icon>
 `},
   {
     name: "Input", path: 'input', exampleUsage: `
@@ -373,7 +364,6 @@ const components = [
 <e-tag>WiFi</e-tag>
 <e-tag>pool</e-tag>
 <e-tag>
-    <e-icon name="local_cafe"></e-icon>
     free breakfast
     <e-button><button type="remove"></button></e-button>
 </e-tag>
@@ -421,12 +411,19 @@ const components = [
     <li>Baz</li>
   </ul>
 </e-list>
-<e-list>
+<e-list type="content">
   <ul>
     <li class="pad-sm">Foo</li>
     <li class="pad-sm">Bar</li>
     <li class="pad-sm">Baz</li>
   </ul>
+</e-list>
+<e-list>
+  <dl>
+    <dt class="pad-sm">Foo</dt>
+    <dt class="pad-sm">Bar</dt>
+    <dt class="pad-sm">Baz</dt>
+  </dl>
 </e-list>
 `},
   {

@@ -101,33 +101,6 @@
           }
         }
 
-        /* Button Group */
-        [role="group"]:has(:is(button, a[role="button"])) {
-          display: inline-flex;
-
-          & button,
-          & a[role="button"] {
-            border-radius: 0;
-            border-right-width: 1px;
-            border-left-width: 1px;
-
-            &:first-of-type {
-              border-radius: var(--e-border-radius-md) 0 0
-                var(--e-border-radius-md);
-              border-left-width: 2px;
-            }
-
-            &:last-of-type {
-              border-radius: 0 var(--e-border-radius-md)
-                var(--e-border-radius-md) 0;
-              border-right-width: 2px;
-            }
-
-            & + & {
-              margin: 0;
-            }
-          }
-        }
 
         /* Scale */
         /*:is(button, a[role=button])[scale=sm] {*/
@@ -151,6 +124,36 @@
         /*  height: 44px;*/
         /*  font-size: 36px;*/
         /*}*/
+      }
+
+      /* Button Group */
+    [role="group"]:has(e-button) {
+        display: inline-flex;
+
+        & e-button:has(:is(button, a[role="button"])) {
+
+        & :is(button, a[role="button"]) {
+            border-radius: 0;
+            border-right-width: 1px;
+            border-left-width: 1px;
+        }
+            
+          &:first-of-type  :is(button, a[role="button"]){
+              border-radius: var(--e-border-radius-md) 0 0
+                var(--e-border-radius-md);
+              border-left-width: 2px;
+            }
+
+          &:last-of-type  :is(button, a[role="button"]){
+              border-radius: 0 var(--e-border-radius-md)
+                var(--e-border-radius-md) 0;
+              border-right-width: 2px;
+            }
+
+            & + & {
+              margin: 0;
+            }
+          }
       }
     </style>
     <slot></slot>

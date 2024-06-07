@@ -27,7 +27,6 @@ const htmlFiles = [
   { tag: "e-details", path: "app/elements/e/details.html" },
   { tag: "e-dialog", path: "app/elements/e/dialog.html" },
   { tag: "e-dot", path: "app/elements/e/dot.html" },
-  { tag: "e-icon", path: "app/elements/e/icon.html" },
   { tag: "e-input-group", path: "app/elements/e/input-group.html" },
   { tag: "e-keyboard", path: "app/elements/e/keyboard.html" },
   { tag: "e-loader", path: "app/elements/e/loader.html" },
@@ -75,7 +74,6 @@ const eContainer = htmlElements["e-container"];
 const eDetails = htmlElements["e-details"];
 const eDialog = htmlElements["e-dialog"];
 const eDot = htmlElements["e-dot"];
-const eIcon = htmlElements["e-icon"];
 const eInputgroup = htmlElements["e-input-group"];
 const eKeyboard = htmlElements["e-keyboard"];
 const eLoader = htmlElements["e-loader"];
@@ -111,7 +109,6 @@ export {
   eDetails,
   eDialog,
   eDot,
-  eIcon,
   eInputgroup,
   eKeyboard,
   eLoader,

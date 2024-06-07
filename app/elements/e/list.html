@@ -1,9 +1,9 @@
 <style scope=global>
   
-e-list{
+e-list {
   /* Ordered and unordered base styles */
   ul, ol, dl { margin: 0 }
-  ul, ol { padding-left: var(--m-space-md) }
+  ul, ol { padding-left: var(--e-space-md) }
 
   /* None type (no bullets) */
   &[type=none] ul{
@@ -15,9 +15,9 @@ e-list{
   dd { margin-inline-start: 0 }
   dl {
     & > dt {
-      margin-top: var(--m-space-sm);
+      margin-top: var(--e-space-sm);
       text-transform: uppercase;
-      font-size: var(--m-font-size-min);
+      font-size: var(--e-font-size-min);
       font-weight: bold;
 
       &:first-of-type { margin-top: 0 }
@@ -30,7 +30,7 @@ e-list{
     padding-left: 0;
 
     & > li:not(:last-of-type) {
-      border-bottom: 1px solid var(--m-color-border)
+      border-bottom: 1px solid var(--e-color-border)
     }
   }
 }

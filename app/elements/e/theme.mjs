@@ -364,14 +364,6 @@ body {
 /* End utility-classes.css */
 
 
-/* Icon font */
-@font-face {
-    font-family: "e-icons";
-    font-style: normal;
-    font-weight: 400;
-
-    src: url("/_public/e-.woff2") format("woff2");
-}
 
 </style>
 <slot></slot>
