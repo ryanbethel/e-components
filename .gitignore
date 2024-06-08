@@ -2,6 +2,5 @@
 /node_modules/
 package-lock.json
 .enhance
-app/components/e/*.mjs
 public/static.json
 public/browser/

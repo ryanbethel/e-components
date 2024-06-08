@@ -32,9 +32,8 @@ const components = [
     name: "Autocomplete",
     path: "autocomplete",
     exampleUsage: `
-<e-autocomplete>
+  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
   <label>Search</label>
-  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior"></e-autocomplete>
   <datalist id="fruit">
     <option value="apple"></option>
     <option value="banana"></option>
@@ -430,7 +429,9 @@ const components = [
     name: "Text", path: 'text', exampleUsage: `
 <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <e-link><a href="/utility-classes">utility classes</a></e-link>.</p>
 <e-blockquote>
-  <p>This is something somebody said.</p>
+  <blockquote>
+    <p>This is something somebody said.</p>
+  </blockquote>
 </e-blockquote>
 <small>This is for small print, side-comments, disclaimers, etc.</small>
 `},
