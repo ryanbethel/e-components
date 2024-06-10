@@ -8,6 +8,7 @@
         }
 
         :is(button, a[role="button"]) {
+        }
       }
     /**********************************/
 
@@ -19,7 +20,7 @@
           Ordinal number words are the 10+ words used for describing the
           precedence or importance of an item in a group, e.g. Save and Cancel buttons.
         */
-          &[ord] {
+          &[ord] :is(button, a[role="button"]) {
             display: inline-flex;
             place-content: center;
             border-radius: var(--e-border-radius-md);
@@ -48,14 +49,14 @@
     /**********************************/
       e-button {
           /* Primary ordinal */
-          &[ord="primary"] {
+          &[ord="primary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-primary-action);
             background-color: var(--e-color-primary-action);
             color: white;
           }
 
           /* Secondary ordinal */
-          &[ord="secondary"] {
+          &[ord="secondary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-primary-action);
             color: var(--e-color-primary-action);
 
@@ -66,25 +67,24 @@
           }
 
           /* Tertiary ordinal */
-          &[ord="tertiary"] {
+          &[ord="tertiary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-gray-7);
             color: var(--e-color-gray-7);
           }
-        }
       }
     /**********************************/
 
     /**********************************/
       e-button {
         /* Focus for all buttons */
-        :is(button, a[role="button"])[ord]:focus-visible,
+        &[ord] :is(button, a[role="button"]):focus-visible,
         button[type="remove"]:focus-visible {
           outline: 2px solid var(--e-color-focus);
           outline-offset: 0;
         }
 
         /* Link button overrides */
-        a[role="button"][ord] {
+        &[ord] a[role="button"] {
           box-sizing: border-box;
 
           &:hover {
@@ -125,32 +125,32 @@
 
       /* Button Group */
     [role="group"]:has(e-button) {
-        display: inline-flex;
+      display: inline-flex;
 
-        & e-button:has(:is(button, a[role="button"])) {
+      & e-button:has(:is(button, a[role="button"])) {
 
         & :is(button, a[role="button"]) {
             border-radius: 0;
             border-right-width: 1px;
             border-left-width: 1px;
         }
-            
-          &:first-of-type  :is(button, a[role="button"]){
-              border-radius: var(--e-border-radius-md) 0 0
-                var(--e-border-radius-md);
-              border-left-width: 2px;
-            }
-
-          &:last-of-type  :is(button, a[role="button"]){
-              border-radius: 0 var(--e-border-radius-md)
-                var(--e-border-radius-md) 0;
-              border-right-width: 2px;
-            }
-
-            & + & {
-              margin: 0;
-            }
+          
+        &:first-of-type  :is(button, a[role="button"]){
+            border-radius: var(--e-border-radius-md) 0 0
+              var(--e-border-radius-md);
+            border-left-width: 2px;
           }
+
+        &:last-of-type  :is(button, a[role="button"]){
+            border-radius: 0 var(--e-border-radius-md)
+              var(--e-border-radius-md) 0;
+            border-right-width: 2px;
+          }
+
+          & + & {
+            margin: 0;
+          }
+        }
       }
     </style>
     <slot></slot>

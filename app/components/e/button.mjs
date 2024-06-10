@@ -3,6 +3,7 @@ import CustomElement from '@enhance/custom-element'
 export default class Button extends CustomElement {
     render({ html, state }) {
         return html`    <style scope="global">
+    /**********************************/
       e-button {
         display: inline-block;
         & + & {
@@ -11,13 +12,19 @@ export default class Button extends CustomElement {
         }
 
         :is(button, a[role="button"]) {
+        }
+      }
+    /**********************************/
+
+    /**********************************/
+      e-button {
           /*
           Ordinal attribute
           The ord attr is short for "ordinal number word".
           Ordinal number words are the 10+ words used for describing the
           precedence or importance of an item in a group, e.g. Save and Cancel buttons.
         */
-          &[ord] {
+          &[ord] :is(button, a[role="button"]) {
             display: inline-flex;
             place-content: center;
             border-radius: var(--e-border-radius-md);
@@ -40,16 +47,20 @@ export default class Button extends CustomElement {
               background-color: var(--e-color-disabled-bg);
             }
           }
+      }
+    /**********************************/
 
+    /**********************************/
+      e-button {
           /* Primary ordinal */
-          &[ord="primary"] {
+          &[ord="primary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-primary-action);
             background-color: var(--e-color-primary-action);
             color: white;
           }
 
           /* Secondary ordinal */
-          &[ord="secondary"] {
+          &[ord="secondary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-primary-action);
             color: var(--e-color-primary-action);
 
@@ -60,27 +71,35 @@ export default class Button extends CustomElement {
           }
 
           /* Tertiary ordinal */
-          &[ord="tertiary"] {
+          &[ord="tertiary"] :is(button, a[role="button"]) {
             border: 2px solid var(--e-color-gray-7);
             color: var(--e-color-gray-7);
           }
-        }
+      }
+    /**********************************/
 
+    /**********************************/
+      e-button {
         /* Focus for all buttons */
-        :is(button, a[role="button"])[ord]:focus-visible,
+        &[ord] :is(button, a[role="button"]):focus-visible,
         button[type="remove"]:focus-visible {
           outline: 2px solid var(--e-color-focus);
           outline-offset: 0;
         }
 
         /* Link button overrides */
-        a[role="button"][ord] {
+        &[ord] a[role="button"] {
           box-sizing: border-box;
 
           &:hover {
             text-decoration: none;
           }
         }
+      }
+    /**********************************/
+
+    /**********************************/
+      e-button {
 
         /* Remove button (for close, dismiss, delete use cases) */
         button[type="remove"] {
@@ -104,60 +123,38 @@ export default class Button extends CustomElement {
             cursor: not-allowed;
           }
         }
-
-
-        /* Scale */
-        /*:is(button, a[role=button])[scale=sm] {*/
-        /*  min-height: var(--e-target-min-size);*/
-        /*  font-size: var(--e-font-size-min);*/
-        /*}*/
-
-        /*:is(button, a[role=button])[scale=lg] {*/
-        /*  min-height: 44px;*/
-        /*  font-size: var(--e-font-size-md);*/
-        /*}*/
-
-        /*button[type=remove][scale=sm] {*/
-        /*  width: var(--e-target-min-size);*/
-        /*  height: var(--e-target-min-size);*/
-        /*  font-size: 14px;*/
-        /*}*/
-
-        /*button[type=remove][scale=lg] {*/
-        /*  width: 44px;*/
-        /*  height: 44px;*/
-        /*  font-size: 36px;*/
-        /*}*/
       }
+    /**********************************/
+
 
       /* Button Group */
     [role="group"]:has(e-button) {
-        display: inline-flex;
+      display: inline-flex;
 
-        & e-button:has(:is(button, a[role="button"])) {
+      & e-button:has(:is(button, a[role="button"])) {
 
         & :is(button, a[role="button"]) {
             border-radius: 0;
             border-right-width: 1px;
             border-left-width: 1px;
         }
-            
-          &:first-of-type  :is(button, a[role="button"]){
-              border-radius: var(--e-border-radius-md) 0 0
-                var(--e-border-radius-md);
-              border-left-width: 2px;
-            }
-
-          &:last-of-type  :is(button, a[role="button"]){
-              border-radius: 0 var(--e-border-radius-md)
-                var(--e-border-radius-md) 0;
-              border-right-width: 2px;
-            }
-
-            & + & {
-              margin: 0;
-            }
+          
+        &:first-of-type  :is(button, a[role="button"]){
+            border-radius: var(--e-border-radius-md) 0 0
+              var(--e-border-radius-md);
+            border-left-width: 2px;
           }
+
+        &:last-of-type  :is(button, a[role="button"]){
+            border-radius: 0 var(--e-border-radius-md)
+              var(--e-border-radius-md) 0;
+            border-right-width: 2px;
+          }
+
+          & + & {
+            margin: 0;
+          }
+        }
       }
     </style>
     <slot></slot>

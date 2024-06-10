@@ -93,20 +93,20 @@ const components = [
   {
     name: "Button", path: "button", exampleUsage: `
   <p> Ordinal name</p>
-<e-button><button ord="primary">Primary</button></e-button>
-<e-button><button ord="secondary">Secondary</button></e-button>
-<e-button><button ord="tertiary">Tertiary</button></e-button>
+<e-button ord=primary ><button >Primary</button></e-button>
+<e-button ord=secondary ><button >Secondary</button></e-button>
+<e-button ord=tertiary ><button >Tertiary</button></e-button>
 <p>Disabled state</p>
-<e-button><button ord="primary" disabled>Disabled</button></e-button>
+<e-button ord=primary ><button disabled>Disabled</button></e-button>
 <p>Link as button</p>
-<e-button><e-link><a role="button" ord="primary" href="/button">Link</a></e-link></e-button>
+<e-button ord=primary><e-link><a role="button" href="/button">Link</a></e-link></e-button>
 <p>Remove type</p>
 <e-button><button type="remove"></button></e-button>
 <p>Button group</p>
 <div role="group">
-    <e-button><button ord="secondary" aria-pressed="true">One</button></e-button>
-    <e-button><button ord="secondary">Two</button></e-button>
-    <e-button><button ord="secondary">Three</button></e-button>
+    <e-button ord="secondary"><button  aria-pressed="true">One</button></e-button>
+    <e-button ord="secondary"><button >Two</button></e-button>
+    <e-button ord="secondary"><button >Three</button></e-button>
 </div>
 `},
   {

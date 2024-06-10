@@ -37,7 +37,7 @@ export default function Seperator({ html, state }) {
 
         connectedCallback() {
           const enhancedAttribute = this.getAttribute('enhanced')
-          if (enhancedAttribute==='✨') =  { this.#contentInitialized = true }
+          if (enhancedAttribute==='✨') { this.#contentInitialized = true }
           const verticalAttr = this.getAttribute('vertical')
           const isVertical = verticalAttr === '' || (verticalAttr && verticalAttr !== 'false')
 
