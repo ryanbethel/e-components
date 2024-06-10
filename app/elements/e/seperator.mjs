@@ -28,27 +28,47 @@ export default function Seperator({ html, state }) {
     <hr ${isVertical ? 'aria-orientation="vertical"' : ''} />
     <script type="module">
       class Seperator extends HTMLElement {
+        #contentInitialized = false;
 
-          constructor() {
-              super();
-              this.verticalChanged = this.verticalChanged.bind(this);
+        constructor() {
+            super();
+            this.verticalChanged = this.verticalChanged.bind(this);
+        }
+
+        connectedCallback() {
+          const enhancedAttribute = this.getAttribute('enhanced')
+          if (enhancedAttribute==='✨') =  { this.#contentInitialized = true }
+          const verticalAttr = this.getAttribute('vertical')
+          const isVertical = verticalAttr === '' || (verticalAttr && verticalAttr !== 'false')
+
+          if (!this.#contentInitialized) {
+            if (isVertical) {
+              this.innerHTML = '<hr aria-orientation="vertical" />'
+            } else {
+              this.innerHTML = '<hr/>'
+            }
+            this.#contentInitialized = true 
           }
+        }
 
-          connectedCallback() {
-            this.watch = new MutationObserver(this.wrapBlockquote);
-            this.watch.observe(this, { childList: true, subtree: true });
-          }
+        static get observedAttributes() {
+            return ["vertical"];
+        }
+        
+        attributeChangedCallback(name, oldValue, newValue) {
+          if (name === "vertical") { this.verticalChanged(newValue) }
+        }
 
-          static get observedAttributes() {
-              return ["vertical"];
+        verticalChanged(value) {
+          const hr = this.querySelector('hr')
+          const isVertical = value === '' || (value && value !== 'false')
+          if (isVertical) {
+            hr.setAttribute('aria-orientation',"vertical")
+          } else {
+            hr.removeAttribute('aria-orientation')
           }
           
-          attributeChangedCallback(name, oldValue, newValue) {
-            if (name === "vertical") { this.verticalChanged(newValue) }
-          }
-
-          verticalChanged(value) {
-          }
+        }
 
       }
 

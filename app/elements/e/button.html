@@ -1,4 +1,5 @@
     <style scope="global">
+    /**********************************/
       e-button {
         display: inline-block;
         & + & {
@@ -7,6 +8,11 @@
         }
 
         :is(button, a[role="button"]) {
+      }
+    /**********************************/
+
+    /**********************************/
+      e-button {
           /*
           Ordinal attribute
           The ord attr is short for "ordinal number word".
@@ -36,7 +42,11 @@
               background-color: var(--e-color-disabled-bg);
             }
           }
+      }
+    /**********************************/
 
+    /**********************************/
+      e-button {
           /* Primary ordinal */
           &[ord="primary"] {
             border: 2px solid var(--e-color-primary-action);
@@ -61,7 +71,11 @@
             color: var(--e-color-gray-7);
           }
         }
+      }
+    /**********************************/
 
+    /**********************************/
+      e-button {
         /* Focus for all buttons */
         :is(button, a[role="button"])[ord]:focus-visible,
         button[type="remove"]:focus-visible {
@@ -77,6 +91,11 @@
             text-decoration: none;
           }
         }
+      }
+    /**********************************/
+
+    /**********************************/
+      e-button {
 
         /* Remove button (for close, dismiss, delete use cases) */
         button[type="remove"] {
@@ -100,31 +119,9 @@
             cursor: not-allowed;
           }
         }
-
-
-        /* Scale */
-        /*:is(button, a[role=button])[scale=sm] {*/
-        /*  min-height: var(--e-target-min-size);*/
-        /*  font-size: var(--e-font-size-min);*/
-        /*}*/
-
-        /*:is(button, a[role=button])[scale=lg] {*/
-        /*  min-height: 44px;*/
-        /*  font-size: var(--e-font-size-md);*/
-        /*}*/
-
-        /*button[type=remove][scale=sm] {*/
-        /*  width: var(--e-target-min-size);*/
-        /*  height: var(--e-target-min-size);*/
-        /*  font-size: 14px;*/
-        /*}*/
-
-        /*button[type=remove][scale=lg] {*/
-        /*  width: 44px;*/
-        /*  height: 44px;*/
-        /*  font-size: 36px;*/
-        /*}*/
       }
+    /**********************************/
+
 
       /* Button Group */
     [role="group"]:has(e-button) {
