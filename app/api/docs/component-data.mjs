@@ -143,7 +143,7 @@ const components = [
     <p>(press <kbd>Esc</kbd> to close)</p>
   </dialog>
 </e-dialog>
-<e-button><button onclick="document.querySelector('dialog').showModal()" ord="primary">Open Dialog</button></e-button>
+<e-button ord=primary><button onclick="document.querySelector('dialog').showModal()" >Open Dialog</button></e-button>
 `},
   {
     name: "Dot",
@@ -170,7 +170,7 @@ const components = [
         <input placeholder="Street">
         <input placeholder="Zip" autocomplete="postal-code">
     </e-input-group>
-    <e-button><button type="submit" ord="primary">Save</button></e-button>
+    <e-button ord="primary"><button type="submit">Save</button></e-button>
 </form>
 `},
   {
@@ -224,7 +224,7 @@ const components = [
   {
     name: "Menu", path: 'menu', exampleUsage: `
 <e-menu>
-    <e-button slot="trigger"><button  ord="primary">Basic Links</button></e-button>
+    <e-button  ord="primary" slot="trigger"><button >Basic Links</button></e-button>
     <div slot="items">
         <e-link><a>Products</a></e-link>
         <e-link><a>Services</a></e-link>
@@ -232,7 +232,7 @@ const components = [
     </div>
 </e-menu>
 <e-menu>
-    <e-button slot="trigger"><button ord="primary">Custom Content and Width</button></e-button>
+    <e-button  ord="primary" slot="trigger"><button>Custom Content and Width</button></e-button>
     <div slot="items" class="pad-sm" style="min-width: 200px">
         <div class="inline-flex align-items-center">
             <img src="https://picsum.photos/50" height="51" class="brd-radius-full">
@@ -350,10 +350,10 @@ const components = [
   {
     name: "Tabs", path: 'tabs', exampleUsage: `
 <e-tabs role="tablist" scrollable>
-  <e-button><button role="tab" aria-selected="true">Selected</button></e-button>
-  <e-button><button role="tab">Not Selected</button></e-button>
-  <e-button><button role="tab" disabled>Disabled</button></e-button>
-  <e-link><a href="/" role="tab">Link</a></e-link>
+  <button role="tab" aria-selected="true">Selected</button>
+  <button role="tab">Not Selected</button>
+  <button role="tab" disabled>Disabled</button>
+  <a href="/" role="tab">Link</a>
 </e-tabs>
 <p class="txt-xs txt-gray-5">See <e-link><a href="#select-tab">selecting tabs</a></e-link> to learn how to select a tab</p>
 `},

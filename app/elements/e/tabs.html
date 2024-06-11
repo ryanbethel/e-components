@@ -15,7 +15,7 @@
         }
 
         /* Base tab styles */
-        & :is(e-link, e-button) {
+        & :is(e-link, e-button, button, a) {
             all: unset;
             display: inline-flex;
 
@@ -25,13 +25,45 @@
           margin-left: 0;
         }
 
-          &:has([aria-selected="true"]) {
+          &:has([aria-selected="true"]), &:is([aria-selected="true"]) {
               border-bottom: 2px solid var(--e-color-primary-action);
           }
           /* & :not([disabled]):not([aria-selected="true"]):hover { */
           /*     border-bottom: 2px solid var(--e-color-gray-3); */
           /*     text-decoration: none; */
           /* } */
+
+          &:is(a, button) {
+              all: unset;
+              display: inline-flex;
+              color: var(--e-color-gray-7);
+              font-weight: bold;
+              text-align: center;
+              white-space: nowrap;
+              padding: var(--e-space-xs) var(--e-space-lg);
+              cursor: pointer;
+
+              &:focus-visible {
+                  outline: 2px solid var(--e-color-focus);
+              }
+
+              /* Hover state */
+              &:not([disabled]):not([aria-selected="true"]):hover {
+                  border-bottom: 2px solid var(--e-color-gray-3);
+                  text-decoration: none;
+              }
+
+              /* Selected state */
+              /* &[aria-selected="true"] { */
+              /*     border-bottom: 2px solid var(--e-color-primary-action); */
+              /* } */
+
+              /* Disabled state */
+              &[disabled] {
+                  color: var(--e-color-disabled-fg);
+                  cursor: default;
+              }
+          }
 
           & :is(a, button) {
               all: unset;
