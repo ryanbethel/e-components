@@ -19,12 +19,8 @@ export default class ChartContainer extends CustomElement {
     }
 
     updateOption(evt) {
-        const { attribute, value } = evt.detail
-        if (value) {
-            this.chart.setAttribute(attribute, '')
-        } else {
-            this.chart.removeAttribute(attribute)
-        }
+        const { value } = evt.detail
+        this.chart.setAttribute('position', value)
     }
 
     updateType(evt) {
@@ -34,60 +30,54 @@ export default class ChartContainer extends CustomElement {
 
     render({ html }) {
         return html`
-    <e-box ord="primary">
         <e-row>
-            <e-col span="3">
-                <h4 class="mar-t-xs">Chart Options</h4>
-                <chart-options>
-                    <e-input-group field-class="flex justify-content-between align-items-center" >
-                        <fieldset>
-                            <label>Multiple</label>
-                            <e-switch >
-                                <input is="switch" type="checkbox" name="multiple" checked>
-                            </e-switch>
-
-                        </fieldset>
-                    </e-input-group>
-                    <e-input-group field-class="flex justify-content-between align-items-center" >
-                        <fieldset>
-                            <label>Show Labels</label>
-                            <e-switch>
-                                <input is="switch" type="checkbox" checked name="show-labels" >
-                            </e-switch>
-                        </fieldset>
-                    </e-input-group>
-                </chart-options>
-        </e-col>
-        <e-col>
-            <div>
-                <reactive-chart
-                    data-key="medals"
-                    type="bar"
-                    heading="2016 Summer Olympics Medal Table"
-                    value-key="Country"
-                    value-names="Gold,Silver,Bronze"
-                    multiple
-                    show-labels>
-                </reactive-chart>
+        <e-col colspan="12">
+            <e-box ord="primary">
+                <e-row>
+                <e-col>
                 <chart-type>
-                    <e-input-group enhanced="✨">
-                        <legend>Chart Type</legend>
+                    <e-input-group>
+                        <legend>Sort By</legend>
                         <fieldset>
-                            <input id="bar" type="radio" name="type" value="bar" checked>
-                            <label for="bar">Bar</label>
-                            <input id="column" type="radio" name="type" value="column">
-                            <label for="column">Column</label>
-                            <input id="area" type="radio" name="type" value="area">
-                            <label for="area">Area</label>
-                            <input id="line" type="radio" name="type" value="line">
-                            <label for="line">Line</label>
+                            <input id="goals" type="radio" name="type" value="goals">
+                            <label for="goals">Goals</label>
+                            <input id="assists" type="radio" name="type" value="assists">
+                            <label for="assists">Assists</label>
+                            <input id="points" type="radio" name="type" value="points" checked>
+                            <label for="points">Points</label>
                         </fieldset>
                     </e-input-group>
                 </chart-type>
-            </div>
-        </e-col>
-    </e-row>
-    </e-box>
+                </e-col>
+                <e-col>
+                <chart-options>
+                    <e-input-group field-class="flex justify-content-between align-items-center" >
+                        <fieldset>
+                            <select>
+                                <option value="all">Position</option>
+                                <option value="C">Centre</option>
+                                <option value="L">Left Wing</option>
+                                <option value="R">Right Wing</option>
+                                <option value="D">Defence</option>
+                          </select>
+                        </fieldset>
+                    </e-input-group>
+                </chart-options>
+                </e-col>
+                </e-row>
+                <reactive-chart
+                    data-key="scorers"
+                    type="points"
+                    heading="2023 NHL Scoring Leaders"
+                    value-key="Points"
+                    value-names="Goals,Assists,Points"
+                    position="all"
+                    multiple
+                    show-labels>
+                </reactive-chart>
+                </e-box>
+            </e-col>
+        </e-row>
         `
     }
 }

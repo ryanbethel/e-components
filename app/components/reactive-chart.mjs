@@ -1,19 +1,21 @@
 import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
 
 export default class ReactiveChart extends CustomElement {
   constructor() {
     super()
     this.table = this.querySelector('table')
+    this.api = api
+    this.update = this.update.bind(this)
   }
 
   connectedCallback() {
-    this.addEventListener('chartoption', this.updateOption)
-    this.addEventListener('charttype', this.updateType)
+    this.api.subscribe(this.update,['chartData'])
   }
 
   disconnectedCallback() {
-    this.removeEventListener('chartoption', this.updateOption)
-    this.removeEventListener('charttype', this.updateType)
+    this.api.unsubscribe(this.update)
   }
 
   render({ html, state }) {
@@ -22,7 +24,7 @@ export default class ReactiveChart extends CustomElement {
 
         const config = {
           dataKey: attrs['data-key'],
-          type: attrs.type || 'bar',
+          type: 'bar',
           heading: attrs.heading || null,
           valueKey: attrs['value-key'],
           valueNames: attrs['value-names']?.split(',') || [],
@@ -31,6 +33,7 @@ export default class ReactiveChart extends CustomElement {
         }
 
         const data = chartData[config?.dataKey] || []
+        const maxValue = chartData.maxValue || 100
         const allClasses = [
           'charts-css',
           config.type,
@@ -39,6 +42,29 @@ export default class ReactiveChart extends CustomElement {
         ]
 
         return html`
+        <style>
+          caption {
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.25rem;
+          }
+          #my-chart {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            width: 100%;
+            margin: 0 auto;
+          }
+          #my-chart .bar, #my-chart .legend {
+            --color-1: #B9975B;
+            --color-2: lightgrey;
+            --color-3: #C1C6C8;
+          }
+          .legend {
+            max-width: 150px;
+          }
+        </style>
+        <div id="my-chart">
           <table class="${allClasses.join(' ')}">
             <caption>${config.heading}</caption>
             <thead>
@@ -55,8 +81,8 @@ export default class ReactiveChart extends CustomElement {
                   <th scope="row"> ${d.label} </th>
                   ${d.values.map((v, i) => {
                     const style = [
-                      `--start: calc(${v}/100);`,
-                      `--size: calc(${v}/100);`,
+                      `--start: calc(${v}/${maxValue});`,
+                      `--size: calc(${v}/${maxValue});`,
                       d.colors?.at(i) ? `--color: ${d.colors.at(i)}` : null,
                     ]
                     return `<td style="${style.join(' ')}">${v}</td>`
@@ -65,40 +91,47 @@ export default class ReactiveChart extends CustomElement {
               `).join('')}
             </tbody>
           </table>
+          <ul class="charts-css legend legend-square">
+            <li>Goals</li>
+            <li>Assists</li>
+            <li>Points</li>
+          </ul>
+        </div>
         `
       }
 
     static get observedAttributes() {
-        return ["multiple", "show-labels", "type"]
+        return ["position", "type"]
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue !== newValue) {
-            if (name === 'type') {
-                this.updateType(oldValue, newValue)
-            } else {
-                this.updateOption(name)
-            }
+          this.api.list(this.getAttribute('type'), this.getAttribute('position'))
         }
     }
 
-    updateOption(name) {
-        const toggleAttribute = (name) => this.hasAttribute(name) ?
-            this.table.classList.add(name) :
-            this.table.classList.remove(name)
-        if (!document.startViewTransition) {
-            toggleAttribute(name)
-        } else {
-            document.startViewTransition(() => toggleAttribute(name))
-        }
-    }
+    update() {
+      const data = this?.api?.store?.chartData?.scorers || []
+      const maxValue = this?.api?.store?.chartData?.maxValue || 100
+      const rows = data.map(d => `
+        <tr>
+          <th scope="row"> ${d.label} </th>
+          ${d.values.map((v, i) => {
+            const style = [
+              `--start: calc(${v}/${maxValue});`,
+              `--size: calc(${v}/${maxValue});`,
+              d.colors?.at(i) ? `--color: ${d.colors.at(i)}` : null,
+            ]
+            return `<td style="${style.join(' ')}">${v}</td>`
+          }).join('')}
+        </tr>
+      `).join('')
 
-    updateType(oldValue, newValue) {
-        if (!document.startViewTransition) {
-            this.table.classList.replace(oldValue, newValue)
-        } else {
-            document.startViewTransition(() => this.table.classList.replace(oldValue, newValue))
-        }
+      if (!document.startViewTransition) {
+        this.table.querySelector('tbody').innerHTML = rows
+      } else {
+        document.startViewTransition(() => this.table.querySelector('tbody').innerHTML = rows)
+      }
     }
 }
 

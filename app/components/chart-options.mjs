@@ -15,12 +15,13 @@ export default class ChartOptions extends CustomElement {
     }
 
     optionChanged(evt) {
+        console.log(evt)
         this.dispatchEvent(
             new CustomEvent("chartoption", {
               bubbles: true,
               detail: {
-                attribute: evt.target.name,
-                value: evt.target.checked
+                attribute: 'position',
+                value: evt.target.value
                },
             }),
         )
