@@ -89,10 +89,6 @@ const eLink = htmlElements["e-link"];
 export default elements;
 
 export {
-  // all elements
-  elements,
-
-  // named elements
   eAlert,
   eButton,
   eCode,

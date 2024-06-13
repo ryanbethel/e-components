@@ -1,3 +1,3 @@
-import { components } from "../../components.js"
+import components from "../../components.js"
 export default components;
 

@@ -41,17 +41,16 @@
     "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {
+    "@begin/cli": "^0.19.0",
+    "@enhance/arc-plugin-styles": "^5.0.5",
     "@enhance/cli": "^1.1.0",
-    "svg-symbols": "^1.0.5"
-  },
-  "dependencies": {
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.2",
     "@enhance/arc-plugin-enhance": "^11.0.1",
-    "@enhance/arc-plugin-styles": "^5.0.5",
-    "@enhance/cli": "^1.1.0",
-    "@enhance/custom-element": "^1.2.3-next.0",
-    "@enhance/styles-cribsheet": "^0.0.11",
-    "codemirror": "^6.0.1"
+    "codemirror": "^6.0.1",
+    "@enhance/styles-cribsheet": "^0.0.11"
+  },
+  "dependencies": {
+    "@enhance/custom-element": "^1.2.3-next.0"
   }
 }

@@ -55,11 +55,9 @@ const components = {
   eTag,
 };
 
-export {
-  // all components
-  components,
+export default components;
 
-  // named components
+export {
   eAlert,
   eAutocomplete,
   eButton,
