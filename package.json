@@ -39,19 +39,21 @@
     "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {
+    "@begin/deploy": "^0.22.4",
     "@enhance/cli": "^1.1.0"
   },
   "dependencies": {
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.2",
     "@enhance/arc-plugin-enhance": "^11.0.1",
-    "@enhance/custom-element": "^1.2.3",
-    "@enhance/custom-element-mixin": "github:enhance-dev/enhance-custom-element-mixin#dom-diffing-slots",
-    "codemirror": "^6.0.1",
-    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
-    "morphdom": "^2.7.2",
     "@enhance/arc-plugin-styles": "^5.0.5",
     "@enhance/cli": "^1.1.0",
-    "@enhance/styles-cribsheet": "^0.0.11"
+    "@enhance/custom-element": "^1.2.3",
+    "@enhance/custom-element-mixin": "github:enhance-dev/enhance-custom-element-mixin#dom-diffing-slots",
+    "@enhance/store": "^1.0.2",
+    "@enhance/styles-cribsheet": "^0.0.11",
+    "codemirror": "^6.0.1",
+    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
+    "morphdom": "^2.7.2"
   }
 }
