@@ -11,7 +11,7 @@ export default class ReactiveChart extends CustomElement {
   }
 
   connectedCallback() {
-    this.api.subscribe(this.update,['chartData'])
+    this.api.subscribe(this.update,['chartData', 'position', 'type'])
   }
 
   disconnectedCallback() {
@@ -110,27 +110,36 @@ export default class ReactiveChart extends CustomElement {
         }
     }
 
-    update() {
-      const data = this?.api?.store?.chartData?.scorers || []
-      const maxValue = this?.api?.store?.chartData?.maxValue || 100
-      const rows = data.map(d => `
-        <tr>
-          <th scope="row"> ${d.label} </th>
-          ${d.values.map((v, i) => {
-            const style = [
-              `--start: calc(${v}/${maxValue});`,
-              `--size: calc(${v}/${maxValue});`,
-              d.colors?.at(i) ? `--color: ${d.colors.at(i)}` : null,
-            ]
-            return `<td style="${style.join(' ')}">${v}</td>`
-          }).join('')}
-        </tr>
-      `).join('')
+    update(payload) {
+      console.log('payload', payload)
+      if (payload.position) {
+        this.setAttribute('position', payload.position)
+      }
+      if (payload.type) {
+        this.setAttribute('type', payload.type)
+      }
+      if (payload.chartData) {
+        const data = this?.api?.store?.chartData?.scorers || []
+        const maxValue = this?.api?.store?.chartData?.maxValue || 100
+        const rows = data.map(d => `
+          <tr>
+            <th scope="row"> ${d.label} </th>
+            ${d.values.map((v, i) => {
+              const style = [
+                `--start: calc(${v}/${maxValue});`,
+                `--size: calc(${v}/${maxValue});`,
+                d.colors?.at(i) ? `--color: ${d.colors.at(i)}` : null,
+              ]
+              return `<td style="${style.join(' ')}">${v}</td>`
+            }).join('')}
+          </tr>
+        `).join('')
 
-      if (!document.startViewTransition) {
-        this.table.querySelector('tbody').innerHTML = rows
-      } else {
-        document.startViewTransition(() => this.table.querySelector('tbody').innerHTML = rows)
+        if (!document.startViewTransition) {
+          this.table.querySelector('tbody').innerHTML = rows
+        } else {
+          document.startViewTransition(() => this.table.querySelector('tbody').innerHTML = rows)
+        }
       }
     }
 }

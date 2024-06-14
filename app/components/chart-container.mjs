@@ -1,33 +1,6 @@
 import CustomElement from '@enhance/custom-element'
 
 export default class ChartContainer extends CustomElement {
-    constructor() {
-        super()
-        this.updateOption = this.updateOption.bind(this)
-        this.updateType = this.updateType.bind(this)
-        this.chart = document.querySelector('reactive-chart')
-    }
-
-    connectedCallback() {
-        this.addEventListener('chartoption', this.updateOption)
-        this.addEventListener('charttype', this.updateType)
-    }
-
-    disconnectedCallback() {
-        this.removeEventListener('chartoption', this.updateOption)
-        this.removeEventListener('charttype', this.updateType)
-    }
-
-    updateOption(evt) {
-        const { value } = evt.detail
-        this.chart.setAttribute('position', value)
-    }
-
-    updateType(evt) {
-        const { type } = evt.detail
-        this.chart.setAttribute('type', type)
-    }
-
     render({ html }) {
         return html`
         <e-row>

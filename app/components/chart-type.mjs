@@ -1,8 +1,11 @@
 import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
 
 export default class ChartType extends CustomElement {
     constructor() {
         super()
+        this.api = api
         this.typeChanged = this.typeChanged.bind(this)
     }
 
@@ -15,14 +18,7 @@ export default class ChartType extends CustomElement {
     }
 
     typeChanged(evt) {
-        this.dispatchEvent(
-            new CustomEvent("charttype", {
-              bubbles: true,
-              detail: {
-                type: evt.target.value,
-               },
-            }),
-        )
+        this.api.store.type = evt.target.value
     }
 
     render({ html }) {

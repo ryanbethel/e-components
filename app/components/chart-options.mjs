@@ -1,8 +1,11 @@
 import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
 
 export default class ChartOptions extends CustomElement {
     constructor() {
         super()
+        this.api = api
         this.optionChanged = this.optionChanged.bind(this)
     }
 
@@ -15,16 +18,7 @@ export default class ChartOptions extends CustomElement {
     }
 
     optionChanged(evt) {
-        console.log(evt)
-        this.dispatchEvent(
-            new CustomEvent("chartoption", {
-              bubbles: true,
-              detail: {
-                attribute: 'position',
-                value: evt.target.value
-               },
-            }),
-        )
+        this.api.store.position = evt.target.value
     }
 
     render({ html }) {
