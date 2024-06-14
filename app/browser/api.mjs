@@ -1,9 +1,17 @@
 import Store from '@enhance/store'
 
 const store = Store()
+let worker
+
+const LIST = 'list'
 
 export default function API() {
+  if (!worker) {
+    worker =  new Worker('/_public/browser/worker.mjs')
+    worker.onmessage = workerResponse
+
     initialize()
+  }
 
     return {
       list,
@@ -11,23 +19,30 @@ export default function API() {
       subscribe: store.subscribe,
       unsubscribe: store.unsubscribe
     }
-  }
+}
 
   function initialize() {
     list()
   }
 
+  function workerResponse(e) {
+    const { data } = e
+    const { result, type } = data
+    switch (type) {
+    case LIST:
+      listMutation(result)
+      break
+    }
+  }
+
+  function listMutation({ chartData={} }) {
+    store.chartData = chartData
+  }
+
   async function list (sort = 'points', position = 'all') {
-    const result = await (await fetch(
-        `http://localhost:3333/chart?sort=${sort}&position=${position}`, {
-          credentials: 'same-origin',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: 'GET'
-        }
-      )).json()
-    store.chartData = result.chartData
+    worker.postMessage({
+      type: LIST,
+      data: { sort, position }
+    })
   }
 
