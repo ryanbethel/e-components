@@ -111,7 +111,6 @@ export default class ReactiveChart extends CustomElement {
     }
 
     update(payload) {
-      console.log('payload', payload)
       if (payload.position) {
         this.setAttribute('position', payload.position)
       }
