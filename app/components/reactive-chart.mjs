@@ -6,16 +6,6 @@ export default class ReactiveChart extends CustomElement {
     this.table = this.querySelector('table')
   }
 
-  connectedCallback() {
-    this.addEventListener('chartoption', this.updateOption)
-    this.addEventListener('charttype', this.updateType)
-  }
-
-  disconnectedCallback() {
-    this.removeEventListener('chartoption', this.updateOption)
-    this.removeEventListener('charttype', this.updateType)
-  }
-
   render({ html, state }) {
         const { attrs = {}, store = {} } = state
         const { chartData = {} } = store
