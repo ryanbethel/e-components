@@ -1,4 +1,8 @@
-<style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Tabs extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope="global">
     /* Base tabs styles */
     e-tabs {
         display: flex;
@@ -100,3 +104,8 @@
     }
 </style>
 <slot></slot>
+`
+    }
+}
+
+if (!customElements.get("e-tabs")) { customElements.define("e-tabs", Tabs) };

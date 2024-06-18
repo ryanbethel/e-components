@@ -1,4 +1,8 @@
-    <style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Button extends CustomElement {
+    render({ html, state }) {
+        return html`    <style scope="global">
     /**********************************/
       e-button {
         display: inline-block;
@@ -154,3 +158,8 @@
       }
     </style>
     <slot></slot>
+`
+    }
+}
+
+if (!customElements.get("e-button")) { customElements.define("e-button", Button) };

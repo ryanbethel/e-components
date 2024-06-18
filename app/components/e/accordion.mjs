@@ -1,4 +1,8 @@
-<style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Accordion extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope="global">
     e-accordion {
         display: block;
 
@@ -49,3 +53,8 @@
     }
 </style>
 <slot></slot>
+`
+    }
+}
+
+if (!customElements.get("e-accordion")) { customElements.define("e-accordion", Accordion) };

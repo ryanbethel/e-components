@@ -1,4 +1,8 @@
-<style scope=global>
+import CustomElement from '@enhance/custom-element'
+
+export default class List extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope=global>
   
 e-list {
   /* Ordered and unordered base styles */
@@ -36,3 +40,8 @@ e-list {
 }
 </style>
 <slot></slot>
+`
+    }
+}
+
+if (!customElements.get("e-list")) { customElements.define("e-list", List) };

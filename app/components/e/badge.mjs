@@ -1,4 +1,8 @@
-<style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Badge extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope="global">
     /* Base styles */
     e-badge {
       display: none;
@@ -28,3 +32,8 @@
     }
 </style>
 <slot></slot>
+`
+    }
+}
+
+if (!customElements.get("e-badge")) { customElements.define("e-badge", Badge) };

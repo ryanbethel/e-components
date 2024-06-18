@@ -1,4 +1,8 @@
-<style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Loader extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope="global">
     e-loader {
         display: inline-flex;
 
@@ -23,3 +27,8 @@
 </style>
 <slot></slot>
 
+`
+    }
+}
+
+if (!customElements.get("e-loader")) { customElements.define("e-loader", Loader) };

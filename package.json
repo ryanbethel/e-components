@@ -11,9 +11,11 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "/elements",
-    "/helpers",
-    "/assets"
+    "elements.js",
+    "components.js",
+    "/app/elements/e/",
+    "/app/components/",
+    "/app/public/e-global.css"
   ],
   "license": "MIT",
   "contributors": [
@@ -39,19 +41,16 @@
     "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {
-    "@enhance/cli": "^1.1.0"
-  },
-  "dependencies": {
+    "@begin/cli": "^0.19.0",
+    "@enhance/arc-plugin-styles": "^5.0.5",
+    "@enhance/cli": "^1.1.0",
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.2",
     "@enhance/arc-plugin-enhance": "^11.0.1",
-    "@enhance/custom-element": "^1.2.3",
-    "@enhance/custom-element-mixin": "github:enhance-dev/enhance-custom-element-mixin#dom-diffing-slots",
     "codemirror": "^6.0.1",
-    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
-    "morphdom": "^2.7.2",
-    "@enhance/arc-plugin-styles": "^5.0.5",
-    "@enhance/cli": "^1.1.0",
     "@enhance/styles-cribsheet": "^0.0.11"
+  },
+  "dependencies": {
+    "@enhance/custom-element": "^1.2.3-next.0"
   }
 }

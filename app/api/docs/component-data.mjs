@@ -27,14 +27,13 @@ const components = [
 <e-alert type="info">Informational message</e-alert>
 <e-alert type="success">Positive message</e-alert>
 <e-alert type="warn">Cautionary message</e-alert>
-<e-alert type="error" icon="error" dismissible="false">Error message with icon and no dismiss button</e-alert>`},
+<e-alert type="error" dismissible="false">Error message with no dismiss button</e-alert>`},
   {
     name: "Autocomplete",
     path: "autocomplete",
     exampleUsage: `
-<e-autocomplete>
+  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
   <label>Search</label>
-  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior"></e-autocomplete>
   <datalist id="fruit">
     <option value="apple"></option>
     <option value="banana"></option>
@@ -56,13 +55,19 @@ const components = [
 <e-box ord="secondary">Secondary content</e-box>
 <p>Content outside a Box is considered neutral</p>`},
   {
+    name: "Blockquote",
+    path: "blockquote",
+    exampleUsage: `
+<e-blockquote>Someone said something.</e-blockquote>
+`},
+  {
     name: "Breadcrumb", path: "breadcrumb", exampleUsage: `
-<e-breadcrumb>
-    <nav>
-        <e-link><a href="#">Home</a></e-link>
-        <e-link><a href="#">Shoes</a></e-link>
-        <span aria-current="page">Women</span>
-    </nav>
+  <e-breadcrumb>
+  <nav>
+    <e-link><a href="#">Home</a></e-link>
+    <e-link><a href="#">Shoes</a></e-link>
+    <span aria-current="page">Women</span>
+  </nav>
 </e-breadcrumb>
 <e-seperator></e-seperator>
 <e-breadcrumb>
@@ -73,7 +78,7 @@ const components = [
         <e-link><a href="#shoes">Shoes</a></e-link>
         <e-crumb>
             <e-menu>
-                <span role="link" slot="trigger">Womens<e-icon name="arrow_downward" class="txt-xs"></e-icon></span>
+                <span role="link" slot="trigger">Womens ↓</span>
                 <div slot="items">
                     <e-link><a href="#womens-casual">👞 Casual</a></e-link>
                     <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
@@ -87,26 +92,26 @@ const components = [
 ` },
   {
     name: "Button", path: "button", exampleUsage: `
-<p>Ordinal name</p>
-<e-button><button ord="primary">Primary</button></e-button>
-<e-button><button ord="secondary">Secondary</button></e-button>
-<e-button><button ord="tertiary">Tertiary</button></e-button>
+  <p> Ordinal name</p>
+<e-button ord=primary ><button >Primary</button></e-button>
+<e-button ord=secondary ><button >Secondary</button></e-button>
+<e-button ord=tertiary ><button >Tertiary</button></e-button>
 <p>Disabled state</p>
-<e-button><button ord="primary" disabled>Disabled</button></e-button>
+<e-button ord=primary ><button disabled>Disabled</button></e-button>
 <p>Link as button</p>
-<e-button><e-link><a role="button" ord="primary" href="/button">Link</a></e-link></e-button>
+<e-button ord=primary><e-link><a role="button" href="/button">Link</a></e-link></e-button>
 <p>Remove type</p>
 <e-button><button type="remove"></button></e-button>
 <p>Button group</p>
 <div role="group">
-    <e-button><button ord="secondary" aria-pressed="true">One</button></e-button>
-    <e-button><button ord="secondary">Two</button></e-button>
-    <e-button><button ord="secondary">Three</button></e-button>
+    <e-button ord="secondary"><button  aria-pressed="true">One</button></e-button>
+    <e-button ord="secondary"><button >Two</button></e-button>
+    <e-button ord="secondary"><button >Three</button></e-button>
 </div>
 `},
   {
     name: "Checkbox", path: "checkbox", exampleUsage: `
-<e-input-group>
+  <e-input-group>
     <legend>Languages</legend>
     <input id="html" type="checkbox" name="speed" value="html" checked>
     <label for="html">HTML</label>
@@ -138,7 +143,7 @@ const components = [
     <p>(press <kbd>Esc</kbd> to close)</p>
   </dialog>
 </e-dialog>
-<e-button><button onclick="document.querySelector('dialog').showModal()" ord="primary">Open Dialog</button></e-button>
+<e-button ord=primary><button onclick="document.querySelector('dialog').showModal()" >Open Dialog</button></e-button>
 `},
   {
     name: "Dot",
@@ -165,7 +170,7 @@ const components = [
         <input placeholder="Street">
         <input placeholder="Zip" autocomplete="postal-code">
     </e-input-group>
-    <e-button><button type="submit" ord="primary">Save</button></e-button>
+    <e-button ord="primary"><button type="submit">Save</button></e-button>
 </form>
 `},
   {
@@ -191,15 +196,6 @@ const components = [
     <e-box>Centered Row</e-box>
   </e-col>
 </e-row>
-`},
-  {
-    name: "Icons", path: 'icons', exampleUsage: `
-<e-icon name="person"></e-icon>
-<e-icon name="person" fill></e-icon>
-<e-icon name="flag"></e-icon>
-<e-icon name="menu"></e-icon>
-<e-icon name="error"></e-icon>
-<e-icon name="arrow_downward"></e-icon>
 `},
   {
     name: "Input", path: 'input', exampleUsage: `
@@ -228,7 +224,7 @@ const components = [
   {
     name: "Menu", path: 'menu', exampleUsage: `
 <e-menu>
-    <e-button slot="trigger"><button  ord="primary">Basic Links</button></e-button>
+    <e-button  ord="primary" slot="trigger"><button >Basic Links</button></e-button>
     <div slot="items">
         <e-link><a>Products</a></e-link>
         <e-link><a>Services</a></e-link>
@@ -236,7 +232,7 @@ const components = [
     </div>
 </e-menu>
 <e-menu>
-    <e-button slot="trigger"><button ord="primary">Custom Content and Width</button></e-button>
+    <e-button  ord="primary" slot="trigger"><button>Custom Content and Width</button></e-button>
     <div slot="items" class="pad-sm" style="min-width: 200px">
         <div class="inline-flex align-items-center">
             <img src="https://picsum.photos/50" height="51" class="brd-radius-full">
@@ -354,10 +350,10 @@ const components = [
   {
     name: "Tabs", path: 'tabs', exampleUsage: `
 <e-tabs role="tablist" scrollable>
-  <e-button><button role="tab" aria-selected="true">Selected</button></e-button>
-  <e-button><button role="tab">Not Selected</button></e-button>
-  <e-button><button role="tab" disabled>Disabled</button></e-button>
-  <e-link><a href="/" role="tab">Link</a></e-link>
+  <button role="tab" aria-selected="true">Selected</button>
+  <button role="tab">Not Selected</button>
+  <button role="tab" disabled>Disabled</button>
+  <a href="/" role="tab">Link</a>
 </e-tabs>
 <p class="txt-xs txt-gray-5">See <e-link><a href="#select-tab">selecting tabs</a></e-link> to learn how to select a tab</p>
 `},
@@ -367,7 +363,6 @@ const components = [
 <e-tag>WiFi</e-tag>
 <e-tag>pool</e-tag>
 <e-tag>
-    <e-icon name="local_cafe"></e-icon>
     free breakfast
     <e-button><button type="remove"></button></e-button>
 </e-tag>
@@ -415,19 +410,28 @@ const components = [
     <li>Baz</li>
   </ul>
 </e-list>
-<e-list>
+<e-list type="content">
   <ul>
     <li class="pad-sm">Foo</li>
     <li class="pad-sm">Bar</li>
     <li class="pad-sm">Baz</li>
   </ul>
 </e-list>
+<e-list>
+  <dl>
+    <dt class="pad-sm">Foo</dt>
+    <dt class="pad-sm">Bar</dt>
+    <dt class="pad-sm">Baz</dt>
+  </dl>
+</e-list>
 `},
   {
     name: "Text", path: 'text', exampleUsage: `
 <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <e-link><a href="/utility-classes">utility classes</a></e-link>.</p>
 <e-blockquote>
-  <p>This is something somebody said.</p>
+  <blockquote>
+    <p>This is something somebody said.</p>
+  </blockquote>
 </e-blockquote>
 <small>This is for small print, side-comments, disclaimers, etc.</small>
 `},
