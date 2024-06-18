@@ -1,4 +1,9 @@
-<demo-components></demo-components>
+<e-responsive-sidebar>
+  <header slot=header>show sidebar<input type=checkbox></header>
+  <component-list-sidebar slot=sidebar></component-list-sidebar>
+  <ui-repl slot=main></ui-repl>
+  <footer slot=footer>Footer</footer>
+</e-responsive-sidebar>
 <e-theme></e-theme>
 <script type="module" >
   import components from "/_public/browser/components.mjs"
