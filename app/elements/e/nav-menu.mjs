@@ -21,6 +21,7 @@ export default function eNavBar({ html }) {
     background-color: var(--header-background-color, var(--default-header-background-color));
     color: var(--header-color, var(--default-header-color));
     padding-inline: 1rem;
+    justify-items:center;
   }
 
   .mobile-opener {
@@ -28,6 +29,8 @@ export default function eNavBar({ html }) {
     position:relative;
     width:1.5rem;
     height:1.5rem;
+    justify-content:flex-end;
+    align-items:center;
   }
 
  .mobile-opener input[type=checkbox] {
@@ -108,16 +111,25 @@ export default function eNavBar({ html }) {
     border-bottom: 2px solid var(--e-color-primary-action);
   }
 
+  e-col {
+    display:flex;
+    align-items:center;
+  }
+  e-col + e-col {
+    justify-content:flex-end;
+  }
+  
+
 </style>
 <header>
-  <e-row class="justify-items-center">
-    <e-col span=2 class="flex align-items-center">
+  <e-row>
+    <e-col span=2 >
       <slot name=logo></slot>
       <slot name=domain></slot>
     </e-col>
-    <e-col span=10 class="flex align-items-center justify-content-flex-end">
-        <nav class="mobile-opener justify-content-flex-end align-items-center">
-          <input type="checkbox" id="nav-toggle" class="">
+    <e-col span=10 >
+        <nav class="mobile-opener">
+          <input type="checkbox">
           <label for="nav-toggle">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
           </label>

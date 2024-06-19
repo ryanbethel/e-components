@@ -8,7 +8,7 @@ export default function Head() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Enhance Starter Project</title>
         <link rel="icon" href="/_public/favicon.svg" />
-      ${getStyles.linkTag()}
+      ${/* getStyles.linkTag() */ ''}
         <meta
           name="description"
           content="The HTML first full stack web framework."
