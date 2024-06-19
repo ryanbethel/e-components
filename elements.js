@@ -5,12 +5,14 @@ const __dirname = new URL(".", import.meta.url).pathname;
 import eAlert from "./app/elements/e/alert.mjs";
 import eSeperator from "./app/elements/e/seperator.mjs";
 import eMenu from "./app/elements/e/menu.mjs";
+import eNavMenu from "./app/elements/e/nav-menu.mjs";
 import eTheme from "./app/elements/e/theme.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-seperator": eSeperator,
   "e-menu": eMenu,
+  "e-nav-menu": eNavMenu,
   "e-theme": eTheme,
 };
 
@@ -110,6 +112,7 @@ export {
   eLoader,
   eList,
   eMenu,
+  eNavMenu,
   eRow,
   eTable,
   eTabs,
