@@ -119,7 +119,7 @@ export default function eNavBar({ html }) {
     justify-content:flex-end;
   }
 
-  e-col:has(nav.nav-menu > div[slot=nav-items]:empty) > nav.mobile-opener {
+  e-col:has(nav.nav-menu > [slot=nav-items]:empty) > nav.mobile-opener {
     display:none;
   }
 
