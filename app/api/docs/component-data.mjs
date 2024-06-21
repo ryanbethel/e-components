@@ -20,6 +20,40 @@ const components = [
 
 ` },
   {
+    name: "Responsive Header",
+    path: "responsive-header",
+    exampleUsage: `
+<e-responsive-header style="--header-background-color:var(--e-color-gray-9); --header-color:var(--e-color-gray-1);">
+  <img slot=logo src="https://picsum.photos/24" alt="logo">
+  <p slot=domain>Example.com</p>
+  <div slot=nav-items>
+    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
+    <e-link><a href="/login" >Login</a></e-link>
+  </div>
+</e-responsive-header>
+` },
+  {
+    name: "Responsive Sidebar",
+    path: "responsive-sidebar",
+    exampleUsage: `
+<e-responsive-sidebar style="--header-background-color:var(--e-color-gray-9); --header-color:var(--e-color-gray-1);">
+  <img slot=logo src="https://picsum.photos/24" alt="logo">
+  <p slot=domain>brand.com</p>
+  <div slot=nav-items>
+    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
+    <e-link><a href="/login" >Login</a></e-link>
+  </div>
+  <e-list slot=sidebar>
+    <ol>
+      <li><e-link><a href="/" >Stuff</a></e-link></li>
+      <li><e-link><a href="/" >Other Stuff</a></e-link></li>
+    </ol>
+  </e-list>
+  <e-box slot=main>Main Content</e-box>
+</e-responsive-sidebar>
+
+` },
+  {
     name: "Alert",
     path: "alert",
     exampleUsage: `

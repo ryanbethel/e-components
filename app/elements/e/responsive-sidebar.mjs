@@ -1,59 +1,178 @@
-export default function responsiveSidebar({ html, state }) {
+export default function eNavBar({ html }) {
   return html`
 
 <style>
+
   :host {
+    display: block;
     --default-sidebar-transition: translate 0.25s cubic-bezier(.86,0,.07,1);
-    --default-header-height: 3.5em;
-    --back: #f9f9f9;
+    --default-header-height: 3rem;
+    --default-header-background-color: var(--e-color-gray-2);
+    --default-header-color: currentColor;
   }
 
-  [slot='sidebar'] {
+  [slot=logo] {
+    width:1.5rem;
+    height:1.5rem;
+    margin-inline-end:1rem;
+  }
+
+  header > e-row {
+    background-color: var(--header-background-color, var(--default-header-background-color));
+    color: var(--header-color, var(--default-header-color));
+    padding-inline: 1rem;
+    justify-items:center;
+  }
+
+  .mobile-opener {
+    margin-inline-end:1rem;
+    display:flex;
+    position:relative;
+    width:1.5rem;
+    height:1.5rem;
+    justify-content:flex-end;
+    align-items:center;
+  }
+
+ .mobile-opener input[type=checkbox] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .mobile-opener label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+  }
+
+  header:has(.mobile-opener input[type='checkbox']:checked) ~ e-row > e-col.sidebar {
+    translate: 0 0;
+  }
+
+  .nav-menu  {
+    background-color: var(--header-background-color, var(--default-header-background-color));
+    display:flex;
+  }
+  .nav-menu > * {
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    flex-direction:row;
+  }
+  .nav-menu > * > * {
+    padding-inline: 1rem;
+    padding-block: 0;
+  }
+
+  @media only screen and (min-width:1096px) {
+
+    .mobile-opener {
+      display:none;
+    }
+  }
+
+  [aria-current] {
+    border-bottom: 2px solid var(--e-color-primary-action);
+  }
+
+  header e-col {
+    display:flex;
+    align-items:center;
+  }
+  header e-col + e-col {
+    justify-content:flex-end;
+  }
+
+  .sidebar {
     position: fixed;
     top: var(--layout-header-height, var(--default-header-height));
-    right: 500px;
+    right: 50vw;
     bottom: 0;
     left: 0;
     translate: -100% 0;
     transition: var(--layout-sidebar-transition, var(--default-sidebar-transition));
-    background-color: var(--back);
+    background-color: var(--header-background-color, var(--default-header-background-color));
+    z-index: 1000;
+    border-right: 1px solid var(--e-color-gray-3);
   }
 
-  [slot='header']:has(input[type='checkbox']:checked) ~ [slot='sidebar'] {
-    translate: 0 0;
-  }
-
-  :host {
-    display:grid;
-    grid-template-areas: "header" "main";
-    grid-template-columns: 1fr ;
-    grid-template-rows: 1fr ;
-  }
-  [slot='header'] {
-    grid-area:header;
-  }
-  [slot='main'] {
-    grid-area:main;
-  }
-  [slot='sidebar'] {
-    grid-area:sidebar;
+  .sidebar.sidebar {
+    max-width:100%;
   }
 
   @media only screen and (min-width:1096px) {
-    [slot='sidebar'] {
+    .sidebar {
       translate: initial;
       transition: initial;
       position:static;
+      display:flex;
+      border-right: 0px ;
     }
-
-    :host {
-      grid-template-areas: "header header" "sidebar main";
-      grid-template-columns: 100px auto;
+    .sidebar.sidebar {
+      max-width: calc(100% * 2/12);
     }
   }
+
+  /* .sidebar > * { */
+  /*   display:flex; */
+  /*   justify-content:flex-start; */
+  /*   align-items:flex-start; */
+  /*   flex-direction:column; */
+  /* } */
+  /* .sidebar > * { */
+  /*   display:flex; */
+  /*   justify-content:flex-end; */
+  /*   align-items:center; */
+  /*   flex-direction:row; */
+  /* } */
+  /* .sidebar > * > * { */
+  /*   padding-inline: 1rem; */
+  /*   padding-block: 1rem; */
+  /* } */
+  /* .sidebar > * > * { */
+  /*   padding-inline: 1rem; */
+  /*   padding-block: 0; */
+  /* } */
+
 </style>
-<slot name="header"></slot>
-<slot name="main"></slot>
-<slot name="sidebar"></slot>
+
+<header>
+  <e-row>
+    <e-col>
+        <nav class="mobile-opener">
+          <input type="checkbox">
+          <label for="nav-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+          </label>
+        </nav>
+      <slot name=logo></slot>
+      <slot name=domain></slot>
+    </e-col>
+    <e-col>
+        <nav class="nav-menu">
+          <slot name=nav-items as=div>
+          </slot>
+        </nav>
+    </e-col>
+  </e-row>
+</header>
+<e-seperator></e-seperator>
+<e-row>
+  <e-col span=2 class=sidebar>
+    <slot name=sidebar></slot>
+  </e-col>
+  <e-col>
+    <slot name=main></slot>
+  </e-col>
+</e-row>
 `
 }
+

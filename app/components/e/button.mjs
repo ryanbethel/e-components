@@ -12,6 +12,7 @@ export default class Button extends CustomElement {
         }
 
         :is(button, a[role="button"]) {
+          text-decoration:none;
         }
       }
     /**********************************/

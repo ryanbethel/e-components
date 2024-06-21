@@ -28,6 +28,23 @@ export default function demo({ html, state }) {
       padding:0px;
     }
   }
+
+  ui-repl > e-row {
+    flex-direction:column;
+  }
+
+  ui-repl > e-row > e-col[span] {
+    max-width:100%;
+  }
+  @media only screen and (min-width:1096px) {
+    ui-repl > e-row {
+      flex-direction:row;
+    }
+    ui-repl > e-row > e-col[span] {
+      max-width:50%;
+    }
+  }
+  
 </style>
 <e-row >
   <e-col span="6" >

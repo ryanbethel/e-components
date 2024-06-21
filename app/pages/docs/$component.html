@@ -1,10 +1,14 @@
-<e-responsive-sidebar>
-  <header slot=header>show sidebar<input type=checkbox></header>
-  <component-list-sidebar slot=sidebar></component-list-sidebar>
-  <ui-repl slot=main></ui-repl>
-  <footer slot=footer>Footer</footer>
-</e-responsive-sidebar>
 <e-theme></e-theme>
+<e-responsive-sidebar >
+  <img slot=logo src="https://picsum.photos/24" alt="logo">
+  <p slot=domain>e-dash.com</p>
+  <div slot=nav-items>
+    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
+    <e-link><a href="/login" >Login</a></e-link>
+  </div>
+  <component-list-sidebar class=pad-sm slot=sidebar></component-list-sidebar>
+  <ui-repl slot=main></ui-repl>
+</e-responsive-sidebar>
 <script type="module" >
   import components from "/_public/browser/components.mjs"
 </script>
