@@ -118,7 +118,19 @@ export default function eNavBar({ html }) {
   e-col + e-col {
     justify-content:flex-end;
   }
-  
+
+  e-col:has(nav.nav-menu > div[slot=nav-items]:empty) > nav.mobile-opener {
+    display:none;
+  }
+
+  [slot=domain] {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    min-height:1.5em;
+  }
 
 </style>
 <header>
@@ -135,8 +147,7 @@ export default function eNavBar({ html }) {
           </label>
         </nav>
         <nav class="nav-menu">
-          <slot name=nav-items as=div>
-          </slot>
+          <slot name=nav-items></slot>
         </nav>
     </e-col>
   </e-row>

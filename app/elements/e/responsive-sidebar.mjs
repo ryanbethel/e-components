@@ -142,6 +142,18 @@ export default function eNavBar({ html }) {
   /*   padding-block: 0; */
   /* } */
 
+  :host:has(e-row > e-col.sidebar > [slot=sidebar]:empty) > header .mobile-opener {
+    display:none;
+  }
+
+  [slot=domain] {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    min-height:1.5em;
+  }
 </style>
 
 <header>
