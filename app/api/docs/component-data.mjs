@@ -133,7 +133,7 @@ const components = [
 <p>Disabled state</p>
 <e-button ord=primary ><button disabled>Disabled</button></e-button>
 <p>Link as button</p>
-<e-button ord=primary><e-link><a role="button" href="/button">Link</a></e-link></e-button>
+<e-button ord=primary><a role="button" href="/button">Link</a></e-button>
 <p>Remove type</p>
 <e-button><button type="remove"></button></e-button>
 <p>Button group</p>
