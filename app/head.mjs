@@ -1,5 +1,8 @@
-import { getStyles } from '@enhance/arc-plugin-styles'
-export default function Head() {
+import { getStyles } from '@paramour/arc-plugin-paramour-css'
+export default function Head({ req }) {
+  const edash = req.query.hasOwnProperty('edash')
+
+
   return `
     <!doctype html>
     <html lang="en">
@@ -8,13 +11,17 @@ export default function Head() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Enhance Starter Project</title>
         <link rel="icon" href="/_public/favicon.svg" />
-      ${/* getStyles.linkTag() */ ''}
-        <meta
-          name="description"
-          content="The HTML first full stack web framework."
-        />
-      </head>
-      <body class="bg-gray-1"></body>
-    </html>
-  `;
+
+        ${edash ?  `
+        <link rel="stylesheet" href="/_public/e-global-custom-properties.css" />
+        ` : `
+        ${getStyles.linkTag()}
+        `}
+        <link rel="stylesheet" href="/_public/e-global-basic-reset.css" />
+  <meta
+    name="description"
+    content="The HTML first full stack web framework."
+  />
+      </head >
+    `;
 }

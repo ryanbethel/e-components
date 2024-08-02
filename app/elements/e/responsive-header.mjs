@@ -1,4 +1,5 @@
-export default function eNavBar({ html }) {
+export default function eNavBar({ html, state }) {
+  const breakpoint = state.attr?.breakpoint
   return html`
 
 <style>
@@ -18,8 +19,8 @@ export default function eNavBar({ html }) {
   }
 
   header > e-row {
-    background-color: var(--header-background-color, var(--default-header-background-color));
-    color: var(--header-color, var(--default-header-color));
+    background-color: var(--e-header-bg-color, var(--default-header-background-color));
+    color: var(--e-header-color, var(--default-header-color));
     padding-inline: 1rem;
     justify-items:center;
   }
@@ -58,13 +59,13 @@ export default function eNavBar({ html }) {
 
   .nav-menu  {
     position: fixed;
-    top: var(--layout-header-height, var(--default-header-height));
+    top: var(--e-header-height, var(--default-header-height));
     right: 50vw;
     bottom: 0;
     left: 0;
     translate: -100% 0;
     transition: var(--layout-sidebar-transition, var(--default-sidebar-transition));
-    background-color: var(--header-background-color, var(--default-header-background-color));
+    background-color: var(--e-header-bg-color, var(--default-header-background-color));
     z-index: 1000;
     border-right: 1px solid var(--e-color-gray-3);
   }
@@ -81,7 +82,7 @@ export default function eNavBar({ html }) {
     padding-block: 1rem;
   }
 
-  @media only screen and (min-width:1096px) {
+  @media only screen and (min-width: ${breakpoint ? breakpoint : '48rem'}) {
 
     .nav-menu > * > * {
       padding-inline: 1rem;
@@ -129,7 +130,7 @@ export default function eNavBar({ html }) {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    min-height:1.5em;
+    min-height:1em;
   }
 
 </style>

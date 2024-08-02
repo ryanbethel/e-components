@@ -7,7 +7,6 @@ import eSeperator from "./app/elements/e/seperator.mjs";
 import eMenu from "./app/elements/e/menu.mjs";
 import eResponsiveSidebar from "./app/elements/e/responsive-sidebar.mjs";
 import eResponsiveHeader from "./app/elements/e/responsive-header.mjs";
-import eTheme from "./app/elements/e/theme.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
@@ -15,7 +14,6 @@ const mjsElements = {
   "e-menu": eMenu,
   "e-responsive-sidebar": eResponsiveSidebar,
   "e-responsive-header": eResponsiveHeader,
-  "e-theme": eTheme,
 };
 
 const htmlFiles = [
@@ -121,5 +119,4 @@ export {
   eTabs,
   eTag,
 
-  eTheme,
 };

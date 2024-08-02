@@ -7,10 +7,10 @@ export default class Accordion extends CustomElement {
         display: block;
 
         & e-details:last-child > details {
-                border-bottom: 3px solid var(--e-color-gray-2);
+                border-bottom: 3px solid var(--e-color-gray-3);
             }
         & e-details > details {
-            border-top: 3px solid var(--e-color-gray-2);
+            border-top: 3px solid var(--e-color-gray-3);
 
 
             &[open] > summary:after {

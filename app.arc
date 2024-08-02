@@ -6,12 +6,13 @@ prune true
 
 @plugins
 enhance/arc-plugin-enhance
-enhance/arc-plugin-styles
+paramour/arc-plugin-paramour-css
 enhance/styles-cribsheet
 wrap-elements
 
-@enhance-styles
-config styleguide.json
+@paramour-css
+config paramour-config.mjs
 
 @begin
 appID J9K807BD
+
