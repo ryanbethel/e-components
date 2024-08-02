@@ -9,7 +9,7 @@ export default class Code extends CustomElement {
         pre {
           border-radius: var(--e-border-radius-md);
           background-color: var(--e-color-gray-1);
-          color: var(--e-color-red-3);
+          color: var(--e-color-error);
         }
 
         /* Inline code */

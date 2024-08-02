@@ -21,34 +21,34 @@ export default function Alert({ html, state }) {
 
         /* Types */
         &[type="info"] {
-          background-color: var(--e-color-blue-1);
+          background-color: var(--e-color-info-1);
 
           &::before {
-            color: var(--e-color-blue-3);
+            color: var(--e-color-info-3);
           }
         }
 
         &[type="success"] {
-          background-color: var(--e-color-green-1);
+          background-color: var(--e-color-success-1);
 
           &::before {
-            color: var(--e-color-green-3);
+            color: var(--e-color-success-3);
           }
         }
 
         &[type="warn"] {
-          background-color: var(--e-color-orange-1);
+          background-color: var(--e-color-warning-1);
 
           &::before {
-            color: var(--e-color-orange-3);
+            color: var(--e-color-warning-3);
           }
         }
 
         &[type="error"] {
-          background-color: var(--e-color-red-1);
+          background-color: var(--e-color-error-1);
 
           &::before {
-            color: var(--e-color-red-3);
+            color: var(--e-color-error-3);
           }
         }
       }

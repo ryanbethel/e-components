@@ -67,13 +67,16 @@ const components = [
     path: "autocomplete",
     exampleUsage: `
   <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
-  <label>Search</label>
-  <datalist id="fruit">
-    <option value="apple"></option>
-    <option value="banana"></option>
-    <option value="cherry"></option>
-    <option value="peach"></option>
-  </datalist>
+  <e-input-group>
+    <label>Search</label>
+    <input type=text />
+    <datalist id="fruit">
+      <option value="apple"></option>
+      <option value="banana"></option>
+      <option value="cherry"></option>
+      <option value="peach"></option>
+    </datalist>
+  </e-input-group>
 </e-autocomplete>`},
   {
     name: "Badge",
@@ -92,7 +95,9 @@ const components = [
     name: "Blockquote",
     path: "blockquote",
     exampleUsage: `
-<e-blockquote>Someone said something.</e-blockquote>
+<e-blockquote>
+  <blockquote>Someone said something.</blockquote>
+</e-blockquote>
 `},
   {
     name: "Breadcrumb", path: "breadcrumb", exampleUsage: `
@@ -106,9 +111,7 @@ const components = [
 <e-seperator></e-seperator>
 <e-breadcrumb>
     <nav>
-        <e-link><a href="#home">
-            <e-icon name="home"></e-icon>
-        </a></e-link>
+        <e-link><a href="#home">Home</a></e-link>
         <e-link><a href="#shoes">Shoes</a></e-link>
         <e-crumb>
             <e-menu>

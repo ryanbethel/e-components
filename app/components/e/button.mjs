@@ -67,7 +67,7 @@ export default class Button extends CustomElement {
 
             &[aria-pressed="true"],
             &[aria-pressed="mixed"] {
-              background-color: var(--e-color-blue-1);
+              background-color: var(--e-color-info-1);
             }
           }
 

@@ -15,7 +15,10 @@
     "components.js",
     "/app/elements/e/",
     "/app/components/",
-    "/app/public/e-global.css"
+    "/public/e-global-custom-properties.css",
+    "/public/e-global-basic-reset.css",
+    "paramour-config.mjs"
+
   ],
   "license": "MIT",
   "contributors": [
@@ -42,13 +45,13 @@
   },
   "devDependencies": {
     "@begin/cli": "^0.19.0",
-    "@enhance/arc-plugin-styles": "^5.0.5",
-    "@enhance/cli": "^1.1.0",
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.2",
     "@enhance/arc-plugin-enhance": "^11.0.1",
-    "codemirror": "^6.0.1",
-    "@enhance/styles-cribsheet": "^0.0.11"
+    "@paramour/arc-plugin-paramour-css": "^1.0.0-rc.1",
+    "@enhance/cli": "^1.1.0",
+    "@enhance/styles-cribsheet": "^0.0.11",
+    "codemirror": "^6.0.1"
   },
   "dependencies": {
     "@enhance/custom-element": "^1.2.3-next.0"

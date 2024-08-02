@@ -52,7 +52,9 @@ class AutoComplete extends HTMLElement {
 
   connectedCallback() {
     if (!this.#initialized) {
-      this.#input = document.createElement('input');
+      // this.#input = document.createElement('input');
+      this.#input = this.querySelector('input')
+      console.log(this.#input)
       this.#input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
       this.#input.addEventListener('select', e => e.stopPropagation()); // Prevents text select event
       this.#input.addEventListener('keyup', e => this.search(e.currentTarget.value));

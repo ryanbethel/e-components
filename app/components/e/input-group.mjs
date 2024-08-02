@@ -39,7 +39,7 @@ export default class Inputgroup extends CustomElement {
       & :is(select, textarea) {
         width: 100%;
         min-height: var(--e-input-min-height);
-        font-size: 16px;
+        font-size: var(--e-font-size-default);
         padding: 6px;
         border-radius: 0px;
         background-color: white;
@@ -112,10 +112,10 @@ export default class Inputgroup extends CustomElement {
       & :is(input, select, textarea) {
         &:invalid,
         &[invalid] {
-          border-color: var(--e-color-red-3);
+          border-color: var(--e-color-error);
 
           & ~ small {
-            color: var(--e-color-red-3);
+            color: var(--e-color-error);
           }
         }
 
