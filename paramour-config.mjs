@@ -1,6 +1,6 @@
 export default {
   classes: true,
-  reset: false,
+  reset: true,
   borders: {
     radii: [2, 4, 8, 9999],
     widths: [1, 2, 4],
@@ -21,18 +21,24 @@ export default {
     viewportMin: 320,
     viewportMax: 1500,
     baseMin: 16,
-    baseMax: 18,
-    scaleMin: 'minor-third',
-    scaleMax: 'perfect-fourth',
+    // baseMax: 18,
+    baseMax: 16,
+    // scaleMin: 'minor-third',
+    // scaleMax: 'perfect-fourth',
+    scaleMin: 1.25,
+    scaleMax: 1.25,
   },
   typeScale: {
     steps: 6,
     viewportMin: 320,
     viewportMax: 1500,
     baseMin: 16,
-    baseMax: 18,
-    scaleMin: 'minor-third',
-    scaleMax: 'perfect-fourth',
+    // baseMax: 18,
+    baseMax: 16,
+    // scaleMin: 'minor-third',
+    // scaleMax: 'perfect-fourth',
+    scaleMin: 1.25,
+    scaleMax: 1.25,
   },
   color: {
     scales: {

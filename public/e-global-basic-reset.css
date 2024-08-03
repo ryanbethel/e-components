@@ -2,10 +2,15 @@
 :root {
   font-size:16px;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   height: 100vh;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   color: var(--e-color-gray-7);
   background-color: white;
   font-family: 'Helvetica Neue', Arial;
@@ -18,5 +23,5 @@ h1 {font-size:var(--e-font-size-xl);}
 h2 {font-size:var(--e-font-size-lg);}
 h3 {font-size:var(--e-font-size-md);}
 h4, h5 {font-size:var(--e-font-size-default);}
-h6 {font-size:var(--e-font-size-sm);}
+h6 {font-size:var(--e-font-size-min);}
 

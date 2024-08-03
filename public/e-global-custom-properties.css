@@ -43,22 +43,22 @@
 
   /* Other */
   --e-max-content-width: 1320px; /* The 16" MacBook Pro */
-  --e-input-min-height: 34px; 
-  --e-target-min-size: 24px; /* WCAG Level AA minimum target recommendation is 24x24 */
+  --e-input-min-height: 2.125rem; 
+  --e-target-min-size: 1.5rem; /* WCAG Level AA minimum target recommendation is 24x24 */
 
-  /* Spacing (loosely based on Divine Proportions) */
-  --e-space-xs: 6px;
-  --e-space-sm: 12px;
-  --e-space-md: 18px;
-  --e-space-lg: 30px;
-  --e-space-xl: 48px;
+  /* spacing */
+  --e-space-xs: .375rem;
+  --e-space-sm: .75rem;
+  --e-space-md: 1.125rem;
+  --e-space-lg: 1.5rem;
+  --e-space-xl: 3rem;
 
   /* Font */
-  --e-font-size-min: 13px; /* WCAG recommendation */
-  --e-font-size-default: 16px;
-  --e-font-size-md: 18px;
-  --e-font-size-lg: 24px;
-  --e-font-size-xl: 32px;
+  --e-font-size-min: .8125rem; /* WCAG recommendation */
+  --e-font-size-default: 1rem;
+  --e-font-size-md: 1.125rem;
+  --e-font-size-lg: 1.5rem;
+  --e-font-size-xl: 2rem;
 
   --e-header-height: 3rem;
 }

@@ -12,10 +12,10 @@ export default class Container extends CustomElement {
 
         /* Sizes */
         &[maxwidth="md"] {
-            max-width: 924px;
+            max-width: calc(38.5 * var(--e-space-lg));
         } /* Plus its margin = 960 which is a very comfortable and common size */
         &[maxwidth="sm"] {
-            max-width: 375px;
+            max-width: calc(16 * var(--e-space-lg));
         }
         &[maxwidth="none"] {
             max-width: none;

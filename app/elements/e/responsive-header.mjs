@@ -60,7 +60,7 @@ export default function eNavBar({ html, state }) {
   .nav-menu  {
     position: fixed;
     top: var(--e-header-height, var(--default-header-height));
-    right: 50vw;
+    right: 0; /* 50vw for half screen */
     bottom: 0;
     left: 0;
     translate: -100% 0;
@@ -108,7 +108,7 @@ export default function eNavBar({ html, state }) {
     }
   }
 
-  [aria-current] {
+  [aria-current] e-link {
     border-bottom: 2px solid var(--e-color-primary-action);
   }
 
