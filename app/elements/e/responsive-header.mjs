@@ -108,7 +108,7 @@ export default function eNavBar({ html, state }) {
     }
   }
 
-  [aria-current] e-link {
+  e-link:has([aria-current]) {
     border-bottom: 2px solid var(--e-color-primary-action);
   }
 
