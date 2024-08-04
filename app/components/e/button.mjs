@@ -26,7 +26,7 @@ export default class Button extends CustomElement {
           precedence or importance of an item in a group, e.g. Save and Cancel buttons.
         */
           &[ord] :is(button, a[role="button"]) {
-            display: inline-flex;
+            /* display: inline-flex; */
             place-content: center;
             border-radius: var(--e-border-radius-md);
             cursor: pointer;
@@ -34,6 +34,9 @@ export default class Button extends CustomElement {
             font-size: var(--e-font-size-default);
             height: var(--e-input-min-height);
             padding: var(--e-space-xs) var(--e-space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             /* Sibling buttons */
             + & {
