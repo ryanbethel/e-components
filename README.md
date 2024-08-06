@@ -17,27 +17,24 @@ Add the following `/app/element.mjs` file to your app directory:
 
 ```javascript
 // /app/elements.mjs
-import { elements } from '@ryanbethel/e-components' 
+import { elements } from '@ryanbethel/e-components'
 export default elements
 ```
 
-Individual elements can be used with `import {eButton} from '@ryanbethel/e-components/elements.js`. 
-Components are available for clientside use with the [@enhance/custom-element](https://github.com/enhance-dev/custom-element) wrapper. 
-These can be imported with `import {eButton} from '@ryanbethel/e-components/components.js`. 
+Individual elements can be used with `import {eButton} from '@ryanbethel/e-components/elements.js`.
+Components are available for clientside use with the [@enhance/custom-element](https://github.com/enhance-dev/custom-element) wrapper.
+These can be imported with `import {eButton} from '@ryanbethel/e-components/components.js`.
 
 ## Docs/Examples
 An example app showing all components is included in the project directory.
-You can fork the repo and run `npm start` to see it. 
+You can fork the repo and run `npm start` to see it.
 http://localhost:3333 is a page that includes most of the components used together.
 http://localhost:3333/docs has a repl/playground of the compoents with usage examples.
 
 ## Global Assets
 A small global style file is needed for all the components.
 
-A simple way to include the global css is to add a `<e-theme></e-theme>` tag to every page.
-This tag does not render anything it instead adds a style tag to the head.
-
-Alternatively you can add it by putting the `e-global.css` in public folder and then in the head as follows. 
+You can add it by putting the `e-global.css` in public folder and then in the head as follows.
 
 ```javascript
 // head.mjs
