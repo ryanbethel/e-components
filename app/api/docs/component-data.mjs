@@ -23,7 +23,7 @@ const components = [
     name: "Responsive Header",
     path: "responsive-header",
     exampleUsage: `
-<e-responsive-header style="--header-background-color:var(--e-color-gray-9); --header-color:var(--e-color-gray-1);">
+<e-responsive-header style="--e-header-bg-color:var(--e-color-gray-9); --e-header-color:var(--e-color-gray-1);">
   <img slot=logo src="https://picsum.photos/24" alt="logo">
   <p slot=domain>Example.com</p>
   <div slot=nav-items>
@@ -408,7 +408,7 @@ const components = [
     name: "Textarea", path: 'textarea', exampleUsage: `
 <e-input-group>
   <label>Leave a comment</label>
-  <textarea> </textarea> 
+  <textarea> </textarea>
 </e-input-group>
 `},
   {
