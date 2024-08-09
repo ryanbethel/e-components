@@ -10,14 +10,6 @@
 input {
   background-color: var(--e-color-gray-0);
 }
-input[type="checkbox"], input[type="radio"] {
-  background-color: var(--e-color-gray-0);
-  color: currentColor;
-  appearance: none;
-      border: 2px solid #007bff;
-      cursor: pointer;
-      border-radius: 3px;
-    }
 
 body {
   margin: 0;
