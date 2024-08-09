@@ -146,7 +146,24 @@ const components = [
     <e-button ord="secondary"><button >Three</button></e-button>
 </div>
 `},
-  {
+{
+  name: "Card", path: "card", exampleUsage: `
+<e-card title="My Card" href="#my-link">
+  <img slot="image" src="/_public/images/card-hero.webp"/>
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+<e-card title="No Link">
+  <img slot="image" src="/_public/images/card-hero.webp"/>
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+<e-card title="No Image" href="#my-link">
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+`},
+{
     name: "Checkbox", path: "checkbox", exampleUsage: `
   <e-input-group>
     <legend>Languages</legend>
@@ -408,7 +425,7 @@ const components = [
     name: "Textarea", path: 'textarea', exampleUsage: `
 <e-input-group>
   <label>Leave a comment</label>
-  <textarea> </textarea> 
+  <textarea> </textarea>
 </e-input-group>
 `},
   {
