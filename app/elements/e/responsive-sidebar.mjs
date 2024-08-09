@@ -7,8 +7,8 @@ export default function eNavBar({ html }) {
     display: block;
     --default-sidebar-transition: translate 0.25s cubic-bezier(.86,0,.07,1);
     --default-header-height: 3rem;
-    --default-header-background-color: var(--e-color-gray-2);
-    --default-header-color: currentColor;
+    --default-header-background-color: var(--e-color-primary);
+    --default-header-color: var(--e-color-primary-text);
   }
 
   [slot=logo] {
@@ -80,7 +80,7 @@ export default function eNavBar({ html }) {
   }
 
   [aria-current] {
-    border-bottom: 2px solid var(--e-color-primary-action);
+    border-bottom: 2px solid currentColor;
   }
 
   header e-col {

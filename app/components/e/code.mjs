@@ -8,8 +8,8 @@ export default class Code extends CustomElement {
         code,
         pre {
           border-radius: var(--e-border-radius-md);
-          background-color: var(--e-color-gray-1);
-          color: var(--e-color-error);
+          background-color: var(--e-color-surface-well);
+          color: var(--e-color-code-text);
         }
 
         /* Inline code */

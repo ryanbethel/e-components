@@ -30,7 +30,7 @@ export default class Tabs extends CustomElement {
         }
 
           &:has([aria-selected="true"]), &:is([aria-selected="true"]) {
-              border-bottom: 2px solid var(--e-color-primary-action);
+              border-bottom: 2px solid var(--e-color-primary);
           }
           /* & :not([disabled]):not([aria-selected="true"]):hover { */
           /*     border-bottom: 2px solid var(--e-color-gray-3); */
@@ -40,7 +40,7 @@ export default class Tabs extends CustomElement {
           &:is(a, button) {
               all: unset;
               display: inline-flex;
-              color: var(--e-color-gray-7);
+              color: var(--e-color-surface-text);
               font-weight: bold;
               text-align: center;
               white-space: nowrap;

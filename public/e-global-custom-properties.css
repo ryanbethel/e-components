@@ -1,40 +1,126 @@
+:root:has(input#color-scheme-dark:checked) {
+  #color-scheme::after{ 
+    content:'Dark Mode';
+  }
+      /* Dark Theme */
+      --e-color-gray-10:  hsl(0, 0%, 95%);
+      --e-color-gray-9:  hsl(0, 0%, 90%);
+      --e-color-gray-8:  hsl(0, 0%, 80%);
+      --e-color-gray-7:  hsl(0, 0%, 70%);
+      --e-color-gray-6:  hsl(0, 0%, 60%);
+      --e-color-gray-5: hsl(0, 0%, 50%);
+      --e-color-gray-4: hsl(0, 0%, 40%);
+      --e-color-gray-3: hsl(0, 0%, 30%);
+      --e-color-gray-2: hsl(0, 0%, 20%);
+      --e-color-gray-1: hsl(0, 0%, 10%);
+      --e-color-gray-0: hsl(0, 0%, 7%); 
+}
+:root:has(input#color-scheme-light:checked) {
+  #color-scheme::after{ 
+    content:'Light Mode';
+  }
+  /* Light Theme */
+  --e-color-gray-0:  hsl(0, 0%, 95%);
+  --e-color-gray-1:  hsl(0, 0%, 90%);
+  --e-color-gray-2:  hsl(0, 0%, 80%);
+  --e-color-gray-3:  hsl(0, 0%, 70%);
+  --e-color-gray-4:  hsl(0, 0%, 60%);
+  --e-color-gray-5: hsl(0, 0%, 50%);
+  --e-color-gray-6: hsl(0, 0%, 40%);
+  --e-color-gray-7: hsl(0, 0%, 30%);
+  --e-color-gray-8: hsl(0, 0%, 20%);
+  --e-color-gray-9: hsl(0, 0%, 10%);
+  --e-color-gray-10: hsl(0, 0%, 7%); 
+}
+:root:has(input#color-scheme-auto:checked) {
+  #color-scheme::after{ 
+    content:'Auto Mode';
+  }
+}
 :root {
   /* Colors */
-  --e-color-gray-1: #f8f8f8;
-  --e-color-gray-2: #dedede;
-  --e-color-gray-3: #ccc;
-  --e-color-gray-4: #9c9c9c;
-  --e-color-gray-5: #838383;
-  --e-color-gray-6: #6e6e6e;
-  --e-color-gray-7: #404040;
-  --e-color-gray-8: #333;
-  --e-color-gray-9: #282828;
+  color-scheme: light dark;
 
-  --e-color-info-1: #d8ebfe;
-  --e-color-info-2: #6990ee;
-  --e-color-info-3: #494eaa;
+  /* Default Light Theme */
+  --e-color-gray-0:  hsl(0, 0%, 95%);
+  --e-color-gray-1:  hsl(0, 0%, 90%);
+  --e-color-gray-2:  hsl(0, 0%, 80%);
+  --e-color-gray-3:  hsl(0, 0%, 70%);
+  --e-color-gray-4:  hsl(0, 0%, 60%);
+  --e-color-gray-5: hsl(0, 0%, 50%);
+  --e-color-gray-6: hsl(0, 0%, 40%);
+  --e-color-gray-7: hsl(0, 0%, 30%);
+  --e-color-gray-8: hsl(0, 0%, 20%);
+  --e-color-gray-9: hsl(0, 0%, 10%);
+  --e-color-gray-10: hsl(0, 0%, 7%); 
+}
+
+  @media ( prefers-color-scheme: dark ) {
+    :root {
+      /* Dark Theme */
+      --e-color-gray-10:  hsl(0, 0%, 95%);
+      --e-color-gray-9:  hsl(0, 0%, 90%);
+      --e-color-gray-8:  hsl(0, 0%, 80%);
+      --e-color-gray-7:  hsl(0, 0%, 70%);
+      --e-color-gray-6:  hsl(0, 0%, 60%);
+      --e-color-gray-5: hsl(0, 0%, 50%);
+      --e-color-gray-4: hsl(0, 0%, 40%);
+      --e-color-gray-3: hsl(0, 0%, 30%);
+      --e-color-gray-2: hsl(0, 0%, 20%);
+      --e-color-gray-1: hsl(0, 0%, 10%);
+      --e-color-gray-0: hsl(0, 0%, 7%); 
+    }
+  }
+
+:root {
+
+
+  /*----------------------------------*/
+  --e-color-primary: hsl(202,  67%, 45%);
+  --e-color-primary-contrast: hsl(202,  67%, 30%);
+  --e-color-primary-text: white;
+
+  --e-color-alert-text: hsl(0, 0%, 20%);
+
+  --e-color-info: #d8ebfe;
+  --e-color-info-contrast: #6990ee;
   
-  --e-color-error-1: #fce2de;
-  --e-color-error-2: #eb6176;
-  --e-color-error-3: #a2204f;
+  --e-color-error: #fce2de;
+  --e-color-error-contrast: #eb6176;
 
-  --e-color-success-1: #ccf3ca;
-  --e-color-success-2: #26a573;
-  --e-color-success-3: #146146;
+  --e-color-success: #ccf3ca;
+  --e-color-success-contrast: #26a573;
 
-  --e-color-warning-1: #f6e5bb;
-  --e-color-warning-2: #e36f4f;
-  --e-color-warning-3: #963712;
+  --e-color-warning: #f6e5bb;
+  --e-color-warning-contrast: #e36f4f;
 
-  --e-color-disabled-fg: var(--e-color-gray-4);
-  --e-color-disabled-bg: var(--e-color-gray-1);
 
-  --e-color-focus: var(--e-color-info-1);
+  /* Derived Colors: Set from other colors */
+  --e-color-well-surface: var(--e-color-gray-1);
+  --e-color-background-surface: var(--e-color-gray-1);
+  --e-color-elevated-surface: var(--e-color-gray-0);
 
-  --e-color-primary-action: #157bb6;
-  --e-color-primary-bg: white;
+  --e-color-surface-text: var(--e-color-gray-9);
+  --e-color-surface-subtext: var(--e-color-gray-7);
 
-  --e-color-border: var(--e-color-gray-2);
+  --e-color-info-text: var(--e-color-alert-text);
+  --e-color-success-text: var(--e-color-alert-text);
+  --e-color-error-text: var(--e-color-alert-text);
+  --e-color-warning-text: var(--e-color-alert-text);
+
+
+  --e-color-disabled-fg: var(--e-color-gray-5);
+  --e-color-disabled-bg: var(--e-color-gray-2);
+
+  --e-color-focus: var(--e-color-info);
+  --e-color-border: var(--e-color-gray-3);
+
+  
+  --e-color-code-text: var(--e-color-surface-text);
+
+  --e-color-tag: var(--e-color-info);
+  --e-color-tag-text: var(--e-color-info-text);
+
 
   /* Borders */
   --e-border-radius-sm: 2px;
@@ -42,13 +128,13 @@
   --e-border-radius-full: 9999px;
 
   /* Other */
-  --e-max-content-width: 1320px; /* The 16" MacBook Pro */
+  --e-max-content-width: 1320px; 
   --e-input-min-height: 2.125rem; 
-  --e-target-min-size: 1.5rem; /* WCAG Level AA minimum target recommendation is 24x24 */
 
   /* spacing */
   --e-space-xs: .375rem;
   --e-space-sm: .75rem;
+  --e-space-default: 1rem;
   --e-space-md: 1.125rem;
   --e-space-lg: 1.5rem;
   --e-space-xl: 3rem;
@@ -60,5 +146,6 @@
   --e-font-size-lg: 1.5rem;
   --e-font-size-xl: 2rem;
 
-  --e-header-height: 3rem;
+  --e-header-height: 3em;
+  --e-header-font-size: var(--e-font-size-md);
 }

@@ -15,7 +15,22 @@ export default class Button extends CustomElement {
           text-decoration:none;
         }
       }
+
     /**********************************/
+
+    
+    @media (max-width: 480px) {
+      e-button[responsive] {
+        width: 100%;
+        & + & {
+         margin-left: unset;
+        }
+        button {
+          width: 100%;
+        }
+      } 
+    } 
+
 
     /**********************************/
       e-button {
@@ -31,7 +46,7 @@ export default class Button extends CustomElement {
             border-radius: var(--e-border-radius-md);
             cursor: pointer;
             background: none;
-            font-size: var(--e-font-size-default);
+            font-size: var(--e-font-size-md);
             height: var(--e-input-min-height);
             padding: var(--e-space-xs) var(--e-space-md);
             display: flex;
@@ -58,26 +73,26 @@ export default class Button extends CustomElement {
       e-button {
           /* Primary ordinal */
           &[ord="primary"] :is(button, a[role="button"]) {
-            border: 2px solid var(--e-color-primary-action);
-            background-color: var(--e-color-primary-action);
-            color: white;
+            border: 2px solid var(--e-color-primary);
+            background-color: var(--e-color-primary);
+            color: var(--e-color-primary-text);
           }
 
           /* Secondary ordinal */
           &[ord="secondary"] :is(button, a[role="button"]) {
-            border: 2px solid var(--e-color-primary-action);
-            color: var(--e-color-primary-action);
+            border: 2px solid var(--e-color-primary);
+            color: var(--e-color-primary);
 
             &[aria-pressed="true"],
             &[aria-pressed="mixed"] {
-              background-color: var(--e-color-info-1);
+              background-color: var(--e-color-info);
             }
           }
 
           /* Tertiary ordinal */
           &[ord="tertiary"] :is(button, a[role="button"]) {
-            border: 2px solid var(--e-color-gray-7);
-            color: var(--e-color-gray-7);
+            border: 2px solid var(--e-color-surface-text);
+            color: var(--e-color-surface-text);
           }
       }
     /**********************************/

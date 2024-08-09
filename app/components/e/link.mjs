@@ -7,7 +7,7 @@ export default class Link extends CustomElement {
         /* Base link styles */
         a, *[role=link] {
           text-decoration: none;
-          color: var(--e-color-primary-action);
+          color: var(--e-color-primary);
           cursor: pointer;
 
           /*:is(a, span[role=link]):visited { color: var(--e-color-primary-action) }*/

@@ -42,7 +42,7 @@ export default class Inputgroup extends CustomElement {
         font-size: var(--e-font-size-default);
         padding: 6px;
         border-radius: 0px;
-        background-color: white;
+        background-color: var(--e-color-gray-0);
         color: var(--e-color-gray-8);
       }
 
@@ -105,7 +105,7 @@ export default class Inputgroup extends CustomElement {
         &:focus {
           outline: 2px solid var(--e-color-focus);
           outline-offset: 0;
-          border: 1px solid var(--e-color-primary-action);
+          border: 1px solid var(--e-color-primary);
         }
       }
 

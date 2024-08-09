@@ -1,5 +1,6 @@
 export default function eNavBar({ html, state }) {
   const breakpoint = state.attr?.breakpoint
+  const logoHref = state.attr?.['logo-href']
   return html`
 
 <style>
@@ -7,9 +8,10 @@ export default function eNavBar({ html, state }) {
   :host {
     display: block;
     --default-sidebar-transition: translate 0.25s cubic-bezier(.86,0,.07,1);
-    --default-header-height: 3rem;
-    --default-header-background-color: var(--e-color-gray-2);
-    --default-header-color: currentColor;
+    --default-header-height: 3em;
+    --default-header-background-color: var(--e-color-primary);
+    --default-header-color: var(--e-color-primary-text);
+    font-size: var(--e-header-font-size, var(--e-font-size-md));
   }
 
   [slot=logo] {
@@ -28,8 +30,8 @@ export default function eNavBar({ html, state }) {
   .mobile-opener {
     display:flex;
     position:relative;
-    width:1.5rem;
-    height:1.5rem;
+    width:1.5em;
+    height:1.5em;
     justify-content:flex-end;
     align-items:center;
   }
@@ -67,7 +69,7 @@ export default function eNavBar({ html, state }) {
     transition: var(--layout-sidebar-transition, var(--default-sidebar-transition));
     background-color: var(--e-header-bg-color, var(--default-header-background-color));
     z-index: 1000;
-    border-right: 1px solid var(--e-color-gray-3);
+    /* border-right: 1px solid var(--e-color-gray-3); */
   }
 
   .nav-menu > * {
@@ -80,6 +82,10 @@ export default function eNavBar({ html, state }) {
   .nav-menu > * > * {
     padding-inline: 1rem;
     padding-block: 1rem;
+  }
+
+  .nav-menu * { 
+    color: var(--e-header-color, var(--default-header-color));
   }
 
   @media only screen and (min-width: ${breakpoint ? breakpoint : '48rem'}) {
@@ -109,7 +115,7 @@ export default function eNavBar({ html, state }) {
   }
 
   [aria-current] {
-    border-bottom: 2px solid var(--e-color-primary-action);
+    border-bottom: 2px solid currentColor;
   }
 
   e-col {
@@ -126,25 +132,34 @@ export default function eNavBar({ html, state }) {
 
   [slot=domain] {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    /*margin-block-start: 1em;
+    margin-block-end: 1em;*/
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     min-height:1em;
+    margin-block: calc((var(--e-header-height, var(--default-header-height)) - 1em)/2);
   }
+    a:has([slot=logo]) {
+      display:flex; 
+      align-items:center; 
+      text-decoration:unset; 
+      color:currentColor;
+    }
 
 </style>
 <header>
   <e-row>
     <e-col span=2 >
+    <a href="${logoHref ? logoHref : '/'}" >
       <slot name=logo></slot>
       <slot name=domain></slot>
+      </a>
     </e-col>
     <e-col span=10 >
         <nav class="mobile-opener">
           <input type="checkbox">
           <label for="nav-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
           </label>
         </nav>
         <nav class="nav-menu">

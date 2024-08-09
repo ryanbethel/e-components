@@ -34,7 +34,7 @@ export default class Switch extends CustomElement {
         }
 
         /* Checked state */
-        &:checked { background-color: var(--e-color-primary-action) }
+        &:checked { background-color: var(--e-color-primary) }
         &:checked:before { left: 20px }
 
         /* Disabled state */

@@ -5,7 +5,7 @@ export default class Blockquote extends CustomElement {
         return html`<style scope=global>
 e-blockquote {
     blockquote {
-        color: var(--e-color-gray-6);
+        color: var(--e-color-surface-subtext);
         font-style: italic;
     }
 }

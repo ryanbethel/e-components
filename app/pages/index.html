@@ -3,6 +3,23 @@
     text-align: center;
   }
 </style>
+<e-responsive-header>
+  <img slot=logo src="https://picsum.photos/24" alt="logo">
+  <span slot=domain>Example.com</span>
+  <div class="debug" slot=nav-items>
+    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
+    <e-link><a href="/login" >Login</a></e-link>
+  </div>
+</e-responsive-header>
+<label for=color-scheme-dark>Dark</label>
+  <input name=color-scheme id=color-scheme-dark type="radio" >
+<label for=color-scheme-light>Light</label>
+  <input name=color-scheme id=color-scheme-light type="radio" >
+<label for=color-scheme-auto>Auto</label>
+  <input name=color-scheme id=color-scheme-auto checked type="radio" >
+  <div id="color-scheme" class="text-center">
+  </div>
+  <e-avatar shape="rectangle"></e-avatar>
 <e-container>
   <e-breadcrumb >
     <nav>
@@ -10,40 +27,148 @@
       <span aria-current="page">Examples</span>
     </nav>
   </e-breadcrumb>
-  <h1 >Example Pages</h1>
-  <h2 >This page has examples of most components in various configurations</h2>
-  <e-row>
-    <e-col span="4">
-      <e-box>
-        <h4 ><e-link><a href="/examples/checkout"  >Checkout demo</a></e-link></h4>
-        <p>A recreation of Bootstrap's Checkout example page demonstrating form elements and validation.</p>
-      </e-box>
-    </e-col>
-    <e-col span="4">
-      <e-box>
-        <h4><e-link> <a href="/examples/pricing"  >Pricing demo</a></e-link></h4>
-        <p>A recreation of Bootstrap's Pricing example page.</p>
-      </e-box>
-    </e-col>
-    <e-col span="4">
-      <e-box>
-        <h4 ><e-link><a href="/examples/sidebar">Sidebar demo</a></e-link></h4>
-        <p>Custom sidebar layout using utility classes.</p>
-      </e-box>
-    </e-col>
-  </e-row>
-</e-container>
+  <h1 >Component Examples</h1>
+
 <e-seperator></e-seperator>
-<h1 id="alert" class="text-center">Alert</h1>
+<h1>Accordion</h1>
 <e-container>
-  <h4>All types</h4>
+<e-accordion>
+  <e-details>
+    <details>
+        <summary>Summary</summary>
+        <p>Details about this thing</p>
+    </details>
+  </e-details>
+  <e-details>
+    <details>
+      <summary>Summary</summary>
+      <p>Details about this thing</p>
+    </details>
+  </e-details>
+</e-accordion>
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Dots</h1>
+<e-container>
+<e-dot type="info">Information</e-dot>
+<e-dot type="success">Success</e-dot>
+<e-dot type="warn">Warning</e-dot>
+<e-dot type="error">Error</e-dot>
+<e-dot>Unknown</e-dot>
+</e-container>
+
+
+<e-seperator></e-seperator>
+<h1>Autocomplete</h1>
+<e-container>
+  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
+  <e-input-group>
+    <label>Search</label>
+    <input type=text />
+    <datalist id="fruit">
+      <option value="apple"></option>
+      <option value="banana"></option>
+      <option value="cherry"></option>
+      <option value="peach"></option>
+    </datalist>
+  </e-input-group>
+</e-autocomplete>
+
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Badge</h1>
+<e-container>
+  <e-badge count="4"></e-badge>
+  <e-badge>New</e-badge>
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Tags</h1>
+<e-container>
+<e-tag>non-smoking</e-tag>
+<e-tag>WiFi</e-tag>
+<e-tag>pool</e-tag>
+<e-tag style="--color:var(--e-color-error)">pool</e-tag>
+<e-tag>
+    free breakfast
+    <e-button><button type="remove"></button></e-button>
+</e-tag>
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Breadcrumb</h1>
+<e-container>
+  <e-breadcrumb>
+  <nav>
+    <e-link><a href="#">Home</a></e-link>
+    <e-link><a href="#">Shoes</a></e-link>
+    <span aria-current="page">Women</span>
+  </nav>
+</e-breadcrumb>
+<e-seperator></e-seperator>
+<e-breadcrumb>
+    <nav>
+        <e-link><a href="#home">Home</a></e-link>
+        <e-link><a href="#shoes">Shoes</a></e-link>
+        <e-crumb>
+            <e-menu>
+                <span role="link" slot="trigger">Womens ↓</span>
+                <div slot="items">
+                    <e-link><a href="#womens-casual">👞 Casual</a></e-link>
+                    <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
+                    <e-link><a href="#womens-formal">👠 Formal</a></e-link>
+                </div>
+            </e-menu>
+        </e-crumb>
+        <span>Sport</span>
+    </nav>
+</e-breadcrumb>
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Blockquote</h1>
+<e-container>
+Some Regular text
+<e-blockquote>
+  <blockquote>Someone said something.</blockquote>
+</e-blockquote>
+</e-container>
+
+<e-seperator></e-seperator>
+<h1>Button</h1>
+<e-container>
+  <p> Ordinal name</p>
+<e-button ord=primary ><button >Primary</button></e-button>
+<e-button ord=secondary ><button >Secondary</button></e-button>
+<e-button ord=tertiary ><button >Tertiary</button></e-button>
+<p>Disabled state</p>
+<e-button ord=primary ><button disabled>Disabled</button></e-button>
+<p>Link as button</p>
+<e-button ord=primary><a role="button" href="/button">Link</a></e-button>
+<p>Remove type</p>
+<e-button><button type="remove"></button></e-button>
+<p>Button group</p>
+<div role="group">
+    <e-button ord="secondary"><button  aria-pressed="true">One</button></e-button>
+    <e-button ord="secondary"><button >Two</button></e-button>
+    <e-button ord="secondary"><button >Three</button></e-button>
+</div>
+</e-container>
+
+
+<e-seperator></e-seperator>
+<h1 id="alert" >Alert</h1>
+<e-container>
+  <h2>All types</h2>
   <e-alert type="info">Sign up for<e-link><a href="#alert" >&nbsp;premium&nbsp;</a></e-link> to see the full list</e-alert>
   <e-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</e-alert>
   <e-alert type="warn">Your flight has been canceled.</e-alert>
   <e-alert type="error">You do not have permission to delete records.</e-alert>
-  <h4>Not dismissible</h4>
+  <h2>Not dismissible</h2>
   <e-alert type="info" dismissible="false">You can't get rid of me.</e-alert>
-<!--  <h4>Autodismiss (default of 4 seconds and 5, 6, 7 seconds)</h4>-->
+<!--  <h2>Autodismiss (default of 4 seconds and 5, 6, 7 seconds)</h2>-->
 <!--  <div>-->
 <!--    <-alert type="info" autodismiss>Goodbye in 4...</e-alert>-->
 <!--    <e-alert type="success" autodismiss="5">Goodbye in 5...</e-alert>-->
@@ -52,11 +177,11 @@
 <!--  </div>-->
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Containers" class="text-center">Container</h1>
+<h1 id="Containers" >Container</h1>
 <e-container maxwidth="sm">
-  <h4>Small container</h4>
+  <h2>Small container</h2>
   <e-box ord="primary">
-    <h1 class="text-center">Log in</h1>
+    <h1 >Log in</h1>
     <form>
       <e-input-group>
         <label>Email</label>
@@ -68,13 +193,13 @@
         <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
       </e-input-group>
     </form>
-    <div class="text-center">Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
+    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
   </e-box>
 </e-container>
 <e-container maxwidth="md">
-  <h4>Medium container</h4>
+  <h2>Medium container</h2>
   <e-box ord="primary">
-    <h1 class="text-center">Log in</h1>
+    <h1 >Log in</h1>
     <form>
       <e-input-group>
         <label>Email</label>
@@ -86,13 +211,13 @@
         <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
       </e-input-group>
     </form>
-    <div class="text-center">Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
+    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
   </e-box>
 </e-container>
 <e-container>
-  <h4>Default container</h4>
+  <h2>Default container</h2>
   <e-box ord="primary">
-    <h1 class="text-center">Log in</h1>
+    <h1 >Log in</h1>
     <form>
       <e-input-group>
         <label>Email</label>
@@ -104,13 +229,13 @@
         <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
       </e-input-group>
     </form>
-    <div class="text-center">Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
+    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
   </e-box>
 </e-container>
 <e-container maxwidth="none">
-  <h4>maxwidth=none container</h4>
+  <h2>maxwidth=none container</h2>
   <e-box ord="primary">
-    <h1 class="text-center">Log in</h1>
+    <h1 >Log in</h1>
     <form>
       <e-input-group>
         <label>Email</label>
@@ -122,13 +247,13 @@
         <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
       </e-input-group>
     </form>
-    <div class="text-center">Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
+    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
   </e-box>
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Grids" class="text-center">Grids</h1>
+<h1 id="Grids" >Grids</h1>
 <e-container>
-  <h4>Auto-span</h4>
+  <h2>Auto-span</h2>
   <e-row>
     <e-col>
       <e-box>One column in one row.</e-box></e-col>
@@ -150,7 +275,7 @@
       <e-box>yet another row.</e-box>
     </e-col>
   </e-row>
-  <h4>Span size and auto-span</h4>
+  <h2>Span size and auto-span</h2>
   <e-row>
     <e-col span="3">
       <e-box>One column with <e-code><code>span="3"</code></e-code>...</e-box>
@@ -191,7 +316,7 @@
       <e-box>and another with <e-code><code>span="6"</code></e-code>, which exceeds the 12 column grid. <span>Avoid!</span></e-box>
     </e-col>
   </e-row>
-  <h4>Centering columns</h4>
+  <h2>Centering columns</h2>
   <e-row center>
     <e-col>
       <e-box>One auto-span column inside a <e-code><code>center</code></e-code>ed row.</e-box>
@@ -205,16 +330,16 @@
       <e-box>and one with the default auto-span inside a <e-code><code>center</code></e-code>ed row.</e-box>
     </e-col>
   </e-row>
-  <h4>Responsive columns</h4>
+  <h2>Responsive columns</h2>
   <e-row>
     <e-col span="3 sm-12 md-5"><e-box>This column spans 3 on lg screens, 5 on md, and 12 on sm.</e-box></e-col>
     <e-col span="9 sm-12 md-7"><e-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</e-box></e-col>
   </e-row>
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Boxes" class="text-center">Boxes</h1>
+<h1 id="Boxes" >Boxes</h1>
 <e-container>
-  <h4>Default</h4>
+  <h2>Default</h2>
   <div>Regular text on the page.</div>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <e-box>
@@ -225,7 +350,7 @@
     <div>Regular text in a secondary Box.</div>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </e-box>
-  <h4>Three in a row</h4>
+  <h2>Three in a row</h2>
   <e-row>
     <e-col>
       <div>Regular text on the page</div>
@@ -237,11 +362,11 @@
       <e-box ord="secondary">Regular text in a secondary Box</e-box>
     </e-col>
   </e-row>
-  <h4>Nesting a secondary Box</h4>
+  <h2>Nesting a secondary Box</h2>
   <e-row>
-    <e-col span="5">
+    <e-col >
       <e-box>
-        <h2 class="text-center">Create an account</h2>
+        <h2 >Create an account</h2>
         <form>
           <e-input-group>
             <label>Email</label>
@@ -260,7 +385,7 @@
   </e-row>
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Dialogs" class="text-center">Dialogs</h1>
+<h1 id="Dialogs" >Dialogs</h1>
 <e-container>
   <e-dialog id="overflowingcontent">
     <dialog>
@@ -314,7 +439,7 @@
   </e-dialog>
   <e-dialog id="hasform">
     <dialog>
-    <h1 class="text-center">Log in</h1>
+    <h1 >Log in</h1>
     <form>
       <e-input type=email>
         <span slot=label>Email</span>
@@ -324,7 +449,7 @@
           <span slot=info> <e-link><a href="/forgot">Forgot password</a></e-link></span>
       </e-input>
     </form>
-      <div class="text-center">Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
+      <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
     <p style="max-width: 500px"><span ><e-icon name="bulb"></e-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
     </dialog>
   </e-dialog>
@@ -341,9 +466,9 @@
   <e-button ord="primary"><button onclick="document.querySelector('#modeless dialog').show()" >Open "modeless" Dialog</button></e-button>
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Forms" class="text-center">Forms</h1>
+<h1 id="Forms" >Forms</h1>
 <e-container>
-  <h4>Everything form</h4>
+  <h2>Everything form</h2>
   <form>
     <e-input-group>
       <label>Text inputs</label>
@@ -409,7 +534,7 @@
   </form>
 </e-container>
 <e-seperator ></e-seperator>
-<h1 id="Details" class="text-center">Details</h1>
+<h1 id="Details" >Details</h1>
 <e-container>
   <p>This is a short bit of info about elephants.</p>
   <e-details>
@@ -420,23 +545,23 @@
     </details>
   </e-details>
 </e-container>
-<h1 id="Loader" class="text-center">Loader</h1>
+<h1 id="Loader" >Loader</h1>
 <e-container>
-  <h4>Basic loaders</h4>
+  <h2>Basic loaders</h2>
   <p>Loader on its own: <e-loader loading></e-loader></p>
   <p>Loader without <e-code><code>loading</code></e-code>: <e-loader></e-loader></p>
   <p>Loader with text: <e-loader loading>Searching...</e-loader></p>
-  <h4 >Loader used in button</h4>
+  <h2 >Loader used in button</h2>
   <div>The Loader in this button is <e-code><code>hidden</code></e-code> waiting for the user to click... <e-button ord="primary"><button><e-loader loading hidden></e-loader>Save</e-button></button></div>
   <div>When clicked, the app removes <e-code><code>hidden</code></e-code> from the Loader and adds <e-code><code>disabled</code></e-code> to the button and updates its label: <e-button ord="primary"><button disabled><e-loader loading></e-loader>Saving</e-button ord=primary></button></div>
-  <h4>Loader and links</h4>
+  <h2>Loader and links</h2>
   <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <e-code><code>loading</code></e-code> attribute and text based on the state of the process: <e-link><a href="#"><e-loader loading>Pause</e-loader></a></e-link> / <e-link href="#"><e-loader>Resume</e-loader></e-link></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
-  <div class="text-center" style="width: 400px">
+  <div style="width: 400px">
     <e-loader loading class="block">Downloading...</e-loader>
     <e-link><a href="" class="block">Stop</a></e-link>
   </div>
-  <h4>Loader size</h4>
+  <h2>Loader size</h2>
   <p>Explicit font-size of 70px:</p>
   <e-loader loading style="font-size: 70px"></e-loader>
   <p>Inherited size:</p>
@@ -451,36 +576,36 @@
 </e-container>
 
 <!-- Menu -->
-<h1 id="Menus" class="text-center">Menu</h1>
+<h1 id="Menus" >Menu</h1>
 <e-container>
-  <h4>Basic Menu with links</h4>
+  <h2>Basic Menu with links</h2>
   <e-menu>
     <e-button ord="primary" slot="trigger"><button>Open menu</button></e-button>
     <div slot="items">
-      <e-link href="">Link A</e-link>
-      <e-link href="">Link B</e-link>
-      <e-link href="">Link C</e-link>
+      <e-link><a href="">Link A</a></e-link>
+      <e-link><a href="">Link B</a></e-link>
+      <e-link><a href="">Link C</a></e-link>
     </div>
   </e-menu>
-  <h4>Menu with custom content and min-width: 300px</h4>
+  <h2>Menu with custom content and min-width: 300px</h2>
   <e-menu>
     <e-button ord="primary" slot="trigger"><button>Open menu</button></e-button>
     <div slot="items" style="min-width: 300px">
       <div >Text Here</div>
-      <div >Some more text with a <e-link>link</e-link></div>
+      <div >Some more text with a <e-link><a>link</a></e-link></div>
 
     </div>
   </e-menu>
 </e-container>
 
 <!-- Switch -->
-<h1 id="switch" class="text-center ">Switch</h1>
+<h1 id="switch" >Switch</h1>
 <e-container>
-  <h4>Checked, unchecked, and disabled</h4>
+  <h2>Checked, unchecked, and disabled</h2>
   <e-switch><input type=checkbox is=switch checked></e-switch>
   <e-switch><input type=checkbox is=switch></e-switch>
   <e-switch><input type=checkbox is=switch disabled></e-switch>
-  <h4>Standalone in a custom layout</h4>
+  <h2>Standalone in a custom layout</h2>
   <e-box ord="secondary" >
     <div >
       <e-icon name="alarm" ></e-icon>
@@ -489,11 +614,11 @@
     </div>
     <e-switch><input type=checkbox is=switch checked></e-switch>
   </e-box>
-  <h4>In a Box as a form of options</h4>
+  <h2>In a Box as a form of options</h2>
   <e-row>
     <e-col span="3">
       <e-box>
-        <h4 class="mar-t-xs">Notification preferences</h4>
+        <h2 class="mar-t-xs">Notification preferences</h2>
         <form>
           <e-input-group >
             <label>SMS</label>
@@ -520,9 +645,9 @@
 </e-container>
 
 <!-- Table -->
-<h1 id="table" class="text-center">Tables</h1>
+<h1 id="table" >Tables</h1>
 <e-container>
-  <h4>Basic table</h4>
+  <h2>Basic table</h2>
   <e-table>
     <table>
       <thead>
@@ -547,23 +672,23 @@
 
 
 <!-- Tabs -->
-<h1 id="tabs" class="text-center">Tabs</h1>
+<h1 id="tabs" >Tabs</h1>
 <e-container>
-  <h4>Basic tabs</h4>
+  <h2>Basic tabs</h2>
   <e-tabs role="tablist">
     <button role="tab" aria-selected="true">Accounts</button>
     <button role="tab">Payments</button>
     <button role="tab">Transfers</button>
     <button role="tab">Security</button>
   </e-tabs>
-  <h4>With icons</h4>
+  <h2>With icons</h2>
   <e-tabs role="tablist">
     <button role="tab" aria-selected="true">&nbsp;Accounts</button>
     <button role="tab"><e-icon name="wallet"></e-icon>&nbsp;Payments</button>
     <button role="tab"><e-icon name="attach_money"></e-icon>&nbsp;Transfers</button>
     <button role="tab"><e-icon name="lock"></e-icon>&nbsp;Security</button>
   </e-tabs>
-  <h4>Scrollable</h4>
+  <h2>Scrollable</h2>
   <div style="width: 318px">
     <e-tabs role="tablist" scrollable>
       <button role="tab" aria-selected="true">Accounts</button>

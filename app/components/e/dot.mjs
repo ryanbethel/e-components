@@ -19,16 +19,16 @@ export default class Dot extends CustomElement {
 
         /* Alert type */
         &[type="info"]::before {
-            background-color: var(--e-color-info-2);
+            background-color: var(--e-color-info-contrast);
         }
         &[type="success"]::before {
-            background-color: var(--e-color-success-2);
+            background-color: var(--e-color-success-contrast);
         }
         &[type="warn"]::before {
-            background-color: var(--e-color-warning-2);
+            background-color: var(--e-color-warning-contrast);
         }
         &[type="error"]::before {
-            background-color: var(--e-color-error-2);
+            background-color: var(--e-color-error-contrast);
         }
     }
 </style>

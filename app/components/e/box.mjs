@@ -7,7 +7,8 @@ export default class Box extends CustomElement {
         display: block;
         border-radius: var(--e-border-radius-md);
         padding: var(--e-space-md);
-        background-color: white;
+        background-color: var(--e-color-elevated-surface);
+        color: var(--e-color-surface-text);
         border: 1px solid var(--e-color-border);
 
         /*
@@ -17,8 +18,9 @@ export default class Box extends CustomElement {
   */
         &[ord="secondary"] {
             border: none;
-            background-color: var(--e-color-gray-1);
+            background-color: var(--e-color-well-surface);
             box-shadow: 0px 1px 2px var(--e-color-gray-3) inset;
+            color: var(--e-color-surface-text);
         }
 
         & > header {

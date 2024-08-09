@@ -8,7 +8,8 @@ export default function Alert({ html, state }) {
         display: flex;
         align-items: center;
         padding: var(--e-space-md);
-        background-color: var(--e-color-gray-2);
+        background-color: var(--e-color-surface-well);
+        color: var(--e-color-surface-well-text);
 
         & + & {
           margin-top: var(--e-space-sm);
@@ -21,35 +22,23 @@ export default function Alert({ html, state }) {
 
         /* Types */
         &[type="info"] {
-          background-color: var(--e-color-info-1);
-
-          &::before {
-            color: var(--e-color-info-3);
-          }
+          background-color: var(--e-color-info);
+          color: var(--e-color-info-text);
         }
 
         &[type="success"] {
-          background-color: var(--e-color-success-1);
-
-          &::before {
-            color: var(--e-color-success-3);
-          }
+          background-color: var(--e-color-success);
+          color: var(--e-color-success-text);
         }
 
         &[type="warn"] {
-          background-color: var(--e-color-warning-1);
-
-          &::before {
-            color: var(--e-color-warning-3);
-          }
+          background-color: var(--e-color-warning);
+          color: var(--e-color-warning-text);
         }
 
         &[type="error"] {
-          background-color: var(--e-color-error-1);
-
-          &::before {
-            color: var(--e-color-error-3);
-          }
+          background-color: var(--e-color-error);
+          color: var(--e-color-error-text);
         }
       }
     </style>
