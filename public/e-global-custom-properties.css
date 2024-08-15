@@ -1,4 +1,19 @@
-:root:has(input#color-scheme-dark:checked) {
+:root.dark-mode:not(#id-4-specificity) {
+      /* Dark Theme */
+      --e-color-gray-10:  hsl(0, 0%, 95%);
+      --e-color-gray-9:  hsl(0, 0%, 90%);
+      --e-color-gray-8:  hsl(0, 0%, 80%);
+      --e-color-gray-7:  hsl(0, 0%, 70%);
+      --e-color-gray-6:  hsl(0, 0%, 60%);
+      --e-color-gray-5: hsl(0, 0%, 50%);
+      --e-color-gray-4: hsl(0, 0%, 40%);
+      --e-color-gray-3: hsl(0, 0%, 30%);
+      --e-color-gray-2: hsl(0, 0%, 20%);
+      --e-color-gray-1: hsl(0, 0%, 10%);
+      --e-color-gray-0: hsl(0, 0%, 7%); 
+}
+
+:root:has(input[name=color-scheme][value=dark]:checked) {
   #color-scheme::after{ 
     content:'Dark Mode';
   }
@@ -15,7 +30,7 @@
       --e-color-gray-1: hsl(0, 0%, 10%);
       --e-color-gray-0: hsl(0, 0%, 7%); 
 }
-:root:has(input#color-scheme-light:checked) {
+:root:has(input[name=color-scheme][value=light]:checked) {
   #color-scheme::after{ 
     content:'Light Mode';
   }
@@ -32,7 +47,7 @@
   --e-color-gray-9: hsl(0, 0%, 10%);
   --e-color-gray-10: hsl(0, 0%, 7%); 
 }
-:root:has(input#color-scheme-auto:checked) {
+:root:has(input[name=color-scheme][value=auto]:checked) {
   #color-scheme::after{ 
     content:'Auto Mode';
   }
@@ -82,7 +97,7 @@
 
   --e-color-alert-text: hsl(0, 0%, 20%);
 
-  --e-color-info: #d8ebfe;
+  --e-color-info: #c4dffb;
   --e-color-info-contrast: #6990ee;
   
   --e-color-error: #fce2de;
@@ -125,6 +140,7 @@
   /* Borders */
   --e-border-radius-sm: 2px;
   --e-border-radius-md: 4px;
+  --e-border-radius-lg: 8px;
   --e-border-radius-full: 9999px;
 
   /* Other */

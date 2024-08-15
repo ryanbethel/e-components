@@ -1,6 +1,8 @@
-export default function Menu({ html }) {
-  return html`
-  <style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Menu extends CustomElement {
+    render({ html, state }) {
+        return html`  <style scope="global">
     /* Base menu styles */
     e-menu {
         display: inline-block;
@@ -16,7 +18,8 @@ export default function Menu({ html }) {
             display: none;
             position: absolute;
             transform: translateY(var(--e-space-xs));
-            background-color: white;
+            background-color: var(--e-color-elevated-surface);
+            color: var(--e-color-surface-text);
             border: 1px solid var(--e-color-gray-4);
             border-radius: var(--e-border-radius-sm);
             width: max-content;
@@ -104,4 +107,7 @@ class MenuElement extends HTMLElement {
 if (!customElements.get('e-menu')) { customElements.define("e-menu", MenuElement) };
 </script>
 `
+    }
 }
+
+if (!customElements.get("e-menu")) { customElements.define("e-menu", Menu) };

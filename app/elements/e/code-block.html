@@ -1,14 +1,15 @@
     <style scope="global">
+      /* Base code styles */
       e-code {
-        code {
+        pre {
           border-radius: var(--e-border-radius-md);
           background-color: var(--e-color-surface-well);
           color: var(--e-color-code-text);
-          padding: 1px 3px;
+          margin: 0;
+          padding: var(--e-space-xs) var(--e-space-sm);
         }
-
       }
     </style>
 
-    <code><slot></slot></code>
+    <pre><slot></slot></pre>
 

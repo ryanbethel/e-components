@@ -13,7 +13,7 @@ function createComponentWrappers() {
 
 function wrapOneComponent(srcPath) {
   const componentsDir = join(__dirname, 'app', 'components', 'e')
-  const template = readFileSync(resolve(__dirname, srcPath), { encoding: 'utf8' })
+  const template = readFileSync(resolve(__dirname, srcPath), { encoding: 'utf8' }).replace(/`/g, '\\`').replace(/\${/g, '\\${')
   const tag = parse(srcPath).name
   const wrapper = componentWrapper(tag, template)
   writeFileSync(join(componentsDir, `${tag}.mjs`), wrapper, { encoding: 'utf8' })

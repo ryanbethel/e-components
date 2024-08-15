@@ -1,8 +1,8 @@
-export default function Alert({ html, state }) {
-  const { attrs } = state;
-  const isDismissible = attrs.dismissible !== "false"; // string "false"
-  return html`
-    <style scope="global">
+import CustomElement from '@enhance/custom-element'
+
+export default class Alert extends CustomElement {
+    render({ html, state }) {
+        return html`    <style scope="global">
       /* Base styles */
       e-alert {
         display: flex;
@@ -45,35 +45,55 @@ export default function Alert({ html, state }) {
 
     <slot></slot>
 
-    ${isDismissible && '<e-button><button type=remove aria-label="Dismiss Alert" ></button></e-button>'}
-
     <script type="module">
       class AlertElement extends HTMLElement {
+
+          static get observedAttributes() {
+              return ["autodismiss", "dismissible"];
+          }
 
           constructor() {
               super();
               this.dismiss = this.dismiss.bind(this);
               this.autodismissChanged = this.autodismissChanged.bind(this);
+              this.setupDismissButton = this.setupDismissButton.bind(this);
+              this.cleanDismissButton = this.cleanDismissButton.bind(this);
           }
 
           connectedCallback() {
               if (this.getAttribute("dismissible") !== "false") {
-                  let dismissBtn = this.querySelector("e-button > button[type=remove]");
-                  if (!dismissBtn) { 
-                    dismissBtn = document.createElement("e-button");
-                    dismissBtn.innerHTML = '<button type=remove aria-label="Dismiss Alert" ></button>'
-                    this.appendChild(dismissBtn)
-                  }
-                  dismissBtn.addEventListener("click", () => this.dismiss());
               }
           }
 
-          static get observedAttributes() {
-              return ["autodismiss"];
+        setupDismissButton(){
+          let dismissBtn = this.querySelector("button[type=remove]");
+          if (!dismissBtn) { 
+            outerDismissBtn = document.createElement("e-button");
+            outerDismissBtn.innerHTML = '<button type=remove aria-label="Dismiss Alert" ></button>'
+            this.appendChild(outerDismissBtn)
+            dismissBtn = this.querySelector("button[type=remove]");
           }
+          dismissBtn?.addEventListener("click", this.dismiss);
+          dismissBtn?.addEventListener("keydown", (e) => {
+           if (e.key === 'Enter' || e.key === ' ') { this.dismiss }
+          });
+
+        }
+        cleanDismissButton(){
+          let dismissBtn = this.querySelector("e-button > button[type=remove]");
+          dismissBtn?.remove()
+        }
+
           
           attributeChangedCallback(name, oldValue, newValue) {
             if (name === "autodismiss") { this.autodismissChanged(newValue) }
+            if (name === "dismissible") {
+              if (newValue === "false") {
+                this.cleanUpDismissButton()
+              } else {
+                this.setupDismissButton()
+              }
+          }
           }
 
           autodismissChanged(value) {
@@ -89,6 +109,8 @@ export default function Alert({ html, state }) {
 
       if (!customElements.get('e-alert')) {customElements.define("e-alert", AlertElement)}
     </script>
-
-  `;
+`
+    }
 }
+
+if (!customElements.get("e-alert")) { customElements.define("e-alert", Alert) };

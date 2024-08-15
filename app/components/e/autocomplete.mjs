@@ -1,7 +1,33 @@
 import CustomElement from '@enhance/custom-element'
-import AutoComplete from '../elements/e/autocomplete.mjs'
 
-export default class AutoCompleteElement extends CustomElement {
+export default class Autocomplete extends CustomElement {
+    render({ html, state }) {
+        return html`<style scope="global">
+    /* Base styles */
+    e-autocomplete {
+        display: block;
+
+        /* Matches container */
+        & > div {
+            z-index: 1;
+            overflow: hidden;
+            min-width: 200px;
+
+            & > ul li:hover {
+                background-color: var(--e-color-gray-1);
+            }
+        }
+    }
+
+    /* When paired with label */
+    fieldset label + e-autocomplete {
+        margin-top: var(--e-space-xs);
+    }
+</style>
+<slot></slot>
+<script type="module">
+
+class AutoComplete extends HTMLElement {
   #initialized = false;
   #boundClose;
   #input;
@@ -30,8 +56,7 @@ export default class AutoCompleteElement extends CustomElement {
   connectedCallback() {
     if (!this.#initialized) {
       // this.#input = document.createElement('input');
-      this.#input = this.querySelector('input');
-      console.log(this.#input)
+      this.#input = this.querySelector('input')
       this.#input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
       this.#input.addEventListener('select', e => e.stopPropagation()); // Prevents text select event
       this.#input.addEventListener('keyup', e => this.search(e.currentTarget.value));
@@ -134,14 +159,17 @@ export default class AutoCompleteElement extends CustomElement {
   rerender(hasQuery) {
     this.#matches.hidden = !hasQuery;
     this.#matches.innerHTML = this.results.length
-      && `<ul type="none" >
-    ${this.results.reduce((acc, result) => acc += `<li class="pad-sm pointer" data-id="${result.id}" data-value="\${result.value}">${result.value}</li>`, '')}
-        </ul>`;
-  }
-
-  render({ html, state }) {
-    return AutoComplete({ html, state })
+      && \\`<ul type="none" >
+    \\${this.results.reduce((acc, result) => acc += \\`<li class="pad-sm pointer" data-id="\\${result.id}" data-value="\\${result.value}">\\${result.value}</li>\\`, '')}
+        </ul>\\`;
   }
 }
 
-if (!customElements.get('e-autocomplete')) { customElements.define("e-autocomplete", AutoCompleteElement) };
+if (!customElements.get('e-autocomplete')) { customElements.define("e-autocomplete", AutoComplete) };
+
+</script>
+`
+    }
+}
+
+if (!customElements.get("e-autocomplete")) { customElements.define("e-autocomplete", Autocomplete) };

@@ -1,5 +1,4 @@
-export default function AutoComplete({ html, state }) {
-  return html`<style scope="global">
+<style scope="global">
     /* Base styles */
     e-autocomplete {
         display: block;
@@ -165,5 +164,3 @@ class AutoComplete extends HTMLElement {
 if (!customElements.get('e-autocomplete')) { customElements.define("e-autocomplete", AutoComplete) };
 
 </script>
-`
-}

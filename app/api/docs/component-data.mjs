@@ -3,18 +3,14 @@ const components = [
     name: "Accordion",
     path: "accordion",
     exampleUsage: `<e-accordion>
-  <e-details>
     <details>
         <summary>Summary</summary>
         <p>Details about this thing</p>
     </details>
-  </e-details>
-  <e-details>
     <details>
       <summary>Summary</summary>
       <p>Details about this thing</p>
     </details>
-  </e-details>
 </e-accordion>
 
 

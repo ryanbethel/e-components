@@ -1,25 +1,52 @@
-<style>
-  .text-center {
-    text-align: center;
-  }
-</style>
 <e-responsive-header>
   <img slot=logo src="https://picsum.photos/24" alt="logo">
   <span slot=domain>Example.com</span>
-  <div class="debug" slot=nav-items>
+  <div slot=nav-items>
     <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
     <e-link><a href="/login" >Login</a></e-link>
   </div>
 </e-responsive-header>
 <label for=color-scheme-dark>Dark</label>
-  <input name=color-scheme id=color-scheme-dark type="radio" >
+  <input name=color-scheme value="dark" id=color-scheme-dark type="radio" >
 <label for=color-scheme-light>Light</label>
-  <input name=color-scheme id=color-scheme-light type="radio" >
+  <input name=color-scheme value="light" id=color-scheme-light type="radio" >
 <label for=color-scheme-auto>Auto</label>
-  <input name=color-scheme id=color-scheme-auto checked type="radio" >
+  <input name=color-scheme value="auto" id=color-scheme-auto checked type="radio" >
   <div id="color-scheme" class="text-center">
   </div>
-  <e-avatar shape="rectangle"></e-avatar>
+  <e-avatar>
+    <img slot=logo src="https://picsum.photos/100" alt="logo">
+  </e-avatar>
+  <e-avatar shape="square">
+    <img slot=logo src="" alt="logo">
+  </e-avatar>
+  <e-avatar text="RB" shape="circle"></e-avatar>
+  <e-avatar shape="circle"></e-avatar>
+  <e-avatar shape="square"> </e-avatar>
+  <e-avatar size=small shape="square" initials="RB"> </e-avatar>
+  <e-avatar size=medium shape="square" initials="RHB"> </e-avatar>
+  <e-avatar size=large shape="square" initials="RHB"> </e-avatar>
+  <e-avatar size=xlarge shape="square" initials="RHB"> </e-avatar>
+<e-dark-switch></e-dark-switch>
+<e-dark-switch type="menu"></e-dark-switch>
+<h1>HF-UI</h1>
+<h2>HTML First Components for Building Web Applications</h2>
+  <e-container>
+  <e-card title="My Card" href="#my-link">
+  <img slot=image src="https://picsum.photos/500" alt="logo">
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+<e-card title="No Link">
+  <img slot=image src="https://picsum.photos/500" alt="logo">
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+<e-card title="No Image" href="#my-link">
+  <p>This is the description of the card.</p>
+  <small>By e-component authors</small>
+</e-card>
+</e-container>
 <e-container>
   <e-breadcrumb >
     <nav>
@@ -32,19 +59,15 @@
 <e-seperator></e-seperator>
 <h1>Accordion</h1>
 <e-container>
-<e-accordion>
-  <e-details>
+<e-accordion auto-close>
     <details>
         <summary>Summary</summary>
         <p>Details about this thing</p>
     </details>
-  </e-details>
-  <e-details>
     <details>
       <summary>Summary</summary>
       <p>Details about this thing</p>
     </details>
-  </e-details>
 </e-accordion>
 </e-container>
 

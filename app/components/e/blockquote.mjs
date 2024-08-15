@@ -11,7 +11,7 @@ e-blockquote {
 }
 </style>
 
-<slot></slot>
+<blockquote><slot></slot></blockquote>
 
 `
     }

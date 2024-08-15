@@ -22,6 +22,11 @@ export default function Head({ req }) {
     name="description"
     content="The HTML first full stack web framework."
   />
+
+      <script>
+        const darkLightTheme = window.localStorage.getItem('dark-light-theme');
+        if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+        </script>
       </head >
     `;
 }

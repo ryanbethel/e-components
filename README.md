@@ -6,6 +6,11 @@ Some components have been changed to take advantage of Enhance features.
 For instance M- uses many element styles (i.e. button).
 This version uses a custom element wrapper for many of those (i.e. `<e-button>`), but because Enhance expands the element you don't need to author the button inside e-button.
 
+## Opinions
+- Use attributes to handle state. Enhance includes application state in the form of `state.store`, but this should be reserved for applications. These components do not expect or use the store. This makes them more flexible in other environments where only Enhance SSR is used (including Enahance SSR WASM).
+- Customization and configuration of these components is done primarily with custom properties. 
+
+
 ## Usage
 To use the components first install the package:
 ```sh
