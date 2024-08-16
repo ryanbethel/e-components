@@ -1,19 +1,21 @@
 # Goals
 - Outputs:
-  - Elements where HTML prefered for protability
+  - Elements where HTML preferred for portability
+  - Elements should be dependency free if possible so wasm ssr works better
   - PE script is vanilla for simplicity (i.e. no deps)
+  - Client 
   - API uses tag names and attributes 
   - Attributes used in CSS to style against and JS for interactivity
   - Attributes used in templating as a last resort (i.e. should not change structure of component based on attributes)
     - This requires more code in attribute changed callbacks to update with changed attributes. 
-    - If the structure is significantly different based on attribute it is better to have a seperate tag (i.e. v-rule and h-rule)
+    - If the structure is significantly different based on attribute it is better to have a separate tag (i.e. v-rule and h-rule)
 
 
 - Clientside
   - Most components should be able to be client rendered (both with children present or us createElement then add contents)
   - Some components that are clearly SSR only do not need this feature (like responsive headers or page layouts)
-  - For easy CSR api should prefer unamed slot only (i.e. `<slot></slot>`) or simple wrapped slot (i.e. `<blockquote><slot></slot></blockquote>`)
-  - Named slots with complex struture are better for SSR only usage
+  - For easy CSR api should prefer unnamed slot only (i.e. `<slot></slot>`) or simple wrapped slot (i.e. `<blockquote><slot></slot></blockquote>`)
+  - Named slots with complex structure are better for SSR only usage
   - Fully rendered contents can be CSRed with createElement easily. 
 
 - State (Attributes and Store)
@@ -63,3 +65,8 @@ Full rerender on state change should be opted into by passing options to the mix
 Unnamed slot with text nodes
 - this reslotting will fail to reslot text nodes in unnamed slots that are server rendered because there is no way to mark the text node in the dom to get it re associated with that node.
 - It might be possible to specify a range instead of a node to mark slotted text nodes. This would require some special handling to mark that range in SSR.
+
+Light Reslotting
+- Consider adding a `<lt-slot>` or something to stand in as slots for light dom. This might appease people who object to using slots in the light dom.
+
+
