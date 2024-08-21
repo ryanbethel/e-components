@@ -1,4 +1,6 @@
-export const style = /*html*/`
+import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+
+const styleString = /*html*/`
 <style scope=global>
   e-avatar {
   --avatar-size: 2.5rem;
@@ -78,27 +80,20 @@ e-avatar:not([text])::before {
 </style>
 `
 
-export const markup = /*html*/`<slot></slot>`
+const markupString = /*html*/`<slot></slot>`
 
-export const elementHTML = style + markup
-export const elementFunctionString = funWrapHTML(elementHTML)
-export const componentFunctionString = wrapComponentCE({tag:'e-avatar',style,markup})
 
-function wrapComponentCE({tag, style,markup}) {
-  const className = (tag.charAt(0).toUpperCase() + tag.slice(1)).replace('-', '')
-  const funString = /*javascript*/`
-import customElement from '/_public/browser/custom-element.mjs'
-class ${className} extends CustomElement {
-    constructor(){ super() }
-    render({html}){
-        return html\` 
-          ${escString(style)}
-          ${escString(markup)}
-          \`
-} 
-if (!customElements.get("e-{tag}")) { customElements.define("e-${tag}", ${className}) };
+const elementHTML = `
+${styleString}
+${markupString}
 `
-return funString 
-}
 
-function escString(str) {return str.replace(/`/g, '\\`').replace(/\${/g, '\\${')}
+const elementFunctionString = funWrapHTMLElement({tag:'e-avatar', htmlString:elementHTML})
+
+const componentFunctionString = wrapComponentCE({tag:'e-avatar',styleString,markupString})
+
+export default {
+  elementHTML,
+  elementFunctionString,
+  componentFunctionString
+} 

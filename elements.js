@@ -1,101 +1,84 @@
-import fs from "fs";
-import { join } from "path";
-const __dirname = new URL(".", import.meta.url).pathname;
+import eAlert from "./dist/elements-mjs/e-alert.mjs"
+import eAvatar from "./dist/elements-mjs/e-avatar.mjs"
+import eVRule from "./dist/elements-mjs/e-v-rule.mjs"
+import eHRule from "./dist/elements-mjs/e-h-rule.mjs"
+// import eMenu from "./dist/elements-mjs/e-menu.mjs"
+import eAutocomplete from "./dist/elements-mjs/e-autocomplete.mjs"
+import eAccordion from "./dist/elements-mjs/e-accordion.mjs"
+import eBadge from "./dist/elements-mjs/e-badge.mjs"
+import eBlockquote from "./dist/elements-mjs/e-blockquote.mjs"
+import eBox from "./dist/elements-mjs/e-box.mjs"
+import eBreadcrumb from "./dist/elements-mjs/e-breadcrumb.mjs"
+import eButton from "./dist/elements-mjs/e-button.mjs"
+import eCode from "./dist/elements-mjs/e-code.mjs"
+// import eCard from "./dist/elements-mjs/e-card.mjs"
+import eCodeBlock from "./dist/elements-mjs/e-code-block.mjs"
+import eCol from "./dist/elements-mjs/e-col.mjs"
+import eContainer from "./dist/elements-mjs/e-container.mjs"
+import eDetails from "./dist/elements-mjs/e-details.mjs"
+import eDialog from "./dist/elements-mjs/e-dialog.mjs"
+import eDot from "./dist/elements-mjs/e-dot.mjs"
+import eInputGroup from "./dist/elements-mjs/e-input-group.mjs"
+import eKeyboard from "./dist/elements-mjs/e-keyboard.mjs"
+import eLoader from "./dist/elements-mjs/e-loader.mjs"
+import eRow from "./dist/elements-mjs/e-row.mjs"
+import eSwitch from "./dist/elements-mjs/e-switch.mjs"
+import eTable from "./dist/elements-mjs/e-table.mjs"
+import eTabs from "./dist/elements-mjs/e-tabs.mjs"
+import eTag from "./dist/elements-mjs/e-tag.mjs"
+import eList from "./dist/elements-mjs/e-list.mjs"
+import eLink from "./dist/elements-mjs/e-link.mjs"
+import eResponsiveHeader from "./dist/elements-mjs/e-responsive-header.mjs"
+import eResponsiveSidebar from "./dist/elements-mjs/e-responsive-sidebar.mjs"
 
-import eAlert from "./app/elements/e/alert.mjs";
-import eSeperator from "./app/elements/e/seperator.mjs";
-import eMenu from "./app/elements/e/menu.mjs";
-import eResponsiveSidebar from "./app/elements/e/responsive-sidebar.mjs";
-import eResponsiveHeader from "./app/elements/e/responsive-header.mjs";
-
-const mjsElements = {
-  "e-alert": eAlert,
-  "e-seperator": eSeperator,
-  "e-menu": eMenu,
-  "e-responsive-sidebar": eResponsiveSidebar,
-  "e-responsive-header": eResponsiveHeader,
-};
-
-const htmlFiles = [
-  { tag: "e-accordion", path: "app/elements/e/accordion.html" },
-  { tag: "e-badge", path: "app/elements/e/badge.html" },
-  { tag: "e-button", path: "app/elements/e/button.html" },
-  { tag: "e-blockquote", path: "app/elements/e/blockquote.html" },
-  { tag: "e-box", path: "app/elements/e/box.html" },
-  { tag: "e-breadcrumb", path: "app/elements/e/breadcrumb.html" },
-  { tag: "e-code", path: "app/elements/e/code.html" },
-  { tag: "e-col", path: "app/elements/e/col.html" },
-  { tag: "e-container", path: "app/elements/e/container.html" },
-  { tag: "e-details", path: "app/elements/e/details.html" },
-  { tag: "e-dialog", path: "app/elements/e/dialog.html" },
-  { tag: "e-dot", path: "app/elements/e/dot.html" },
-  { tag: "e-input-group", path: "app/elements/e/input-group.html" },
-  { tag: "e-keyboard", path: "app/elements/e/keyboard.html" },
-  { tag: "e-loader", path: "app/elements/e/loader.html" },
-  { tag: "e-row", path: "app/elements/e/row.html" },
-  { tag: "e-switch", path: "app/elements/e/switch.html" },
-  { tag: "e-table", path: "app/elements/e/table.html" },
-  { tag: "e-tabs", path: "app/elements/e/tabs.html" },
-  { tag: "e-tag", path: "app/elements/e/tag.html" },
-  { tag: "e-list", path: "app/elements/e/list.html" },
-  { tag: "e-link", path: "app/elements/e/link.html" },
-  { tag: "e-code", path: "app/elements/e/code.html" },
-
-];
-// const elementWrapper = (htmlString) =>
-//   function ({ html, state }) {
-//     return html`${htmlString}`;
-//   };
-const elementWrapper = (htmlString) =>
-  new Function(
-    `return function ({ html, state }) { return html\`${htmlString}\`; }`,
-  )();
-
-let htmlElements = {};
-htmlFiles.map(({ tag, path }) => {
-  const htmlString = fs.readFileSync(join(__dirname, path), {
-    encoding: "utf8",
-  });
-  htmlElements[tag] = elementWrapper(htmlString);
-});
-
-let elements = {
-  ...htmlElements,
-  ...mjsElements,
-};
-
-const eAccordion = htmlElements["e-accordion"];
-const eBadge = htmlElements["e-badge"];
-const eBlockquote = htmlElements["e-blockquote"];
-const eBox = htmlElements["e-box"];
-const eBreadcrumb = htmlElements["e-breadcrumb"];
-const eButton = htmlElements["e-button"];
-const eCode = htmlElements["e-code"];
-const eCol = htmlElements["e-col"];
-const eContainer = htmlElements["e-container"];
-const eDetails = htmlElements["e-details"];
-const eDialog = htmlElements["e-dialog"];
-const eDot = htmlElements["e-dot"];
-const eInputgroup = htmlElements["e-input-group"];
-const eKeyboard = htmlElements["e-keyboard"];
-const eLoader = htmlElements["e-loader"];
-const eRow = htmlElements["e-row"];
-const eSwitch = htmlElements["e-switch"];
-const eTable = htmlElements["e-table"];
-const eTabs = htmlElements["e-tabs"];
-const eTag = htmlElements["e-tag"];
-const eList = htmlElements["e-list"];
-const eLink = htmlElements["e-link"];
-
+const elements = {
+  'e-alert': eAlert,
+  'e-avatar': eAvatar,
+  'e-autocomplete': eAutocomplete,
+  'e-button': eButton,
+  'e-code': eCode,
+  // 'e-card': eCard,
+  'e-code-block': eCodeBlock,
+  'e-link': eLink,
+  'e-h-rule': eHRule,
+  'e-v-rule': eVRule,
+  'e-switch': eSwitch,
+  'e-accordion': eAccordion,
+  'e-badge': eBadge,
+  'e-blockquote': eBlockquote,
+  'e-box': eBox,
+  'e-breadcrumb': eBreadcrumb,
+  'e-col': eCol,
+  'e-container': eContainer,
+  'e-details': eDetails,
+  'e-dialog': eDialog,
+  'e-dot': eDot,
+  'e-input-group': eInputGroup,
+  'e-keyboard': eKeyboard,
+  'e-loader': eLoader,
+  'e-list': eList,
+  // 'e-menu': eMenu,
+  'e-row': eRow,
+  'e-table': eTable,
+  'e-tabs': eTabs,
+  'e-tag': eTag,
+  'e-responsive-header': eResponsiveHeader,
+  'e-responsive-sidebar': eResponsiveSidebar,
+}
 
 export default elements;
 
 export {
   eAlert,
+  eAvatar,
+  eAutocomplete,
   eButton,
   eCode,
+  // eCard,
+  eCodeBlock,
   eLink,
-  eSeperator,
+  eHRule,
+  eVRule,
   eSwitch,
   eAccordion,
   eBadge,
@@ -107,16 +90,15 @@ export {
   eDetails,
   eDialog,
   eDot,
-  eInputgroup,
+  eInputGroup,
   eKeyboard,
   eLoader,
   eList,
-  eMenu,
-  eResponsiveHeader,
-  eResponsiveSidebar,
+  // eMenu,
   eRow,
   eTable,
   eTabs,
   eTag,
-
-};
+  eResponsiveHeader,
+  eResponsiveSidebar,
+}

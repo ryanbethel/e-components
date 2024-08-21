@@ -3,12 +3,15 @@
   - Elements where HTML preferred for portability
   - Elements should be dependency free if possible so wasm ssr works better
   - PE script is vanilla for simplicity (i.e. no deps)
+  - Style tags use self scoped styles by prepending the tag name so that these style tags can be added to the head even if enhance is not used. 
+
   - Client 
   - API uses tag names and attributes 
   - Attributes used in CSS to style against and JS for interactivity
   - Attributes used in templating as a last resort (i.e. should not change structure of component based on attributes)
     - This requires more code in attribute changed callbacks to update with changed attributes. 
     - If the structure is significantly different based on attribute it is better to have a separate tag (i.e. v-rule and h-rule)
+    - Templating of state in style and script should especially be avoided so that script and style can be placed independently without enhance.
 
 
 - Clientside
@@ -70,3 +73,48 @@ Light Reslotting
 - Consider adding a `<lt-slot>` or something to stand in as slots for light dom. This might appease people who object to using slots in the light dom.
 
 
+## Misc Ideas
+- Only do surgical DOM updates within a component. Don't pierce inside another component to change its guts. 
+- Don't add event listners that listen to internal elements in a component. 
+
+## Marking Slots
+```HTML
+<div>
+  <!-- slot start id=x5g -->
+    Text<p>stuff stuff</p>more text
+  <!-- slot-id=x5g -->
+</div>
+```
+
+```HTML
+<div>
+  <!-- slot start id=x5g -->
+  <slot></slot>
+  <!-- slot-id=x5g -->
+</div>
+```
+
+```HTML
+<div>
+  <p>stuff</p>
+  <slot-mark></slot-mark>
+  <slot></slot>
+  <slot-mark></slot-mark>
+  some text
+</div>
+```
+
+```HTML
+<div slot-id=xyz >
+  <p>stuff</p>
+  <slot></slot>
+  some text
+</div>
+```
+```HTML
+<div slot-id=xyz >
+  <p>stuff</p>
+  <slot></slot>
+  some text
+</div>
+```

@@ -8,7 +8,8 @@ prune true
 enhance/arc-plugin-enhance
 paramour/arc-plugin-paramour-css
 enhance/styles-cribsheet
-wrap-elements
+update-components
+# wrap-elements
 
 @paramour-css
 config paramour-config.mjs

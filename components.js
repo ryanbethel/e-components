@@ -1,87 +1,92 @@
-// import eAlert from "./app/components/e-alert.mjs";
-// import eSeperator from "./app/components/e-seperator.mjs";
-// import eMenu from "./app/components/e-menu.mjs";
-// import eAutocomplete from "./app/components/e-autocomplete.mjs";
-
-// import eAccordion from "./app/components/e/accordion.mjs"
-// import eBadge from "./app/components/e/badge.mjs"
-// import eBlockquote from "./app/components/e/blockquote.mjs"
-// import eBox from "./app/components/e/box.mjs"
-// import eBreadcrumb from "./app/components/e/breadcrumb.mjs"
-// import eButton from "./app/components/e/button.mjs"
-// import eCode from "./app/components/e/code.mjs"
-// import eCol from "./app/components/e/col.mjs"
-// import eContainer from "./app/components/e/container.mjs"
-// import eDetails from "./app/components/e/details.mjs"
-// import eDialog from "./app/components/e/dialog.mjs"
-// import eDot from "./app/components/e/dot.mjs"
-// import eInputgroup from "./app/components/e/input-group.mjs"
-// import eKeyboard from "./app/components/e/keyboard.mjs"
-// import eLoader from "./app/components/e/loader.mjs"
-// import eRow from "./app/components/e/row.mjs"
-// import eSwitch from "./app/components/e/switch.mjs"
-// import eTable from "./app/components/e/table.mjs"
-// import eTabs from "./app/components/e/tabs.mjs"
-// import eTag from "./app/components/e/tag.mjs"
-// import eList from "./app/components/e/list.mjs"
-// import eLink from "./app/components/e/link.mjs";
+import eAlert from "./dist/components/e-alert.mjs";
+import eVRule from "./dist/components/e-v-rule.mjs";
+import eHRule from "./dist/components/e-h-rule.mjs";
+// import eMenu from "./dist/components/e-menu.mjs";
+import eAutocomplete from "./dist/components/e-autocomplete.mjs";
+import eAccordion from "./dist/components/e-accordion.mjs"
+import eBadge from "./dist/components/e-badge.mjs"
+import eBlockquote from "./dist/components/e-blockquote.mjs"
+import eBox from "./dist/components/e-box.mjs"
+import eBreadcrumb from "./dist/components/e-breadcrumb.mjs"
+import eButton from "./dist/components/e-button.mjs"
+import eCode from "./dist/components/e-code.mjs"
+import eCodeBlock from "./dist/components/e-code-block.mjs"
+import eCol from "./dist/components/e-col.mjs"
+import eContainer from "./dist/components/e-container.mjs"
+import eDetails from "./dist/components/e-details.mjs"
+import eDialog from "./dist/components/e-dialog.mjs"
+import eDot from "./dist/components/e-dot.mjs"
+import eInputGroup from "./dist/components/e-input-group.mjs"
+import eKeyboard from "./dist/components/e-keyboard.mjs"
+import eLoader from "./dist/components/e-loader.mjs"
+import eRow from "./dist/components/e-row.mjs"
+import eSwitch from "./dist/components/e-switch.mjs"
+import eTable from "./dist/components/e-table.mjs"
+import eTabs from "./dist/components/e-tabs.mjs"
+import eTag from "./dist/components/e-tag.mjs"
+import eList from "./dist/components/e-list.mjs"
+import eLink from "./dist/components/e-link.mjs";
 
 const components = {
-  // eAlert,
-  // eAutocomplete,
-  // eButton,
-  // eCode,
-  // eLink,
-  // eSeperator,
-  // eSwitch,
-  // eAccordion,
-  // eBadge,
-  // eBlockquote,
-  // eBox,
-  // eBreadcrumb,
-  // eCol,
-  // eContainer,
-  // eDetails,
-  // eDialog,
-  // eDot,
-  // eInputgroup,
-  // eKeyboard,
-  // eLoader,
-  // eList,
+  eAlert,
+  eAutocomplete,
+  eButton,
+  eCode,
+  eCodeBlock,
+  eLink,
+  eHRule,
+  eVRule,
+  eSwitch,
+  eAccordion,
+  eBadge,
+  eBlockquote,
+  eBox,
+  eBreadcrumb,
+  eCol,
+  eContainer,
+  eDetails,
+  eDialog,
+  eDot,
+  eInputGroup,
+  eKeyboard,
+  eLoader,
+  eList,
   // eMenu,
-  // eRow,
-  // eTable,
-  // eTabs,
-  // eTag,
+  eRow,
+  eTable,
+  eTabs,
+  eTag,
 };
 
 export default components;
 
 export {
-  // eAlert,
-  // eAutocomplete,
-  // eButton,
-  // eCode,
-  // eLink,
-  // eSeperator,
-  // eSwitch,
-  // eAccordion,
-  // eBadge,
-  // eBlockquote,
-  // eBox,
-  // eBreadcrumb,
-  // eCol,
-  // eContainer,
-  // eDetails,
-  // eDialog,
-  // eDot,
-  // eInputgroup,
-  // eKeyboard,
-  // eLoader,
-  // eList,
+  eAlert,
+  eAutocomplete,
+  eButton,
+  eCode,
+  eCodeBlock,
+  eLink,
+  eHRule,
+  eVRule,
+  eSwitch,
+  eAccordion,
+  eBadge,
+  eBlockquote,
+  eBox,
+  eBreadcrumb,
+  eCol,
+  eContainer,
+  eDetails,
+  eDialog,
+  eDot,
+  eInputGroup,
+  eKeyboard,
+  eLoader,
+  eList,
   // eMenu,
-  // eRow,
-  // eTable,
-  // eTabs,
-  // eTag,
+  eRow,
+  eTable,
+  eTabs,
+  eTag,
 };

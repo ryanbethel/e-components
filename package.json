@@ -38,15 +38,17 @@
     "enhance"
   ],
   "scripts": {
-    "prepublish": "npm run wrapComponents",
-    "start": "npm run wrapComponents && enhance dev",
+    "prepublish": "npm run update-all",
+    "start": "npm run clean && npm run update-all && enhance dev",
+    "update-all": "node ./scripts/update-all.mjs",
+    "clean": "rm -rf ./dist",
     "wrapComponents": "node ./scripts/componentWrapper.mjs"
   },
   "devDependencies": {
     "@begin/cli": "^0.19.0",
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.2",
-    "@enhance/arc-plugin-enhance": "^11.0.1",
+    "@enhance/arc-plugin-enhance": "github:ryanbethel/arc-plugin-enhance#mark-slots",
     "@enhance/cli": "^1.1.0",
     "@enhance/styles-cribsheet": "^0.0.11",
     "@paramour/arc-plugin-paramour-css": "^1.0.0-rc.1",
