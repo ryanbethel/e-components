@@ -52,7 +52,14 @@ class ThemeSwitch extends HTMLElement {
   constructor() {
     super();
     const darkLightTheme = window.localStorage.getItem('dark-light-theme');
-    if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+    if (darkLightTheme === 'dark') { 
+      document.documentElement.classList.add('dark-mode'); 
+      document.documentElement.classList.remove('light-mode')
+    } 
+    if (darkLightTheme === 'light') { 
+      document.documentElement.classList.add('light-mode')
+      document.documentElement.classList.remove('dark-mode'); 
+    } 
   }
   connectedCallback() {
       const isEnhanced = this.getAttribute('enhanced') === '✨'
@@ -63,15 +70,45 @@ class ThemeSwitch extends HTMLElement {
       }
     this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
     this.themeSelector?.addEventListener('change', (e) => {
-      if (e.target.checked) {
-      localStorage.setItem('dark-light-theme', 'dark');
-      document.documentElement.classList.add('dark-mode')
-      } else {
-      localStorage.setItem('dark-light-theme', 'light');
-      document.documentElement.classList.remove('dark-mode')
-      }
+      const darkLightTheme = localStorage.getItem('dark-light-theme');
+      const docClasses = Array.from(document.documentElement.classList)
+      const isDarkClass = docClasses?.includes('dark-mode')
+      const isLightClass = docClasses?.includes('light-mode')
+      const isNoClass = !isDarkClass && !isLightClass
+      const targetTheme = e.target.checked ? 'dark' : 'light'
+      const targetDark = targetTheme === 'dark'
+      const targetLight = targetTheme === 'light'
+      const osAutoTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
+      console.log({docClasses, isDarkClass,isLightClass,isNoClass, targetDark, targetLight,osAutoTheme})
+      if (targetDark && (isDarkClass || (isNoClass && osAutoTheme==='dark'))) {
+        this.setTheme('light')
+        e.target.checked = false
+      } else if (targetLight && (isLightClass || (isNoClass && osAutoTheme==='light'))) {
+        this.setTheme('dark')
+        e.target.checked = true
+      } else if (targetDark) {
+        this.setTheme('dark')
+      } else if (targetLight) {
+        this.setTheme('light')
+      } 
     });
   } 
+  setTheme(theme) {
+    if (theme === "light") {
+      localStorage.setItem('dark-light-theme', 'light');
+      document.documentElement.classList.add('light-mode')
+      document.documentElement.classList.remove('dark-mode')
+    } else if (theme === "dark") {
+      localStorage.setItem('dark-light-theme', 'dark');
+      document.documentElement.classList.add('dark-mode')
+      document.documentElement.classList.remove('light-mode')
+    } else {
+      localStorage.setItem('dark-light-theme', 'auto');
+      document.documentElement.classList.remove('light-mode')
+      document.documentElement.classList.remove('dark-mode')
+    }
+  }
 }
 if (!customElements.get('e-theme-switch')) {customElements.define('e-theme-switch', ThemeSwitch);}
 `
@@ -96,7 +133,14 @@ export default class ThemeSwitch extends CustomElement {
       constructor() {
         super();
         const darkLightTheme = window.localStorage.getItem('dark-light-theme');
-        if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+        if (darkLightTheme === 'dark') { 
+          document.documentElement.classList.add('dark-mode'); 
+          document.documentElement.classList.remove('light-mode')
+        } 
+        if (darkLightTheme === 'light') { 
+          document.documentElement.classList.add('light-mode')
+          document.documentElement.classList.remove('dark-mode'); 
+        } 
       }
       connectedCallback() {
         this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
@@ -104,8 +148,10 @@ export default class ThemeSwitch extends CustomElement {
           if (e.target.checked) {
           localStorage.setItem('dark-light-theme', 'dark');
           document.documentElement.classList.add('dark-mode')
+          document.documentElement.classList.remove('light-mode')
           } else {
           localStorage.setItem('dark-light-theme', 'light');
+          document.documentElement.classList.add('light-mode')
           document.documentElement.classList.remove('dark-mode')
           }
         });

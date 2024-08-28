@@ -12,7 +12,7 @@ export default function Head({ req }) {
         <title>Enhance Starter Project</title>
         <link rel="icon" href="/_public/favicon.svg" />
 
-        ${edash ?  `
+        ${edash ? `
         <link rel="stylesheet" href="/_public/e-global-custom-properties.css" />
         ` : `
         ${getStyles.linkTag()}
@@ -25,7 +25,14 @@ export default function Head({ req }) {
 
       <script>
         const darkLightTheme = window.localStorage.getItem('dark-light-theme');
-        if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+        if (darkLightTheme === 'dark') { 
+          document.documentElement.classList.add('dark-mode'); 
+          document.documentElement.classList.remove('light-mode')
+        } 
+        if (darkLightTheme === 'light') { 
+          document.documentElement.classList.add('light-mode')
+          document.documentElement.classList.remove('dark-mode'); 
+        } 
         </script>
       </head >
     `;

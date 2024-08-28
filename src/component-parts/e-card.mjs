@@ -82,25 +82,25 @@ export default function Card({ html, state }) {
        }
 
       attributeChangedCallback(name, oldValue, newValue) {
-        const h2 = this.querySelector('div.title > h2')
+        const h2 = this.querySelector('div.text > h2')
         if (name === 'href') {
           const anchor = h2.querySelector('a')
-          if (a && newValue) {
+          if (anchor && newValue) {
              anchor.setAttribute('href', newValue)
           }
-          if (!a && newValue) {
+          if (!anchor && newValue) {
             const title = h2.textContent
             h2.innerHTML = '<a href="'+newValue+'">'+title+'</a>'
           }
-          if (!a && !newValue) {
+          if (!anchor && !newValue) {
           }
-          if (a && !newValue) {
+          if (anchor && !newValue) {
             const title = anchor.textContent
             h2.innerHTML = title
           }
         } else if (name === 'title') {
           const anchor = h2.querySelector('a')
-          if (a) {
+          if (anchor) {
              anchor.textContent = newValue
           } else { 
              h2.textContent = newValue
@@ -152,25 +152,25 @@ export default class ECard extends CustomElement {
        }
 
       attributeChangedCallback(name, oldValue, newValue) {
-        const h2 = this.querySelector('div.title > h2')
+        const h2 = this.querySelector('div.text > h2')
         if (name === 'href') {
           const anchor = h2.querySelector('a')
-          if (a && newValue) {
+          if (anchor && newValue) {
              anchor.setAttribute('href', newValue)
           }
-          if (!a && newValue) {
+          if (!anchor && newValue) {
             const title = h2.textContent
             h2.innerHTML = '<a href="'+newValue+'">'+title+'</a>'
           }
-          if (!a && !newValue) {
+          if (!anchor && !newValue) {
           }
-          if (a && !newValue) {
+          if (anchor && !newValue) {
             const title = anchor.textContent
             h2.innerHTML = title
           }
         } else if (name === 'title') {
           const anchor = h2.querySelector('a')
-          if (a) {
+          if (anchor) {
              anchor.textContent = newValue
           } else { 
              h2.textContent = newValue
