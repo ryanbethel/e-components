@@ -13,11 +13,11 @@ export default function Head({ req }) {
         <link rel="icon" href="/_public/favicon.svg" />
 
         ${edash ? `
-        <link rel="stylesheet" href="/_public/e-global-custom-properties.css" />
+        <link rel="stylesheet" href="/_public/hf-global-custom-properties.css" />
         ` : `
         ${getStyles.linkTag()}
         `}
-        <link rel="stylesheet" href="/_public/e-global-basic-reset.css" />
+        <link rel="stylesheet" href="/_public/hf-global-basic-reset.css" />
   <meta
     name="description"
     content="The HTML first full stack web framework."

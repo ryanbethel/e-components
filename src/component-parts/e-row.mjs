@@ -2,22 +2,22 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /* Inspired by Flexbox Grid https://github.com/kristoferjoseph/flexboxgrid */
-e-row {
+hf-row {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: var(--e-space-md);
+    gap: var(--hf-space-md);
 
     & + & {
-        margin-top: var(--e-space-md);
+        margin-top: var(--hf-space-md);
     }
 
     /* Centers columns inside the row */
     &[center] {
         justify-content: center;
 
-        & e-col:not([span]) {
+        & hf-col:not([span]) {
             flex-grow: inherit;
             flex-basis: inherit;
         }
@@ -35,9 +35,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-row', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-row', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-row', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-row', cssString, markupString })
 
 export default {
   elementHTML,

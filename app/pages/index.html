@@ -1,56 +1,56 @@
-<e-responsive-header>
+<hf-responsive-header>
   <img slot=logo src="https://picsum.photos/24" alt="logo">
   <span slot=domain>Example.com</span>
   <div slot=nav-items>
-    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
-    <e-link><a href="/login" >Login</a></e-link>
+    <hf-link><a aria-current=page href="/blog" >Blog</a></hf-link>
+    <hf-link><a href="/login" >Login</a></hf-link>
   </div>
-</e-responsive-header>
-<e-theme-switch></e-theme-switch>
-  <e-avatar>
+</hf-responsive-header>
+<hf-theme-switch></hf-theme-switch>
+  <hf-avatar>
     <img slot=logo src="https://picsum.photos/100" alt="logo">
-  </e-avatar>
-  <e-avatar shape="square">
+  </hf-avatar>
+  <hf-avatar shape="square">
     <img slot=logo src="" alt="logo">
-  </e-avatar>
-  <e-avatar text="RB" ></e-avatar>
-  <e-avatar shape="circle"></e-avatar>
-  <e-avatar shape="square"> </e-avatar>
-  <e-avatar size=small shape="square" text="RB"> </e-avatar>
-  <e-avatar size=medium shape="square" text="RHB"> </e-avatar>
-  <e-avatar size=large shape="square" text="RHB"> </e-avatar>
-  <e-avatar size=xlarge shape="square" text="RHB"> </e-avatar>
+  </hf-avatar>
+  <hf-avatar text="RB" ></hf-avatar>
+  <hf-avatar shape="circle"></hf-avatar>
+  <hf-avatar shape="square"> </hf-avatar>
+  <hf-avatar size=small shape="square" text="RB"> </hf-avatar>
+  <hf-avatar size=medium shape="square" text="RHB"> </hf-avatar>
+  <hf-avatar size=large shape="square" text="RHB"> </hf-avatar>
+  <hf-avatar size=xlarge shape="square" text="RHB"> </hf-avatar>
 <h1>HF-UI</h1>
 <h2>HTML First Components for Building Web Applications</h2>
-  <e-container>
-  <e-card title="My Card" href="#my-link">
+  <hf-container>
+  <hf-card title="My Card" href="#my-link">
   <img slot=image src="https://picsum.photos/500" alt="logo">
   <p>This is the description of the card.</p>
-  <small>By e-component authors</small>
-</e-card>
-<e-card title="No Link">
+  <small>By hf-component authors</small>
+</hf-card>
+<hf-card title="No Link">
   <img slot=image src="https://picsum.photos/500" alt="logo">
   <p>This is the description of the card.</p>
-  <small>By e-component authors</small>
-</e-card>
-<e-card title="No Image" href="#my-link">
+  <small>By hf-component authors</small>
+</hf-card>
+<hf-card title="No Image" href="#my-link">
   <p>This is the description of the card.</p>
-  <small>By e-component authors</small>
-</e-card>
-</e-container>
-<e-container>
-  <e-breadcrumb >
+  <small>By hf-component authors</small>
+</hf-card>
+</hf-container>
+<hf-container>
+  <hf-breadcrumb >
     <nav>
-      <e-link><a href="/">Home</a></e-link>
+      <hf-link><a href="/">Home</a></hf-link>
       <span aria-current="page">Examples</span>
     </nav>
-  </e-breadcrumb>
+  </hf-breadcrumb>
   <h1 >Component Examples</h1>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Accordion</h1>
-<e-container>
-<e-accordion auto-close>
+<hf-container>
+<hf-accordion auto-close>
     <details>
         <summary>Summary</summary>
         <p>Details about this thing</p>
@@ -59,25 +59,25 @@
       <summary>Summary</summary>
       <p>Details about this thing</p>
     </details>
-</e-accordion>
-</e-container>
+</hf-accordion>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Dots</h1>
-<e-container>
-<e-dot type="info">Information</e-dot>
-<e-dot type="success">Success</e-dot>
-<e-dot type="warn">Warning</e-dot>
-<e-dot type="error">Error</e-dot>
-<e-dot>Unknown</e-dot>
-</e-container>
+<hf-container>
+<hf-dot type="info">Information</hf-dot>
+<hf-dot type="success">Success</hf-dot>
+<hf-dot type="warn">Warning</hf-dot>
+<hf-dot type="error">Error</hf-dot>
+<hf-dot>Unknown</hf-dot>
+</hf-container>
 
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Autocomplete</h1>
-<e-container>
-  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
-  <e-input-group>
+<hf-container>
+  <hf-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
+  <hf-input-group>
     <label>Search</label>
     <input type=text />
     <datalist id="fruit">
@@ -86,436 +86,436 @@
       <option value="cherry"></option>
       <option value="peach"></option>
     </datalist>
-  </e-input-group>
-</e-autocomplete>
+  </hf-input-group>
+</hf-autocomplete>
 
-</e-container>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Badge</h1>
-<e-container>
-  <e-badge count="4"></e-badge>
-  <e-badge>New</e-badge>
-</e-container>
+<hf-container>
+  <hf-badge count="4"></hf-badge>
+  <hf-badge>New</hf-badge>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Tags</h1>
-<e-container>
-<e-tag>non-smoking</e-tag>
-<e-tag>WiFi</e-tag>
-<e-tag>pool</e-tag>
-<e-tag style="--color:var(--e-color-error)">pool</e-tag>
-<e-tag>
+<hf-container>
+<hf-tag>non-smoking</hf-tag>
+<hf-tag>WiFi</hf-tag>
+<hf-tag>pool</hf-tag>
+<hf-tag style="--color:var(--hf-color-error)">pool</hf-tag>
+<hf-tag>
     free breakfast
-    <e-button><button type="remove"></button></e-button>
-</e-tag>
-</e-container>
+    <hf-button><button type="remove"></button></hf-button>
+</hf-tag>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Breadcrumb</h1>
-<e-container>
-  <e-breadcrumb>
+<hf-container>
+  <hf-breadcrumb>
   <nav>
-    <e-link><a href="#">Home</a></e-link>
-    <e-link><a href="#">Shoes</a></e-link>
+    <hf-link><a href="#">Home</a></hf-link>
+    <hf-link><a href="#">Shoes</a></hf-link>
     <span aria-current="page">Women</span>
   </nav>
-</e-breadcrumb>
-<e-seperator></e-seperator>
-<e-breadcrumb>
+</hf-breadcrumb>
+<hf-seperator></hf-seperator>
+<hf-breadcrumb>
     <nav>
-        <e-link><a href="#home">Home</a></e-link>
-        <e-link><a href="#shoes">Shoes</a></e-link>
-        <e-crumb>
-            <e-menu>
+        <hf-link><a href="#home">Home</a></hf-link>
+        <hf-link><a href="#shoes">Shoes</a></hf-link>
+        <hf-crumb>
+            <hf-menu>
                 <span role="link" slot="trigger">Womens ↓</span>
                 <div slot="items">
-                    <e-link><a href="#womens-casual">👞 Casual</a></e-link>
-                    <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
-                    <e-link><a href="#womens-formal">👠 Formal</a></e-link>
+                    <hf-link><a href="#womens-casual">👞 Casual</a></hf-link>
+                    <hf-link><a href="#womens-sporty">👟 Sporty</a></hf-link>
+                    <hf-link><a href="#womens-formal">👠 Formal</a></hf-link>
                 </div>
-            </e-menu>
-        </e-crumb>
+            </hf-menu>
+        </hf-crumb>
         <span>Sport</span>
     </nav>
-</e-breadcrumb>
-</e-container>
+</hf-breadcrumb>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Blockquote</h1>
-<e-container>
+<hf-container>
 Some Regular text
-<e-blockquote>
+<hf-blockquote>
   <blockquote>Someone said something.</blockquote>
-</e-blockquote>
-</e-container>
+</hf-blockquote>
+</hf-container>
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1>Button</h1>
-<e-container>
+<hf-container>
   <p> Ordinal name</p>
-<e-button ord=primary ><button >Primary</button></e-button>
-<e-button ord=secondary ><button >Secondary</button></e-button>
-<e-button ord=tertiary ><button >Tertiary</button></e-button>
+<hf-button ord=primary ><button >Primary</button></hf-button>
+<hf-button ord=secondary ><button >Secondary</button></hf-button>
+<hf-button ord=tertiary ><button >Tertiary</button></hf-button>
 <p>Disabled state</p>
-<e-button ord=primary ><button disabled>Disabled</button></e-button>
+<hf-button ord=primary ><button disabled>Disabled</button></hf-button>
 <p>Link as button</p>
-<e-button ord=primary><a role="button" href="/button">Link</a></e-button>
+<hf-button ord=primary><a role="button" href="/button">Link</a></hf-button>
 <p>Remove type</p>
-<e-button><button type="remove"></button></e-button>
+<hf-button><button type="remove"></button></hf-button>
 <p>Button group</p>
 <div role="group">
-    <e-button ord="secondary"><button  aria-pressed="true">One</button></e-button>
-    <e-button ord="secondary"><button >Two</button></e-button>
-    <e-button ord="secondary"><button >Three</button></e-button>
+    <hf-button ord="secondary"><button  aria-pressed="true">One</button></hf-button>
+    <hf-button ord="secondary"><button >Two</button></hf-button>
+    <hf-button ord="secondary"><button >Three</button></hf-button>
 </div>
-</e-container>
+</hf-container>
 
 
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <h1 id="alert" >Alert</h1>
-<e-container>
+<hf-container>
   <h2>All types</h2>
-  <e-alert type="info">Sign up for<e-link><a href="#alert" >&nbsp;premium&nbsp;</a></e-link> to see the full list</e-alert>
-  <e-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</e-alert>
-  <e-alert type="warn">Your flight has been canceled.</e-alert>
-  <e-alert type="error">You do not have permission to delete records.</e-alert>
+  <hf-alert type="info">Sign up for<hf-link><a href="#alert" >&nbsp;premium&nbsp;</a></hf-link> to see the full list</hf-alert>
+  <hf-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</hf-alert>
+  <hf-alert type="warn">Your flight has been canceled.</hf-alert>
+  <hf-alert type="error">You do not have permission to delete records.</hf-alert>
   <h2>Not dismissible</h2>
-  <e-alert type="info" dismissible="false">You can't get rid of me.</e-alert>
+  <hf-alert type="info" dismissible="false">You can't get rid of me.</hf-alert>
 <!--  <h2>Autodismiss (default of 4 seconds and 5, 6, 7 seconds)</h2>-->
 <!--  <div>-->
-<!--    <-alert type="info" autodismiss>Goodbye in 4...</e-alert>-->
-<!--    <e-alert type="success" autodismiss="5">Goodbye in 5...</e-alert>-->
-<!--    <e-alert type="warn" autodismiss="6">Goodbye in 6...</e-alert>-->
-<!--    <e-alert type="error" autodismiss="7">Goodbye in 7...</e-alert>-->
+<!--    <-alert type="info" autodismiss>Goodbye in 4...</hf-alert>-->
+<!--    <hf-alert type="success" autodismiss="5">Goodbye in 5...</hf-alert>-->
+<!--    <hf-alert type="warn" autodismiss="6">Goodbye in 6...</hf-alert>-->
+<!--    <hf-alert type="error" autodismiss="7">Goodbye in 7...</hf-alert>-->
 <!--  </div>-->
-</e-container>
-<e-seperator ></e-seperator>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Containers" >Container</h1>
-<e-container maxwidth="sm">
+<hf-container maxwidth="sm">
   <h2>Small container</h2>
-  <e-box ord="primary">
+  <hf-box ord="primary">
     <h1 >Log in</h1>
     <form>
-      <e-input-group>
+      <hf-input-group>
         <label>Email</label>
         <input type=email>
-      </e-input-group>
-      <e-input-group>
+      </hf-input-group>
+      <hf-input-group>
         <label>Password</label>
         <input type=password>
-        <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
-      </e-input-group>
+        <small><hf-link><a href="/forgot">Forgot password</a></hf-link></small>
+      </hf-input-group>
     </form>
-    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
-  </e-box>
-</e-container>
-<e-container maxwidth="md">
+    <div >Not a member? <hf-link><a href="/sign-up">Sign up</a></hf-link></div>
+  </hf-box>
+</hf-container>
+<hf-container maxwidth="md">
   <h2>Medium container</h2>
-  <e-box ord="primary">
+  <hf-box ord="primary">
     <h1 >Log in</h1>
     <form>
-      <e-input-group>
+      <hf-input-group>
         <label>Email</label>
         <input type=email>
-      </e-input-group>
-      <e-input-group>
+      </hf-input-group>
+      <hf-input-group>
         <label>Password</label>
         <input type=password>
-        <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
-      </e-input-group>
+        <small><hf-link><a href="/forgot">Forgot password</a></hf-link></small>
+      </hf-input-group>
     </form>
-    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
-  </e-box>
-</e-container>
-<e-container>
+    <div >Not a member? <hf-link><a href="/sign-up">Sign up</a></hf-link></div>
+  </hf-box>
+</hf-container>
+<hf-container>
   <h2>Default container</h2>
-  <e-box ord="primary">
+  <hf-box ord="primary">
     <h1 >Log in</h1>
     <form>
-      <e-input-group>
+      <hf-input-group>
         <label>Email</label>
         <input type=email>
-      </e-input-group>
-      <e-input-group>
+      </hf-input-group>
+      <hf-input-group>
         <label>Password</label>
         <input type=password>
-        <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
-      </e-input-group>
+        <small><hf-link><a href="/forgot">Forgot password</a></hf-link></small>
+      </hf-input-group>
     </form>
-    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
-  </e-box>
-</e-container>
-<e-container maxwidth="none">
+    <div >Not a member? <hf-link><a href="/sign-up">Sign up</a></hf-link></div>
+  </hf-box>
+</hf-container>
+<hf-container maxwidth="none">
   <h2>maxwidth=none container</h2>
-  <e-box ord="primary">
+  <hf-box ord="primary">
     <h1 >Log in</h1>
     <form>
-      <e-input-group>
+      <hf-input-group>
         <label>Email</label>
         <input type=email>
-      </e-input-group>
-      <e-input-group>
+      </hf-input-group>
+      <hf-input-group>
         <label>Password</label>
         <input type=password>
-        <small><e-link><a href="/forgot">Forgot password</a></e-link></small>
-      </e-input-group>
+        <small><hf-link><a href="/forgot">Forgot password</a></hf-link></small>
+      </hf-input-group>
     </form>
-    <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
-  </e-box>
-</e-container>
-<e-seperator ></e-seperator>
+    <div >Not a member? <hf-link><a href="/sign-up">Sign up</a></hf-link></div>
+  </hf-box>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Grids" >Grids</h1>
-<e-container>
+<hf-container>
   <h2>Auto-span</h2>
-  <e-row>
-    <e-col>
-      <e-box>One column in one row.</e-box></e-col>
-  </e-row>
-  <e-row>
-    <e-col>
-      <e-box>Two columns...</e-box></e-col>
-    <e-col>
-      <e-box>in another row.</e-box></e-col>
-  </e-row>
-  <e-row>
-    <e-col>
-      <e-box>Three columns...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>in...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>yet another row.</e-box>
-    </e-col>
-  </e-row>
+  <hf-row>
+    <hf-col>
+      <hf-box>One column in one row.</hf-box></hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col>
+      <hf-box>Two columns...</hf-box></hf-col>
+    <hf-col>
+      <hf-box>in another row.</hf-box></hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col>
+      <hf-box>Three columns...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>in...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>yet another row.</hf-box>
+    </hf-col>
+  </hf-row>
   <h2>Span size and auto-span</h2>
-  <e-row>
-    <e-col span="3">
-      <e-box>One column with <e-code><code>span="3"</code></e-code>...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>and a second column fills remaining space.</e-box>
-    </e-col>
-  </e-row>
-  <e-row>
-    <e-col span="3">
-      <e-box>One column with <e-code><code>span="3"</code></e-code>...</e-box>
-    </e-col>
-    <e-col span="4">
-      <e-box>another with <e-code><code>span="4"</code></e-code>...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>and a third column fills remaining space.</e-box>
-    </e-col>
-  </e-row>
-  <e-row>
-    <e-col span="7">
-      <e-box>One column with <e-code><code>span="7"</code></e-code> and no other columns.</e-box>
-    </e-col>
-  </e-row>
-  <e-row>
-    <e-col span="7">
-      <e-box>One column with <e-code><code>span="7"</code></e-code>...</e-box>
-    </e-col>
-    <e-col span="5">
-      <e-box>another with <e-code><code>span="5"</code></e-code> to make 12.</e-box>
-    </e-col>
-  </e-row>
-  <e-row>
-    <e-col span="7">
-      <e-box>One column with <e-code><code>span="7"</code></e-code>...</e-box>
-    </e-col>
-    <e-col span="6">
-      <e-box>and another with <e-code><code>span="6"</code></e-code>, which exceeds the 12 column grid. <span>Avoid!</span></e-box>
-    </e-col>
-  </e-row>
+  <hf-row>
+    <hf-col span="3">
+      <hf-box>One column with <hf-code><code>span="3"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>and a second column fills remaining space.</hf-box>
+    </hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col span="3">
+      <hf-box>One column with <hf-code><code>span="3"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col span="4">
+      <hf-box>another with <hf-code><code>span="4"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>and a third column fills remaining space.</hf-box>
+    </hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col span="7">
+      <hf-box>One column with <hf-code><code>span="7"</code></hf-code> and no other columns.</hf-box>
+    </hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col span="7">
+      <hf-box>One column with <hf-code><code>span="7"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col span="5">
+      <hf-box>another with <hf-code><code>span="5"</code></hf-code> to make 12.</hf-box>
+    </hf-col>
+  </hf-row>
+  <hf-row>
+    <hf-col span="7">
+      <hf-box>One column with <hf-code><code>span="7"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col span="6">
+      <hf-box>and another with <hf-code><code>span="6"</code></hf-code>, which exceeds the 12 column grid. <span>Avoid!</span></hf-box>
+    </hf-col>
+  </hf-row>
   <h2>Centering columns</h2>
-  <e-row center>
-    <e-col>
-      <e-box>One auto-span column inside a <e-code><code>center</code></e-code>ed row.</e-box>
-    </e-col>
-  </e-row>
-  <e-row center>
-    <e-col span="3">
-      <e-box>One column with <e-code><code>span="3"</code></e-code>...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>and one with the default auto-span inside a <e-code><code>center</code></e-code>ed row.</e-box>
-    </e-col>
-  </e-row>
+  <hf-row center>
+    <hf-col>
+      <hf-box>One auto-span column inside a <hf-code><code>center</code></hf-code>ed row.</hf-box>
+    </hf-col>
+  </hf-row>
+  <hf-row center>
+    <hf-col span="3">
+      <hf-box>One column with <hf-code><code>span="3"</code></hf-code>...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>and one with the default auto-span inside a <hf-code><code>center</code></hf-code>ed row.</hf-box>
+    </hf-col>
+  </hf-row>
   <h2>Responsive columns</h2>
-  <e-row>
-    <e-col span="3 sm-12 md-5"><e-box>This column spans 3 on lg screens, 5 on md, and 12 on sm.</e-box></e-col>
-    <e-col span="9 sm-12 md-7"><e-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</e-box></e-col>
-  </e-row>
-</e-container>
-<e-seperator ></e-seperator>
+  <hf-row>
+    <hf-col span="3 sm-12 md-5"><hf-box>This column spans 3 on lg screens, 5 on md, and 12 on sm.</hf-box></hf-col>
+    <hf-col span="9 sm-12 md-7"><hf-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</hf-box></hf-col>
+  </hf-row>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Boxes" >Boxes</h1>
-<e-container>
+<hf-container>
   <h2>Default</h2>
   <div>Regular text on the page.</div>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <e-box>
+  <hf-box>
     <div>Regular text in a Box.</div>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </e-box>
-  <e-box ord="secondary">
+  </hf-box>
+  <hf-box ord="secondary">
     <div>Regular text in a secondary Box.</div>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </e-box>
+  </hf-box>
   <h2>Three in a row</h2>
-  <e-row>
-    <e-col>
+  <hf-row>
+    <hf-col>
       <div>Regular text on the page</div>
-    </e-col>
-    <e-col>
-      <e-box>Regular text in a Box</e-box>
-    </e-col>
-    <e-col>
-      <e-box ord="secondary">Regular text in a secondary Box</e-box>
-    </e-col>
-  </e-row>
+    </hf-col>
+    <hf-col>
+      <hf-box>Regular text in a Box</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box ord="secondary">Regular text in a secondary Box</hf-box>
+    </hf-col>
+  </hf-row>
   <h2>Nesting a secondary Box</h2>
-  <e-row>
-    <e-col >
-      <e-box>
+  <hf-row>
+    <hf-col >
+      <hf-box>
         <h2 >Create an account</h2>
         <form>
-          <e-input-group>
+          <hf-input-group>
             <label>Email</label>
             <input type=email>
-          </e-input-group>
-          <e-input-group>
+          </hf-input-group>
+          <hf-input-group>
             <label>Password</label>
             <input type=password>
             <small>Must have a number and be 6 or more characters</small>
-          </e-input-group>
-          <e-box ord="secondary" ><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></e-box>
-          <e-button ord="primary"><button type="submit" >Continue</button></e-button>
+          </hf-input-group>
+          <hf-box ord="secondary" ><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></hf-box>
+          <hf-button ord="primary"><button type="submit" >Continue</button></hf-button>
         </form>
-      </e-box>
-    </e-col>
-  </e-row>
-</e-container>
-<e-seperator ></e-seperator>
+      </hf-box>
+    </hf-col>
+  </hf-row>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Dialogs" >Dialogs</h1>
-<e-container>
-  <e-dialog id="overflowingcontent">
+<hf-container>
+  <hf-dialog id="overflowingcontent">
     <dialog>
     <h2>Title</h2>
     <p>Body lorem ipsum</p>
     <p>Regular text on the page.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
       dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <e-box>
+    <hf-box>
       <p>Regular text in a Box.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </e-box>
+    </hf-box>
     <p>Body lorem ipsum</p>
     <p>Regular text on the page.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
       dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <e-box>
+    <hf-box>
       <p>Regular text in a Box.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </e-box>
+    </hf-box>
     <p>Body lorem ipsum</p>
     <p>Regular text on the page.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
       dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <e-box>
+    <hf-box>
       <p>Regular text in a Box.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </e-box>
+    </hf-box>
     <p>Body lorem ipsum</p>
     <p>Regular text on the page.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
       dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <e-box>
+    <hf-box>
       <p>Regular text in a Box.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </e-box>
+    </hf-box>
     </dialog>
-  </e-dialog>
-  <e-dialog id="mincontent">
+  </hf-dialog>
+  <hf-dialog id="mincontent">
     <dialog>
     <div>Text</div>
     </dialog>
-  </e-dialog>
-  <e-dialog id="nocontent">
+  </hf-dialog>
+  <hf-dialog id="nocontent">
     <dialog>
     </dialog>
-  </e-dialog>
-  <e-dialog id="hasform">
+  </hf-dialog>
+  <hf-dialog id="hasform">
     <dialog>
     <h1 >Log in</h1>
     <form>
-      <e-input type=email>
+      <hf-input type=email>
         <span slot=label>Email</span>
-      </e-input>
-      <e-input type=password>
+      </hf-input>
+      <hf-input type=password>
         <span slot=label>Password</span>
-          <span slot=info> <e-link><a href="/forgot">Forgot password</a></e-link></span>
-      </e-input>
+          <span slot=info> <hf-link><a href="/forgot">Forgot password</a></hf-link></span>
+      </hf-input>
     </form>
-      <div >Not a member? <e-link><a href="/sign-up">Sign up</a></e-link></div>
-    <p style="max-width: 500px"><span ><e-icon name="bulb"></e-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
+      <div >Not a member? <hf-link><a href="/sign-up">Sign up</a></hf-link></div>
+    <p style="max-width: 500px"><span ><hf-icon name="bulb"></hf-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
     </dialog>
-  </e-dialog>
-  <e-dialog id="modeless">
+  </hf-dialog>
+  <hf-dialog id="modeless">
     <dialog>
     <h1>Modeless</h1>
-      <p>This Dialog is opened with the <e-code><code>show()</code></e-code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
+      <p>This Dialog is opened with the <hf-code><code>show()</code></hf-code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
     </dialog>
-  </e-dialog>
-  <e-button ord="primary"><button onclick="document.querySelector('#overflowingcontent dialog').showModal()">Open "overflowing content" Dialog</button></e-button>
-  <e-button ord="primary"><button onclick="document.querySelector('#mincontent dialog').showModal()" >Open "minimum content" Dialog</button></e-button>
-  <e-button ord="primary"><button onclick="document.querySelector('#nocontent dialog').showModal()" >Open "no content" Dialog</button></e-button>
-  <e-button ord="primary"><button onclick="document.querySelector('#hasform dialog').showModal()" >Open "has form" Dialog</button></e-button>
-  <e-button ord="primary"><button onclick="document.querySelector('#modeless dialog').show()" >Open "modeless" Dialog</button></e-button>
-</e-container>
-<e-seperator ></e-seperator>
+  </hf-dialog>
+  <hf-button ord="primary"><button onclick="document.querySelector('#overflowingcontent dialog').showModal()">Open "overflowing content" Dialog</button></hf-button>
+  <hf-button ord="primary"><button onclick="document.querySelector('#mincontent dialog').showModal()" >Open "minimum content" Dialog</button></hf-button>
+  <hf-button ord="primary"><button onclick="document.querySelector('#nocontent dialog').showModal()" >Open "no content" Dialog</button></hf-button>
+  <hf-button ord="primary"><button onclick="document.querySelector('#hasform dialog').showModal()" >Open "has form" Dialog</button></hf-button>
+  <hf-button ord="primary"><button onclick="document.querySelector('#modeless dialog').show()" >Open "modeless" Dialog</button></hf-button>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Forms" >Forms</h1>
-<e-container>
+<hf-container>
   <h2>Everything form</h2>
   <form>
-    <e-input-group>
+    <hf-input-group>
       <label>Text inputs</label>
       <input type="text" placeholder="Text">
       <input type="email" placeholder="Email">
       <input type="number" placeholder="Number">
       <input type="password" placeholder="Password">
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
       <label>Text area</label>
       <textarea rows="3"></textarea>
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
       <label>Checkbox</label>
       <input type="checkbox"><label>One</label>
       <input type="checkbox"><label>Two</label>
       <input type="checkbox"><label>Three</label>
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
       <label>Radio</label>
       <input type="radio"><label>One</label>
       <input type="radio"><label>Two</label>
       <input type="radio"><label>Three</label>
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
       <label>Switch</label>
-      <e-switch><input type="checkbox" is="switch" checked></e-switch>
-    </e-input-group>
-    <e-input-group>
+      <hf-switch><input type="checkbox" is="switch" checked></hf-switch>
+    </hf-input-group>
+    <hf-input-group>
       <label>Range</label>
       <input type="range">
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
       <label>Selects</label>
       <select>
         <option>Single...</option>
@@ -542,127 +542,127 @@ Some Regular text
         <option>Two</option>
         <option>Three</option>
       </select>
-    </e-input-group>
-    <e-button ord="primary"><button type="submit">Submit</button></e-button>
-    <e-button ord="secondary"><button type="button">Cancel</button></e-button>
+    </hf-input-group>
+    <hf-button ord="primary"><button type="submit">Submit</button></hf-button>
+    <hf-button ord="secondary"><button type="button">Cancel</button></hf-button>
   </form>
-</e-container>
-<e-seperator ></e-seperator>
+</hf-container>
+<hf-seperator ></hf-seperator>
 <h1 id="Details" >Details</h1>
-<e-container>
+<hf-container>
   <p>This is a short bit of info about elephants.</p>
-  <e-details>
+  <hf-details>
     <details>
-      <summary><e-link><a>Learn more</a></e-link></summary>
+      <summary><hf-link><a>Learn more</a></hf-link></summary>
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
     </details>
-  </e-details>
-</e-container>
+  </hf-details>
+</hf-container>
 <h1 id="Loader" >Loader</h1>
-<e-container>
+<hf-container>
   <h2>Basic loaders</h2>
-  <p>Loader on its own: <e-loader loading></e-loader></p>
-  <p>Loader without <e-code><code>loading</code></e-code>: <e-loader></e-loader></p>
-  <p>Loader with text: <e-loader loading>Searching...</e-loader></p>
+  <p>Loader on its own: <hf-loader loading></hf-loader></p>
+  <p>Loader without <hf-code><code>loading</code></hf-code>: <hf-loader></hf-loader></p>
+  <p>Loader with text: <hf-loader loading>Searching...</hf-loader></p>
   <h2 >Loader used in button</h2>
-  <div>The Loader in this button is <e-code><code>hidden</code></e-code> waiting for the user to click... <e-button ord="primary"><button><e-loader loading hidden></e-loader>Save</e-button></button></div>
-  <div>When clicked, the app removes <e-code><code>hidden</code></e-code> from the Loader and adds <e-code><code>disabled</code></e-code> to the button and updates its label: <e-button ord="primary"><button disabled><e-loader loading></e-loader>Saving</e-button ord=primary></button></div>
+  <div>The Loader in this button is <hf-code><code>hidden</code></hf-code> waiting for the user to click... <hf-button ord="primary"><button><hf-loader loading hidden></hf-loader>Save</hf-button></button></div>
+  <div>When clicked, the app removes <hf-code><code>hidden</code></hf-code> from the Loader and adds <hf-code><code>disabled</code></hf-code> to the button and updates its label: <hf-button ord="primary"><button disabled><hf-loader loading></hf-loader>Saving</hf-button ord=primary></button></div>
   <h2>Loader and links</h2>
-  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <e-code><code>loading</code></e-code> attribute and text based on the state of the process: <e-link><a href="#"><e-loader loading>Pause</e-loader></a></e-link> / <e-link href="#"><e-loader>Resume</e-loader></e-link></p>
+  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <hf-code><code>loading</code></hf-code> attribute and text based on the state of the process: <hf-link><a href="#"><hf-loader loading>Pause</hf-loader></a></hf-link> / <hf-link href="#"><hf-loader>Resume</hf-loader></hf-link></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
   <div style="width: 400px">
-    <e-loader loading class="block">Downloading...</e-loader>
-    <e-link><a href="" class="block">Stop</a></e-link>
+    <hf-loader loading class="block">Downloading...</hf-loader>
+    <hf-link><a href="" class="block">Stop</a></hf-link>
   </div>
   <h2>Loader size</h2>
   <p>Explicit font-size of 70px:</p>
-  <e-loader loading style="font-size: 70px"></e-loader>
+  <hf-loader loading style="font-size: 70px"></hf-loader>
   <p>Inherited size:</p>
-  <h1><e-loader loading>Inside heading 1</e-loader></h1>
-  <h2><e-loader loading>Inside heading 2</e-loader></h2>
-  <h3><e-loader loading>Inside heading 3</e-loader></h3>
-  <h4><e-loader loading>Inside heading 4</e-loader></h4>
-  <h5><e-loader loading>Inside heading 5</e-loader></h5>
-  <h6><e-loader loading>Inside heading 6</e-loader></h6>
-  <p><e-loader loading>Inside paragraph</e-loader></p>
-  <small><e-loader loading>Inside small</e-loader></small>
-</e-container>
+  <h1><hf-loader loading>Inside heading 1</hf-loader></h1>
+  <h2><hf-loader loading>Inside heading 2</hf-loader></h2>
+  <h3><hf-loader loading>Inside heading 3</hf-loader></h3>
+  <h4><hf-loader loading>Inside heading 4</hf-loader></h4>
+  <h5><hf-loader loading>Inside heading 5</hf-loader></h5>
+  <h6><hf-loader loading>Inside heading 6</hf-loader></h6>
+  <p><hf-loader loading>Inside paragraph</hf-loader></p>
+  <small><hf-loader loading>Inside small</hf-loader></small>
+</hf-container>
 
 <!-- Menu -->
 <h1 id="Menus" >Menu</h1>
-<e-container>
+<hf-container>
   <h2>Basic Menu with links</h2>
-  <e-menu>
-    <e-button ord="primary" slot="trigger"><button>Open menu</button></e-button>
+  <hf-menu>
+    <hf-button ord="primary" slot="trigger"><button>Open menu</button></hf-button>
     <div slot="items">
-      <e-link><a href="">Link A</a></e-link>
-      <e-link><a href="">Link B</a></e-link>
-      <e-link><a href="">Link C</a></e-link>
+      <hf-link><a href="">Link A</a></hf-link>
+      <hf-link><a href="">Link B</a></hf-link>
+      <hf-link><a href="">Link C</a></hf-link>
     </div>
-  </e-menu>
+  </hf-menu>
   <h2>Menu with custom content and min-width: 300px</h2>
-  <e-menu>
-    <e-button ord="primary" slot="trigger"><button>Open menu</button></e-button>
+  <hf-menu>
+    <hf-button ord="primary" slot="trigger"><button>Open menu</button></hf-button>
     <div slot="items" style="min-width: 300px">
       <div >Text Here</div>
-      <div >Some more text with a <e-link><a>link</a></e-link></div>
+      <div >Some more text with a <hf-link><a>link</a></hf-link></div>
 
     </div>
-  </e-menu>
-</e-container>
+  </hf-menu>
+</hf-container>
 
 <!-- Switch -->
 <h1 id="switch" >Switch</h1>
-<e-container>
+<hf-container>
   <h2>Checked, unchecked, and disabled</h2>
-  <e-switch><input type=checkbox is=switch checked></e-switch>
-  <e-switch><input type=checkbox is=switch></e-switch>
-  <e-switch><input type=checkbox is=switch disabled></e-switch>
+  <hf-switch><input type=checkbox is=switch checked></hf-switch>
+  <hf-switch><input type=checkbox is=switch></hf-switch>
+  <hf-switch><input type=checkbox is=switch disabled></hf-switch>
   <h2>Standalone in a custom layout</h2>
-  <e-box ord="secondary" >
+  <hf-box ord="secondary" >
     <div >
-      <e-icon name="alarm" ></e-icon>
+      <hf-icon name="alarm" ></hf-icon>
       <span >Alarm</span>
       <span >7:00<span style="margin-left: 2px">AM</span></span>
     </div>
-    <e-switch><input type=checkbox is=switch checked></e-switch>
-  </e-box>
+    <hf-switch><input type=checkbox is=switch checked></hf-switch>
+  </hf-box>
   <h2>In a Box as a form of options</h2>
-  <e-row>
-    <e-col span="3">
-      <e-box>
+  <hf-row>
+    <hf-col span="3">
+      <hf-box>
         <h2 class="mar-t-xs">Notification preferences</h2>
         <form>
-          <e-input-group >
+          <hf-input-group >
             <label>SMS</label>
-            <e-switch><input type=checkbox is=switch checked name="sms"></e-switch>
-          </e-input-group>
-          <e-input-group >
+            <hf-switch><input type=checkbox is=switch checked name="sms"></hf-switch>
+          </hf-input-group>
+          <hf-input-group >
             <label>Email</label>
-            <e-switch><input type=checkbox is=switch checked name="email"></e-switch>
-          </e-input-group>
-          <e-input-group >
+            <hf-switch><input type=checkbox is=switch checked name="email"></hf-switch>
+          </hf-input-group>
+          <hf-input-group >
             <label>Hand-written letter</label>
-            <e-switch><input type=checkbox is=switch name="letter"></e-switch>
-          </e-input-group>
-          <e-input-group >
+            <hf-switch><input type=checkbox is=switch name="letter"></hf-switch>
+          </hf-input-group>
+          <hf-input-group >
             <label>Smoke signal</label>
-            <e-switch><input type=checkbox is=switch disabled name="smoke"></e-switch>
+            <hf-switch><input type=checkbox is=switch disabled name="smoke"></hf-switch>
             <small >Currently unavailable</small>
-          </e-input-group>
+          </hf-input-group>
         </form>
-      </e-box>
+      </hf-box>
 
-    </e-col>
-  </e-row>
-</e-container>
+    </hf-col>
+  </hf-row>
+</hf-container>
 
 <!-- Table -->
 <h1 id="table" >Tables</h1>
-<e-container>
+<hf-container>
   <h2>Basic table</h2>
-  <e-table>
+  <hf-table>
     <table>
       <thead>
       <tr>
@@ -681,37 +681,37 @@ Some Regular text
       </tr>
       </tbody>
     </table>
-  </e-table>
-</e-container>
+  </hf-table>
+</hf-container>
 
 
 <!-- Tabs -->
 <h1 id="tabs" >Tabs</h1>
-<e-container>
+<hf-container>
   <h2>Basic tabs</h2>
-  <e-tabs role="tablist">
+  <hf-tabs role="tablist">
     <button role="tab" aria-selected="true">Accounts</button>
     <button role="tab">Payments</button>
     <button role="tab">Transfers</button>
     <button role="tab">Security</button>
-  </e-tabs>
+  </hf-tabs>
   <h2>With icons</h2>
-  <e-tabs role="tablist">
+  <hf-tabs role="tablist">
     <button role="tab" aria-selected="true">&nbsp;Accounts</button>
-    <button role="tab"><e-icon name="wallet"></e-icon>&nbsp;Payments</button>
-    <button role="tab"><e-icon name="attach_money"></e-icon>&nbsp;Transfers</button>
-    <button role="tab"><e-icon name="lock"></e-icon>&nbsp;Security</button>
-  </e-tabs>
+    <button role="tab"><hf-icon name="wallet"></hf-icon>&nbsp;Payments</button>
+    <button role="tab"><hf-icon name="attach_money"></hf-icon>&nbsp;Transfers</button>
+    <button role="tab"><hf-icon name="lock"></hf-icon>&nbsp;Security</button>
+  </hf-tabs>
   <h2>Scrollable</h2>
   <div style="width: 318px">
-    <e-tabs role="tablist" scrollable>
+    <hf-tabs role="tablist" scrollable>
       <button role="tab" aria-selected="true">Accounts</button>
       <button role="tab">Payments</button>
       <button role="tab">Transfers</button>
       <button role="tab">Security</button>
-    </e-tabs>
+    </hf-tabs>
   </div>
-</e-container>
+</hf-container>
 <script type="module" src="/_public/browser/index.mjs"></script>
 
 

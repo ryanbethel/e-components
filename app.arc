@@ -1,5 +1,5 @@
 @app
-test-e-components
+test-hf-components
 
 @static
 prune true

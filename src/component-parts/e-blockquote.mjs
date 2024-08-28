@@ -1,9 +1,9 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-blockquote {
+hf-blockquote {
     blockquote {
-        color: var(--e-color-surface-subtext);
+        color: var(--hf-color-surface-subtext);
         font-style: italic;
     }
 }
@@ -28,7 +28,7 @@ class EBlockquote extends HTMLElement {
       }
     }
 }
-if (!customElements.get('e-blockquote')) {customElements.define('e-blockquote', EBlockquote);}
+if (!customElements.get('hf-blockquote')) {customElements.define('hf-blockquote', EBlockquote);}
 `
 
 const markupString = /*html*/`<blockquote><slot></slot></blockquote>`
@@ -46,9 +46,9 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-blockquote', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-blockquote', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-blockquote', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-blockquote', cssString, markupString })
 
 export default {
   elementHTML,

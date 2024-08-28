@@ -7,20 +7,20 @@ export default function DemoComponent({ html, state }) {
     display:block;
   }
 </style>
-<e-container >
-  <e-seperator></e-seperator>
-  <e-row >
-    <e-col span="2">
-      <e-list type=none>
+<hf-container >
+  <hf-seperator></hf-seperator>
+  <hf-row >
+    <hf-col span="2">
+      <hf-list type=none>
         <ul>
-          ${components.map(item => item.path !== current ? `<li><e-link><a href="/docs/${item.path || ""}" >${item.name || ""}</a></e-link></li>` : `<li>${item.name || ""}</li>`).join('\n')}
+          ${components.map(item => item.path !== current ? `<li><hf-link><a href="/docs/${item.path || ""}" >${item.name || ""}</a></hf-link></li>` : `<li>${item.name || ""}</li>`).join('\n')}
         </ul>
-      </e-list>
-    </e-col>
-    <e-col span="10" class="editor">
+      </hf-list>
+    </hf-col>
+    <hf-col span="10" class="editor">
       <ui-repl></ui-repl>
-    </e-col>
-  </e-row>
-</e-container>
+    </hf-col>
+  </hf-row>
+</hf-container>
  `
 }

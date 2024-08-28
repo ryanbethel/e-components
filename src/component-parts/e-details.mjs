@@ -1,7 +1,7 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-details {
+hf-details {
     & details {
         > summary {
             cursor: pointer;
@@ -30,9 +30,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-details', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-details', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-details', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-details', cssString, markupString })
 
 export default {
   elementHTML,

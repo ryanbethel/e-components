@@ -1,11 +1,11 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-dialog {
+hf-dialog {
     /* Base dialog styles */
     & dialog {
         border: none;
-        padding: var(--e-space-lg);
+        padding: var(--hf-space-lg);
         background-color: #f5f3f7;
         box-shadow: 0 16px 18px -3px #858585;
 
@@ -29,9 +29,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-dialog', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-dialog', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-dialog', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-dialog', cssString, markupString })
 
 export default {
   elementHTML,

@@ -1,13 +1,13 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-box {
+hf-box {
     display: block;
-    border-radius: var(--e-border-radius-md);
-    padding: var(--e-space-md);
-    background-color: var(--e-color-elevated-surface);
-    color: var(--e-color-surface-text);
-    border: 1px solid var(--e-color-border);
+    border-radius: var(--hf-border-radius-md);
+    padding: var(--hf-space-md);
+    background-color: var(--hf-color-elevated-surface);
+    color: var(--hf-color-surface-text);
+    border: 1px solid var(--hf-color-border);
 
     /*
     The ord attr is short for "ordinal" as in "ordinal number word".
@@ -17,24 +17,24 @@ e-box {
 
     &[ord="secondary"] {
         border: none;
-        background-color: var(--e-color-well-surface);
-        box-shadow: 0px 1px 2px var(--e-color-gray-3) inset;
-        color: var(--e-color-surface-text);
+        background-color: var(--hf-color-well-surface);
+        box-shadow: 0px 1px 2px var(--hf-color-gray-3) inset;
+        color: var(--hf-color-surface-text);
     }
 
     & > header {
-        border-top-left-radius: var(--e-border-radius-md);
-        border-top-right-radius: var(--e-border-radius-md);
+        border-top-left-radius: var(--hf-border-radius-md);
+        border-top-right-radius: var(--hf-border-radius-md);
     }
 
     & + & {
-        margin-top: var(--e-space-md);
+        margin-top: var(--hf-space-md);
     }
 }
 
 @media only screen and (max-width: 600px) {
-    e-box {
-        padding: var(--e-space-sm);
+    hf-box {
+        padding: var(--hf-space-sm);
     }
 }
 `
@@ -49,9 +49,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-box', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-box', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-box', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-box', cssString, markupString })
 
 export default {
   elementHTML,

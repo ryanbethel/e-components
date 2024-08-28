@@ -1,14 +1,14 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-link {
+hf-link {
   /* Base link styles */
   a, *[role=link] {
     text-decoration: none;
-    color: var(--e-color-primary);
+    color: var(--hf-color-primary);
     cursor: pointer;
 
-    /*:is(a, span[role=link]):visited { color: var(--e-color-primary-action) }*/
+    /*:is(a, span[role=link]):visited { color: var(--hf-color-primary-action) }*/
     &:hover,
     &:focus-visible {
       text-decoration: underline;
@@ -17,7 +17,7 @@ e-link {
 
     /* Disabled state */
     &[disabled] {
-      color: var(--e-color-disabled-fg);
+      color: var(--hf-color-disabled-fg);
       pointer-events: none;
     }
   }
@@ -34,9 +34,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-link', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-link', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-link', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-link', cssString, markupString })
 
 export default {
   elementHTML,

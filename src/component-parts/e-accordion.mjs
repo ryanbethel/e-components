@@ -1,11 +1,11 @@
 import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-accordion {
+hf-accordion {
     display: block;
 
     & > details {
-        border-top: 3px solid var(--e-color-gray-2);
+        border-top: 3px solid var(--hf-color-gray-2);
 
         &[open] > summary:after {
             transform: rotate(180deg);
@@ -19,19 +19,19 @@ e-accordion {
             &:focus {
                 outline: none;
             }
-            padding: var(--e-space-sm) var(--e-space-xl) var(--e-space-sm) 0;
+            padding: var(--hf-space-sm) var(--hf-space-xl) var(--hf-space-sm) 0;
             position: relative;
 
             &:focus-visible {
-                outline: 2px solid var(--e-color-focus);
+                outline: 2px solid var(--hf-color-focus);
             }
 
             &::after {
                 width: 24px;
                 height: 24px;
                 position: absolute;
-                top: var(--e-space-sm);
-                right: var(--e-space-sm);
+                top: var(--hf-space-sm);
+                right: var(--hf-space-sm);
                 transform: rotate(0deg);
                 transition: transform 250ms;
                 mask-size: contain;
@@ -49,7 +49,7 @@ e-accordion {
         }
 
         &:last-child {
-            border-bottom: 3px solid var(--e-color-gray-2);
+            border-bottom: 3px solid var(--hf-color-gray-2);
         }
     }
 
@@ -123,11 +123,11 @@ ${markupString}
   class EAccordion extends HTMLElement {
 ${indentChunk(scriptString)}
   }
-  if(!customElements.get('e-accordion')) { customElements.define('e-accordion', EAccordion) }
+  if(!customElements.get('hf-accordion')) { customElements.define('hf-accordion', EAccordion) }
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-accordion', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-accordion', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -141,7 +141,7 @@ ${indentChunk(scriptString, '    ')}
         ${markupString}
       \`}
 }
-if (!customElements.get('e-accordion')) {customElements.define("e-accordion", EAccordion)}
+if (!customElements.get('hf-accordion')) {customElements.define("hf-accordion", EAccordion)}
 `
 
 export default {

@@ -7,10 +7,10 @@ export default function DemoComponent({ html, state }) {
     display:block;
   }
 </style>
-<e-list type=none>
+<hf-list type=none>
   <ul>
-    ${components.map(item => item.path !== current ? `<li><e-link><a href="/docs/${item.path || ""}" >${item.name || ""}</a></e-link></li>` : `<li>${item.name || ""}</li>`).join('\n')}
+    ${components.map(item => item.path !== current ? `<li><hf-link><a href="/docs/${item.path || ""}" >${item.name || ""}</a></hf-link></li>` : `<li>${item.name || ""}</li>`).join('\n')}
   </ul>
-</e-list>
+</hf-list>
  `
 }

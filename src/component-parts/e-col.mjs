@@ -1,13 +1,13 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-col,
-e-col[indent] {
+hf-col,
+hf-col[indent] {
     box-sizing: border-box;
     flex: 0 0 auto;
 }
 
-e-col {
+hf-col {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
@@ -113,102 +113,102 @@ e-col {
 
 /* Order is used to reorder columns at specific breakpoints */
 @media only screen and (max-width: 768px) {
-    e-col[span~="md-1"] {
+    hf-col[span~="md-1"] {
         max-width: 8.33333333%;
     }
 
-    e-col[span~="md-2"] {
+    hf-col[span~="md-2"] {
         max-width: 16.66666667%;
     }
 
-    e-col[span~="md-3"] {
+    hf-col[span~="md-3"] {
         max-width: 25%;
     }
 
-    e-col[span~="md-4"] {
+    hf-col[span~="md-4"] {
         max-width: 33.33333333%;
     }
 
-    e-col[span~="md-5"] {
+    hf-col[span~="md-5"] {
         max-width: 41.66666667%;
     }
 
-    e-col[span~="md-6"] {
+    hf-col[span~="md-6"] {
         max-width: 50%;
     }
 
-    e-col[span~="md-7"] {
+    hf-col[span~="md-7"] {
         max-width: 58.33333333%;
     }
 
-    e-col[span~="md-8"] {
+    hf-col[span~="md-8"] {
         max-width: 66.66666667%;
     }
 
-    e-col[span~="md-9"] {
+    hf-col[span~="md-9"] {
         max-width: 75%;
     }
 
-    e-col[span~="md-10"] {
+    hf-col[span~="md-10"] {
         max-width: 83.33333333%;
     }
 
-    e-col[span~="md-11"] {
+    hf-col[span~="md-11"] {
         max-width: 91.66666667%;
     }
 
-    e-col[span~="md-12"] {
+    hf-col[span~="md-12"] {
         max-width: 100%;
     }
 }
 
 /* Must come after medium because cascading is used here */
 @media only screen and (max-width: 576px) {
-    e-col[span~="sm-1"] {
+    hf-col[span~="sm-1"] {
         max-width: 8.33333333%;
     }
 
-    e-col[span~="sm-2"] {
+    hf-col[span~="sm-2"] {
         max-width: 16.66666667%;
     }
 
-    e-col[span~="sm-3"] {
+    hf-col[span~="sm-3"] {
         max-width: 25%;
     }
 
-    e-col[span~="sm-4"] {
+    hf-col[span~="sm-4"] {
         max-width: 33.33333333%;
     }
 
-    e-col[span~="sm-5"] {
+    hf-col[span~="sm-5"] {
         max-width: 41.66666667%;
     }
 
-    e-col[span~="sm-6"] {
+    hf-col[span~="sm-6"] {
         max-width: 50%;
     }
 
-    e-col[span~="sm-7"] {
+    hf-col[span~="sm-7"] {
         max-width: 58.33333333%;
     }
 
-    e-col[span~="sm-8"] {
+    hf-col[span~="sm-8"] {
         max-width: 66.66666667%;
     }
 
-    e-col[span~="sm-9"] {
+    hf-col[span~="sm-9"] {
         max-width: 75%;
     }
 
-    e-col[span~="sm-10"] {
+    hf-col[span~="sm-10"] {
         max-width: 83.33333333%;
     }
 
-    e-col[span~="sm-11"] {
+    hf-col[span~="sm-11"] {
         max-width: 91.66666667%;
     }
 
-    e-col[span~="sm-12"] {
+    hf-col[span~="sm-12"] {
         max-width: 100%;
     }
 }
@@ -224,9 +224,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-col', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-col', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-col', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-col', cssString, markupString })
 
 export default {
   elementHTML,

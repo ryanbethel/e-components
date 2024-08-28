@@ -2,18 +2,18 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /* Base container styles */
-e-container {
+hf-container {
     display: block;
-    max-width: var(--e-max-content-width);
+    max-width: var(--hf-max-content-width);
     margin: auto;
-    padding: var(--e-space-md) var(--e-space-lg);
+    padding: var(--hf-space-md) var(--hf-space-lg);
 
     /* Sizes */
     &[maxwidth="md"] {
-        max-width: calc(38.5 * var(--e-space-lg));
+        max-width: calc(38.5 * var(--hf-space-lg));
     } /* Plus its margin = 960 which is a very comfortable and common size */
     &[maxwidth="sm"] {
-        max-width: calc(16 * var(--e-space-lg));
+        max-width: calc(16 * var(--hf-space-lg));
     }
     &[maxwidth="none"] {
         max-width: none;
@@ -21,8 +21,8 @@ e-container {
 }
 
 @media only screen and (max-width: 600px) {
-    e-container {
-        padding: var(--e-space-sm);
+    hf-container {
+        padding: var(--hf-space-sm);
     }
 }
 `
@@ -37,9 +37,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-container', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-container', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-container', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-container', cssString, markupString })
 
 export default {
   elementHTML,

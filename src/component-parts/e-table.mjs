@@ -1,7 +1,7 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-table {
+hf-table {
     /* Base table styles */
     table {
         width: 100%;
@@ -12,11 +12,11 @@ e-table {
             text-align: left;
 
             & > tr {
-                border-top: 2px solid var(--e-color-gray-3);
+                border-top: 2px solid var(--hf-color-gray-3);
             }
 
             & th {
-                padding: var(--e-space-xs) var(--e-space-md);
+                padding: var(--hf-space-xs) var(--hf-space-md);
 
                 /* Sortable columns */
                 &[aria-sort] button {
@@ -26,7 +26,7 @@ e-table {
 
                     &::after {
                         font-size: 0.8em;
-                        padding-left: var(--e-space-xs);
+                        padding-left: var(--hf-space-xs);
                     }
                 }
 
@@ -41,19 +41,19 @@ e-table {
 
         & th,
         & td {
-            padding: var(--e-space-xs);
+            padding: var(--hf-space-xs);
         }
 
         & td {
             vertical-align: top;
-            padding: var(--e-space-sm) var(--e-space-md);
+            padding: var(--hf-space-sm) var(--hf-space-md);
         }
 
         & tbody > tr {
-            border-bottom: 1px solid var(--e-color-gray-3);
+            border-bottom: 1px solid var(--hf-color-gray-3);
 
             &:first-of-type {
-                border-top: 1px solid var(--e-color-gray-3);
+                border-top: 1px solid var(--hf-color-gray-3);
             }
         }
 
@@ -64,7 +64,7 @@ e-table {
 
         /* Striped rows */
         &[striped] > tbody tr:nth-of-type(odd) {
-            background-color: var(--e-color-gray-2);
+            background-color: var(--hf-color-gray-2);
         }
     }
 }
@@ -80,9 +80,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-table', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-table', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-table', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-table', cssString, markupString })
 
 export default {
   elementHTML,

@@ -12,9 +12,9 @@ const elementRenderFunction = /*javascript*/`
     display: block;
     --default-sidebar-transition: translate 0.25s cubic-bezier(.86,0,.07,1);
     --default-header-height: 3em;
-    --default-header-background-color: var(--e-color-primary);
-    --default-header-color: var(--e-color-primary-text);
-    font-size: var(--e-header-font-size, var(--e-font-size-md));
+    --default-header-background-color: var(--hf-color-primary);
+    --default-header-color: var(--hf-color-primary-text);
+    font-size: var(--hf-header-font-size, var(--hf-font-size-md));
   }
 
   [slot=logo] {
@@ -23,9 +23,9 @@ const elementRenderFunction = /*javascript*/`
     margin-inline-end:1rem;
   }
 
-  header > e-row {
-    background-color: var(--e-header-bg-color, var(--default-header-background-color));
-    color: var(--e-header-color, var(--default-header-color));
+  header > hf-row {
+    background-color: var(--hf-header-bg-color, var(--default-header-background-color));
+    color: var(--hf-header-color, var(--default-header-color));
     padding-inline: 1rem;
     justify-items:center;
   }
@@ -59,12 +59,12 @@ const elementRenderFunction = /*javascript*/`
       cursor: pointer;
   }
 
-  header:has(.mobile-opener input[type='checkbox']:checked) ~ e-row > e-col.sidebar {
+  header:has(.mobile-opener input[type='checkbox']:checked) ~ hf-row > hf-col.sidebar {
     translate: 0 0;
   }
 
   .nav-menu  {
-    background-color: var(--e-header-bg-color, var(--default-header-background-color));
+    background-color: var(--hf-header-bg-color, var(--default-header-background-color));
     display:flex;
   }
   .nav-menu > * {
@@ -89,25 +89,25 @@ const elementRenderFunction = /*javascript*/`
     border-bottom: 2px solid currentColor;
   }
 
-  header e-col {
+  header hf-col {
     display:flex;
     align-items:center;
   }
-  header e-col + e-col {
+  header hf-col + hf-col {
     justify-content:flex-end;
   }
 
   .sidebar {
     position: fixed;
-    top: var(--e-header-height, var(--default-header-height));
+    top: var(--hf-header-height, var(--default-header-height));
     right: 0; /* 50vw for half screen */
     bottom: 0;
     left: 0;
     translate: -100% 0;
     transition: var(--layout-sidebar-transition, var(--default-sidebar-transition));
-    background-color: var(--e-header-bg-color, var(--default-header-background-color));
+    background-color: var(--hf-header-bg-color, var(--default-header-background-color));
     z-index: 1000;
-    border-right: 1px solid var(--e-color-gray-3);
+    border-right: 1px solid var(--hf-color-gray-3);
   }
 
   .sidebar.sidebar {
@@ -148,7 +148,7 @@ const elementRenderFunction = /*javascript*/`
   /*   padding-block: 0; */
   /* } */
 
-  :host:has(e-row > e-col.sidebar > [slot=sidebar]:empty) > header .mobile-opener {
+  :host:has(hf-row > hf-col.sidebar > [slot=sidebar]:empty) > header .mobile-opener {
     display:none;
   }
 
@@ -159,7 +159,7 @@ const elementRenderFunction = /*javascript*/`
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     min-height:1em;
-    margin-block: calc((var(--e-header-height, var(--default-header-height)) - 1em)/2);
+    margin-block: calc((var(--hf-header-height, var(--default-header-height)) - 1em)/2);
   }
   a:has([slot=logo]) {
       display:flex; 
@@ -170,8 +170,8 @@ const elementRenderFunction = /*javascript*/`
 </style>
 
 <header>
-  <e-row>
-    <e-col span=2>
+  <hf-row>
+    <hf-col span=2>
       <a href="\${logoHref ? logoHref : '/'}" >
         <slot name=logo></slot>
         <slot name=domain></slot>
@@ -182,24 +182,24 @@ const elementRenderFunction = /*javascript*/`
             <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
           </label>
         </nav>
-    </e-col>
-    <e-col span=10>
+    </hf-col>
+    <hf-col span=10>
         <nav class="nav-menu">
           <slot name=nav-items as=div>
           </slot>
         </nav>
-    </e-col>
-  </e-row>
+    </hf-col>
+  </hf-row>
 </header>
-<e-h-rule></e-h-rule>
-<e-row>
-  <e-col span=2 class=sidebar>
+<hf-h-rule></hf-h-rule>
+<hf-row>
+  <hf-col span=2 class=sidebar>
     <slot name=sidebar></slot>
-  </e-col>
-  <e-col>
+  </hf-col>
+  <hf-col>
     <slot name=main></slot>
-  </e-col>
-</e-row>
+  </hf-col>
+</hf-row>
 \`
 `
 
@@ -223,7 +223,7 @@ export default class EResponsiveSidebar extends CustomElement {
     ${elementRenderFunction}
   }
 }
-if (!customElements.get('e-responsive-sidebar')) { customElements.define('e-responsive-sidebar', EResponsiveSidebar) }
+if (!customElements.get('hf-responsive-sidebar')) { customElements.define('hf-responsive-sidebar', EResponsiveSidebar) }
 `
 
 

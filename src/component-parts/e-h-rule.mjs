@@ -1,11 +1,11 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-h-rule { 
+hf-h-rule { 
   display: block; 
 
   hr {
-    background-color: var(--e-color-gray-3);
+    background-color: var(--hf-color-gray-3);
     border: none;
     margin: 0;
     height: 1px;
@@ -28,7 +28,7 @@ class EHRule extends HTMLElement {
       }
     }
 }
-if (!customElements.get('e-h-rule')) { customElements.define('e-h-rule',EHRule)}
+if (!customElements.get('hf-h-rule')) { customElements.define('hf-h-rule',EHRule)}
 `
 
 const elementHTML = `
@@ -43,9 +43,9 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-h-rule', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-h-rule', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-h-rule', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-h-rule', cssString, markupString })
 
 export default {
   elementHTML,

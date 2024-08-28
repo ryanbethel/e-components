@@ -2,7 +2,7 @@ const components = [
   {
     name: "Accordion",
     path: "accordion",
-    exampleUsage: `<e-accordion>
+    exampleUsage: `<hf-accordion>
     <details>
         <summary>Summary</summary>
         <p>Details about this thing</p>
@@ -11,59 +11,59 @@ const components = [
       <summary>Summary</summary>
       <p>Details about this thing</p>
     </details>
-</e-accordion>
+</hf-accordion>
 
 
 ` },
   {
     name: "Responsive Header",
-    path: "responsive-header",
+    path: "responsivhf-header",
     exampleUsage: `
-<e-responsive-header style="--header-background-color:var(--e-color-gray-9); --header-color:var(--e-color-gray-1);">
+<hf-responsivhf-header style="--header-background-color:var(--hf-color-gray-9); --header-color:var(--hf-color-gray-1);">
   <img slot=logo src="https://picsum.photos/24" alt="logo">
   <p slot=domain>Example.com</p>
   <div slot=nav-items>
-    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
-    <e-link><a href="/login" >Login</a></e-link>
+    <hf-link><a aria-current=page href="/blog" >Blog</a></hf-link>
+    <hf-link><a href="/login" >Login</a></hf-link>
   </div>
-</e-responsive-header>
+</hf-responsive-header>
 ` },
   {
     name: "Responsive Sidebar",
     path: "responsive-sidebar",
     exampleUsage: `
-<e-responsive-sidebar style="--header-background-color:var(--e-color-gray-9); --header-color:var(--e-color-gray-1);">
+<hf-responsive-sidebar style="--header-background-color:var(--hf-color-gray-9); --header-color:var(--hf-color-gray-1);">
   <img slot=logo src="https://picsum.photos/24" alt="logo">
   <p slot=domain>brand.com</p>
   <div slot=nav-items>
-    <e-link><a aria-current=page href="/blog" >Blog</a></e-link>
-    <e-link><a href="/login" >Login</a></e-link>
+    <hf-link><a aria-current=page href="/blog" >Blog</a></hf-link>
+    <hf-link><a href="/login" >Login</a></hf-link>
   </div>
-  <e-list slot=sidebar>
+  <hf-list slot=sidebar>
     <ol>
-      <li><e-link><a href="/" >Stuff</a></e-link></li>
-      <li><e-link><a href="/" >Other Stuff</a></e-link></li>
+      <li><hf-link><a href="/" >Stuff</a></hf-link></li>
+      <li><hf-link><a href="/" >Other Stuff</a></hf-link></li>
     </ol>
-  </e-list>
-  <e-box slot=main>Main Content</e-box>
-</e-responsive-sidebar>
+  </hf-list>
+  <hf-box slot=main>Main Content</hf-box>
+</hf-responsive-sidebar>
 
 ` },
   {
     name: "Alert",
     path: "alert",
     exampleUsage: `
-<e-alert>Neutral message</e-alert>
-<e-alert type="info">Informational message</e-alert>
-<e-alert type="success">Positive message</e-alert>
-<e-alert type="warn">Cautionary message</e-alert>
-<e-alert type="error" dismissible="false">Error message with no dismiss button</e-alert>`},
+<hf-alert>Neutral message</hf-alert>
+<hf-alert type="info">Informational message</hf-alert>
+<hf-alert type="success">Positive message</hf-alert>
+<hf-alert type="warn">Cautionary message</hf-alert>
+<hf-alert type="error" dismissible="false">Error message with no dismiss button</hf-alert>`},
   {
     name: "Autocomplete",
     path: "autocomplete",
     exampleUsage: `
-  <e-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
-  <e-input-group>
+  <hf-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior">
+  <hf-input-group>
     <label>Search</label>
     <input type=text />
     <datalist id="fruit">
@@ -72,79 +72,79 @@ const components = [
       <option value="cherry"></option>
       <option value="peach"></option>
     </datalist>
-  </e-input-group>
-</e-autocomplete>`},
+  </hf-input-group>
+</hf-autocomplete>`},
   {
     name: "Badge",
     path: "badge",
     exampleUsage: `
-<e-badge count="1"></e-badge>
-<e-badge>New</e-badge>`},
+<hf-badge count="1"></hf-badge>
+<hf-badge>New</hf-badge>`},
   {
     name: "Box",
     path: "box",
     exampleUsage: `
-<e-box>Primary content</e-box>
-<e-box ord="secondary">Secondary content</e-box>
+<hf-box>Primary content</hf-box>
+<hf-box ord="secondary">Secondary content</hf-box>
 <p>Content outside a Box is considered neutral</p>`},
   {
     name: "Blockquote",
     path: "blockquote",
     exampleUsage: `
-<e-blockquote>
+<hf-blockquote>
   <blockquote>Someone said something.</blockquote>
-</e-blockquote>
+</hf-blockquote>
 `},
   {
     name: "Breadcrumb", path: "breadcrumb", exampleUsage: `
-  <e-breadcrumb>
+  <hf-breadcrumb>
   <nav>
-    <e-link><a href="#">Home</a></e-link>
-    <e-link><a href="#">Shoes</a></e-link>
+    <hf-link><a href="#">Home</a></hf-link>
+    <hf-link><a href="#">Shoes</a></hf-link>
     <span aria-current="page">Women</span>
   </nav>
-</e-breadcrumb>
-<e-seperator></e-seperator>
-<e-breadcrumb>
+</hf-breadcrumb>
+<hf-seperator></hf-seperator>
+<hf-breadcrumb>
     <nav>
-        <e-link><a href="#home">Home</a></e-link>
-        <e-link><a href="#shoes">Shoes</a></e-link>
-        <e-crumb>
-            <e-menu>
+        <hf-link><a href="#home">Home</a></hf-link>
+        <hf-link><a href="#shoes">Shoes</a></hf-link>
+        <hf-crumb>
+            <hf-menu>
                 <span role="link" slot="trigger">Womens ↓</span>
                 <div slot="items">
-                    <e-link><a href="#womens-casual">👞 Casual</a></e-link>
-                    <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
-                    <e-link><a href="#womens-formal">👠 Formal</a></e-link>
+                    <hf-link><a href="#womens-casual">👞 Casual</a></hf-link>
+                    <hf-link><a href="#womens-sporty">👟 Sporty</a></hf-link>
+                    <hf-link><a href="#womens-formal">👠 Formal</a></hf-link>
                 </div>
-            </e-menu>
-        </e-crumb>
+            </hf-menu>
+        </hf-crumb>
         <span>Sport</span>
     </nav>
-</e-breadcrumb>
+</hf-breadcrumb>
 ` },
   {
     name: "Button", path: "button", exampleUsage: `
   <p> Ordinal name</p>
-<e-button ord=primary ><button >Primary</button></e-button>
-<e-button ord=secondary ><button >Secondary</button></e-button>
-<e-button ord=tertiary ><button >Tertiary</button></e-button>
+<hf-button ord=primary ><button >Primary</button></hf-button>
+<hf-button ord=secondary ><button >Secondary</button></hf-button>
+<hf-button ord=tertiary ><button >Tertiary</button></hf-button>
 <p>Disabled state</p>
-<e-button ord=primary ><button disabled>Disabled</button></e-button>
+<hf-button ord=primary ><button disabled>Disabled</button></hf-button>
 <p>Link as button</p>
-<e-button ord=primary><a role="button" href="/button">Link</a></e-button>
+<hf-button ord=primary><a role="button" href="/button">Link</a></hf-button>
 <p>Remove type</p>
-<e-button><button type="remove"></button></e-button>
+<hf-button><button type="remove"></button></hf-button>
 <p>Button group</p>
 <div role="group">
-    <e-button ord="secondary"><button  aria-pressed="true">One</button></e-button>
-    <e-button ord="secondary"><button >Two</button></e-button>
-    <e-button ord="secondary"><button >Three</button></e-button>
+    <hf-button ord="secondary"><button  aria-pressed="true">One</button></hf-button>
+    <hf-button ord="secondary"><button >Two</button></hf-button>
+    <hf-button ord="secondary"><button >Three</button></hf-button>
 </div>
 `},
   {
     name: "Checkbox", path: "checkbox", exampleUsage: `
-  <e-input-group>
+  <hf-input-group>
     <legend>Languages</legend>
     <input id="html" type="checkbox" name="speed" value="html" checked>
     <label for="html">HTML</label>
@@ -152,120 +152,120 @@ const components = [
     <label for="css">CSS</label>
     <input id="js" type="checkbox" name="speed" value="js">
     <label for="js">JavaScript</label>
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Container", path: "container", exampleUsage: `
-<e-container>Container is centered in its parent, has responsive padding, and its content will be contained according to <code>maxwidth</code>.</e-container>
+<hf-container>Container is centered in its parent, has responsive padding, and its content will be contained according to <code>maxwidth</code>.</hf-container>
 `},
   {
     name: "Details", path: 'details', exampleUsage: `
-<e-details>
+<hf-details>
   <details>
     <summary>Click to see details</summary>
     <p>The deets.</p>
   </details>
-</e-details>
+</hf-details>
 `},
   {
     name: "Dialog", path: 'dialog', exampleUsage: `
-<e-dialog>
+<hf-dialog>
   <dialog>
     <h2>Title</h2>
     <p>Put anything you want in here.</p>
     <p>(press <kbd>Esc</kbd> to close)</p>
   </dialog>
-</e-dialog>
-<e-button ord=primary><button onclick="document.querySelector('dialog').showModal()" >Open Dialog</button></e-button>
+</hf-dialog>
+<hf-button ord=primary><button onclick="document.querySelector('dialog').showModal()" >Open Dialog</button></hf-button>
 `},
   {
     name: "Dot",
     path: "dot",
-    exampleUsage: `<e-dot type="info">Information</e-dot>
-<e-dot type="success">Success</e-dot>
-<e-dot type="warn">Warning</e-dot>
-<e-dot type="error">Error</e-dot>
-<e-dot>Unknown</e-dot>`},
+    exampleUsage: `<hf-dot type="info">Information</hf-dot>
+<hf-dot type="success">Success</hf-dot>
+<hf-dot type="warn">Warning</hf-dot>
+<hf-dot type="error">Error</hf-dot>
+<hf-dot>Unknown</hf-dot>`},
   {
     name: "Form", path: 'form', exampleUsage: `
 <form>
-    <e-input-group>
+    <hf-input-group>
         <label>Email</label>
         <input type="email">
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
         <label>Password</label>
         <input type="password">
         <small>Must be at least 8 characters</small>
-    </e-input-group>
-    <e-input-group>
+    </hf-input-group>
+    <hf-input-group>
         <label>Address</label>
         <input placeholder="Street">
         <input placeholder="Zip" autocomplete="postal-code">
-    </e-input-group>
-    <e-button ord="primary"><button type="submit">Save</button></e-button>
+    </hf-input-group>
+    <hf-button ord="primary"><button type="submit">Save</button></hf-button>
 </form>
 `},
   {
     name: "Grid", path: 'grid', exampleUsage: `
-<e-row>
-    <e-col>
-      <e-box>This row's columns...</e-box>
-    </e-col>
-    <e-col>
-      <e-box>...will auto-span.</e-box>
-    </e-col>
-</e-row>
-<e-row>
-    <e-col span="4">
-      <e-box>These two columns...</e-box>
-    </e-col>
-    <e-col span="8">
-      <e-box>...span an explicit number of columns (4 and 8).</e-box>
-    </e-col>
-</e-row>
-<e-row center >
-  <e-col span="4">
-    <e-box>Centered Row</e-box>
-  </e-col>
-</e-row>
+<hf-row>
+    <hf-col>
+      <hf-box>This row's columns...</hf-box>
+    </hf-col>
+    <hf-col>
+      <hf-box>...will auto-span.</hf-box>
+    </hf-col>
+</hf-row>
+<hf-row>
+    <hf-col span="4">
+      <hf-box>These two columns...</hf-box>
+    </hf-col>
+    <hf-col span="8">
+      <hf-box>...span an explicit number of columns (4 and 8).</hf-box>
+    </hf-col>
+</hf-row>
+<hf-row center >
+  <hf-col span="4">
+    <hf-box>Centered Row</hf-box>
+  </hf-col>
+</hf-row>
 `},
   {
     name: "Input", path: 'input', exampleUsage: `
-<e-input-group>
+<hf-input-group>
     <label>Label</label>
     <input type="text" placeholder="Placeholder">
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Keyboard", path: 'keyboard', exampleUsage: `
-<p>Press <e-keyboard>⇧⌘T</e-keyboard> to close window</p>
-<e-keyboard>
-    <e-keyboard>Ctrl</e-keyboard> + <e-keyboard>N</e-keyboard>
-</e-keyboard>
+<p>Press <hf-keyboard>⇧⌘T</hf-keyboard> to close window</p>
+<hf-keyboard>
+    <hf-keyboard>Ctrl</hf-keyboard> + <hf-keyboard>N</hf-keyboard>
+</hf-keyboard>
 `},
   {
     name: "Link", path: 'link', exampleUsage: `
-<e-link><a href="#">Real link</a></e-link>,
-<e-link><span role="link">Fake link</span></e-link>
+<hf-link><a href="#">Real link</a></hf-link>,
+<hf-link><span role="link">Fake link</span></hf-link>
 `},
   {
     name: "Loader", path: 'loader', exampleUsage: `
-<e-loader loading></e-loader>
-<e-loader loading>Searching...</e-loader>
+<hf-loader loading></hf-loader>
+<hf-loader loading>Searching...</hf-loader>
 `},
   {
     name: "Menu", path: 'menu', exampleUsage: `
-<e-menu>
-    <e-button  ord="primary" slot="trigger"><button >Basic Links</button></e-button>
+<hf-menu>
+    <hf-button  ord="primary" slot="trigger"><button >Basic Links</button></hf-button>
     <div slot="items">
-        <e-link><a>Products</a></e-link>
-        <e-link><a>Services</a></e-link>
-        <e-link><a>Customer support</a></e-link>
+        <hf-link><a>Products</a></hf-link>
+        <hf-link><a>Services</a></hf-link>
+        <hf-link><a>Customer support</a></hf-link>
     </div>
-</e-menu>
-<e-menu>
-    <e-button  ord="primary" slot="trigger"><button>Custom Content and Width</button></e-button>
+</hf-menu>
+<hf-menu>
+    <hf-button  ord="primary" slot="trigger"><button>Custom Content and Width</button></hf-button>
     <div slot="items" class="pad-sm" style="min-width: 200px">
         <div class="inline-flex align-items-center">
             <img src="https://picsum.photos/50" height="51" class="brd-radius-full">
@@ -280,11 +280,11 @@ const components = [
             <a>Sign out</a>
         </div>
     </div>
-</e-menu>
+</hf-menu>
 `},
   {
     name: "Radio", path: 'radio', exampleUsage: `
-<e-input-group>
+<hf-input-group>
     <legend>Speed</legend>
     <input type="radio" name="speed" value="slow" id="speed_slow" checked>
     <label for="speed_slow">Slow</label>
@@ -292,26 +292,26 @@ const components = [
     <label for="speed_med">Medium</label>
     <input type="radio" name="speed" value="fast" id="speed_fast">
     <label for="speed_fast">Fast</label>
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Range", path: 'range', exampleUsage: `
-<e-input-group>
+<hf-input-group>
     <label>Price</label>
     <input type="range">
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Select", path: 'select', exampleUsage: `
-<e-input-group>
+<hf-input-group>
     <label>Select one</label>
     <select>
       <option value="water">Water</option>
       <option value="coke">Coke</option>
       <option value="lemonade">Lemonade</option>
     </select>
-</e-input-group>
-<e-input-group>
+</hf-input-group>
+<hf-input-group>
     <label>Select many</label>
     <select name="pets" multiple size="8">
       <optgroup label="Appetizers">
@@ -327,29 +327,29 @@ const components = [
         <option value="ice-cream">Ice-cream</option>
       </optgroup>
     </select>
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Separator", path: "seperator", exampleUsage: `
 <p>Content</p>
-<e-seperator></e-seperator>
+<hf-seperator></hf-seperator>
 <p>Content</p>
 <div class="flex gap-xs">
     <div>Content</div>
-    <e-seperator vertical></e-seperator>
+    <hf-seperator vertical></hf-seperator>
     <div>Content</div>
-    <e-seperator vertical></e-seperator>
+    <hf-seperator vertical></hf-seperator>
     <div>Content</div>
 </div>
 ` },
   {
     name: "Switch", path: 'switch', exampleUsage: `
-<e-switch></e-switch>
-<e-switch><input type="checkbox" is="switch" checked></e-switch>
+<hf-switch></hf-switch>
+<hf-switch><input type="checkbox" is="switch" checked></hf-switch>
 `},
   {
     name: "Table", path: 'table', exampleUsage: `
-<e-table>
+<hf-table>
 <table striped>
     <thead>
         <tr>
@@ -378,39 +378,39 @@ const components = [
         </tr>
     </tbody>
 </table>
-</e-table>
+</hf-table>
 `},
   {
     name: "Tabs", path: 'tabs', exampleUsage: `
-<e-tabs role="tablist" scrollable>
+<hf-tabs role="tablist" scrollable>
   <button role="tab" aria-selected="true">Selected</button>
   <button role="tab">Not Selected</button>
   <button role="tab" disabled>Disabled</button>
   <a href="/" role="tab">Link</a>
-</e-tabs>
-<p class="txt-xs txt-gray-5">See <e-link><a href="#select-tab">selecting tabs</a></e-link> to learn how to select a tab</p>
+</hf-tabs>
+<p class="txt-xs txt-gray-5">See <hf-link><a href="#select-tab">selecting tabs</a></hf-link> to learn how to select a tab</p>
 `},
   {
     name: "Tag", path: 'tag', exampleUsage: `
-<e-tag>non-smoking</e-tag>
-<e-tag>WiFi</e-tag>
-<e-tag>pool</e-tag>
-<e-tag>
+<hf-tag>non-smoking</hf-tag>
+<hf-tag>WiFi</hf-tag>
+<hf-tag>pool</hf-tag>
+<hf-tag>
     free breakfast
-    <e-button><button type="remove"></button></e-button>
-</e-tag>
+    <hf-button><button type="remove"></button></hf-button>
+</hf-tag>
 `},
   {
     name: "Textarea", path: 'textarea', exampleUsage: `
-<e-input-group>
+<hf-input-group>
   <label>Leave a comment</label>
   <textarea> </textarea> 
-</e-input-group>
+</hf-input-group>
 `},
   {
     name: "Code", path: "code", exampleUsage: `
-<e-code><pre>Text</pre></e-code>
-<e-code><code>Inline<code></e-code>` },
+<hf-code><pre>Text</pre></hf-code>
+<hf-code><code>Inline<code></hf-code>` },
   {
     name: "Headings", path: 'headings', exampleUsage: `
 <h1>Heading 1</h1>
@@ -422,50 +422,50 @@ const components = [
 `},
   {
     name: "Lists", path: 'lists', exampleUsage: `
-<e-list>
+<hf-list>
   <ul>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
   </ul>
-</e-list>
-<e-list>
+</hf-list>
+<hf-list>
   <ol>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
   </ol>
-</e-list>
-<e-list type="none">
+</hf-list>
+<hf-list type="none">
   <ul>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
   </ul>
-</e-list>
-<e-list type="content">
+</hf-list>
+<hf-list type="content">
   <ul>
     <li class="pad-sm">Foo</li>
     <li class="pad-sm">Bar</li>
     <li class="pad-sm">Baz</li>
   </ul>
-</e-list>
-<e-list>
+</hf-list>
+<hf-list>
   <dl>
     <dt class="pad-sm">Foo</dt>
     <dt class="pad-sm">Bar</dt>
     <dt class="pad-sm">Baz</dt>
   </dl>
-</e-list>
+</hf-list>
 `},
   {
     name: "Text", path: 'text', exampleUsage: `
-<p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <e-link><a href="/utility-classes">utility classes</a></e-link>.</p>
-<e-blockquote>
+<p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <hf-link><a href="/utility-classes">utility classes</a></hf-link>.</p>
+<hf-blockquote>
   <blockquote>
     <p>This is something somebody said.</p>
   </blockquote>
-</e-blockquote>
+</hf-blockquote>
 <small>This is for small print, side-comments, disclaimers, etc.</small>
 `},
 ]

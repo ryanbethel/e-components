@@ -6,7 +6,7 @@ export default function demo({ html, state }) {
   ui-repl {
     display:block;
 
-    e-input-group, e-box {
+    hf-input-group, hf-box {
       height:50vh;
     }
 
@@ -21,7 +21,7 @@ export default function demo({ html, state }) {
       border: none;
     }
 
-    e-box {
+    hf-box {
     }
     .editor {
       height: 50vh;
@@ -29,45 +29,45 @@ export default function demo({ html, state }) {
     }
   }
 
-  ui-repl > e-row {
+  ui-repl > hf-row {
     flex-direction:column;
   }
 
-  ui-repl > e-row > e-col[span] {
+  ui-repl > hf-row > hf-col[span] {
     max-width:100%;
   }
   @media only screen and (min-width:1096px) {
-    ui-repl > e-row {
+    ui-repl > hf-row {
       flex-direction:row;
     }
-    ui-repl > e-row > e-col[span] {
+    ui-repl > hf-row > hf-col[span] {
       max-width:50%;
     }
   }
   
 </style>
-<e-row >
-  <e-col span="6" >
-    <e-box class="editor">
+<hf-row >
+  <hf-col span="6" >
+    <hf-box class="editor">
       <form action="/docs/_components/${current}" target="previewIframe" method="get">
-        <e-input-group >
+        <hf-input-group >
           <textarea name=markup class="codeInput" placeholder="Enter HTML here...">${demo ? demo : ''}</textarea>
           <div hidden class=editor></div>
-        </e-input-group>
-        <e-button><button type=submit>Update</button></e-button>
+        </hf-input-group>
+        <hf-button><button type=submit>Update</button></hf-button>
       </form>
-    </e-box>
-  </e-col>
-  <e-col span="6">
-    <e-box class="preview">
+    </hf-box>
+  </hf-col>
+  <hf-col span="6">
+    <hf-box class="preview">
       <iframe
         name="previewIframe"
         title="Preview"
         src="/docs/_components/${current}">
       </iframe>
-    </e-box>
-  </e-col>
-</e-row>
+    </hf-box>
+  </hf-col>
+</hf-row>
 
 <script type=module>
   import { EditorView, basicSetup, html, EditorState } from '/_public/browser/editor.mjs'

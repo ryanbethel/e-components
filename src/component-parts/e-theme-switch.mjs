@@ -1,7 +1,7 @@
 import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-theme-switch {
+hf-theme-switch {
   input[type="checkbox"] {
     opacity: 0;
     position: absolute;
@@ -9,7 +9,7 @@ e-theme-switch {
 
   label[for=theme-toggle-checkbox] {
     position: relative;
-    background-color: var(--e-color-primary);
+    background-color: var(--hf-color-primary);
     width: 50px;
     height: 26px;
     border-radius: 50px;
@@ -21,7 +21,7 @@ e-theme-switch {
   }
 
   label .ball {
-    background-color: var(--e-color-primary-text);
+    background-color: var(--hf-color-primary-text);
     width: 22px;
     height: 22px;
     position: absolute;
@@ -110,7 +110,7 @@ class ThemeSwitch extends HTMLElement {
     }
   }
 }
-if (!customElements.get('e-theme-switch')) {customElements.define('e-theme-switch', ThemeSwitch);}
+if (!customElements.get('hf-theme-switch')) {customElements.define('hf-theme-switch', ThemeSwitch);}
 `
 
 const elementHTML = `
@@ -125,7 +125,7 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-theme-switch', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-theme-switch', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -143,7 +143,7 @@ export default class ThemeSwitch extends CustomElement {
         } 
       }
       connectedCallback() {
-        this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
+        this.themeSelector = this.querySelector('input#themhf-toggle-checkbox')
         this.themeSelector?.addEventListener('change', (e) => {
           if (e.target.checked) {
           localStorage.setItem('dark-light-theme', 'dark');
@@ -164,7 +164,7 @@ ${indentChunk(escString(cssString))}
 ${escString(markupString)}
             \`
     }
-    if (!customElements.get('e-theme-switch')) {customElements.define('e-theme-switch', ThemeSwitch);}
+    if (!customElements.get('hf-theme-switch')) {customElements.define('hf-theme-switch', ThemeSwitch);}
 }`
 
 export default {

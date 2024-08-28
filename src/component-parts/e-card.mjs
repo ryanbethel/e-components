@@ -4,16 +4,16 @@ export default function Card({ html, state }) {
   const { title = '', href = '' } = attrs
   return html\`
     <style scope="global">
-    e-card {
+    hf-card {
         display: flex;
         flex-direction: column;
         position: relative;
-        border-radius: var(--e-border-radius-md);
-        border: 1px solid var(--e-color-gray-2);
+        border-radius: var(--hf-border-radius-md);
+        border: 1px solid var(--hf-color-gray-2);
         cursor: pointer;
 
         & .img:has(img) {
-            height: var(--e-card-image-height, 6.5rem);
+            height: var(--hf-card-image-height, 6.5rem);
         }
         & .img img {
             width: 100%;
@@ -22,14 +22,14 @@ export default function Card({ html, state }) {
         }
         & a {
             text-decoration: none;
-            color: var(--e-color-primary);
+            color: var(--hf-color-primary);
         }
         & a:focus {
             outline: none;
             text-decoration: underline;
         }
         &:focus-within, &:hover {
-            border: 2px solid var(--e-color-gray-3);
+            border: 2px solid var(--hf-color-gray-3);
         }
         &:focus-within a:focus {
             text-decoration: none;
@@ -132,7 +132,7 @@ export default function Card({ html, state }) {
     }
 
   }
-  if (!customElements.get('e-card')) { customElements.define('e-card', ECard)}
+  if (!customElements.get('hf-card')) { customElements.define('hf-card', ECard)}
   </script>
     \`
 }
@@ -181,16 +181,16 @@ export default class ECard extends CustomElement {
     render({html,state}){
         return html\`
     <style scope="global">
-    e-card {
+    hf-card {
         display: flex;
         flex-direction: column;
         position: relative;
-        border-radius: var(--e-border-radius-md);
-        border: 1px solid var(--e-color-gray-2);
+        border-radius: var(--hf-border-radius-md);
+        border: 1px solid var(--hf-color-gray-2);
         cursor: pointer;
 
         & .img:has(img) {
-            height: var(--e-card-image-height, 6.5rem);
+            height: var(--hf-card-image-height, 6.5rem);
         }
         & .img img {
             width: 100%;
@@ -199,14 +199,14 @@ export default class ECard extends CustomElement {
         }
         & a {
             text-decoration: none;
-            color: var(--e-color-primary);
+            color: var(--hf-color-primary);
         }
         & a:focus {
             outline: none;
             text-decoration: underline;
         }
         &:focus-within, &:hover {
-            border: 2px solid var(--e-color-gray-3);
+            border: 2px solid var(--hf-color-gray-3);
         }
         &:focus-within a:focus {
             text-decoration: none;
@@ -252,7 +252,7 @@ export default class ECard extends CustomElement {
     }
 
 }
-if (!customElements.get('e-card')) { customElements.define('e-card', ECard)}
+if (!customElements.get('hf-card')) { customElements.define('hf-card', ECard)}
 `
 
 

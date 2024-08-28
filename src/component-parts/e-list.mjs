@@ -1,10 +1,10 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-list {
+hf-list {
   /* Ordered and unordered base styles */
   ul, ol, dl { margin: 0 }
-  ul, ol { padding-left: var(--e-space-md) }
+  ul, ol { padding-left: var(--hf-space-md) }
 
   /* None type (no bullets) */
   &[type=none] ul{
@@ -16,9 +16,9 @@ e-list {
   dd { margin-inline-start: 0 }
   dl {
     & > dt {
-      margin-top: var(--e-space-sm);
+      margin-top: var(--hf-space-sm);
       text-transform: uppercase;
-      font-size: var(--e-font-size-min);
+      font-size: var(--hf-font-size-min);
       font-weight: bold;
 
       &:first-of-type { margin-top: 0 }
@@ -31,7 +31,7 @@ e-list {
     padding-left: 0;
 
     & > li:not(:last-of-type) {
-      border-bottom: 1px solid var(--e-color-border)
+      border-bottom: 1px solid var(--hf-color-border)
     }
   }
 }
@@ -47,9 +47,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-list', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-list', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-list', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-list', cssString, markupString })
 
 export default {
   elementHTML,

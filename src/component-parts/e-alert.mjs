@@ -2,41 +2,41 @@ import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../
 
 const cssString = /*css*/`
 /* Base styles */
-e-alert {
+hf-alert {
   display: flex;
   align-items: center;
-  padding: var(--e-space-md);
-  background-color: var(--e-color-surface-well);
-  color: var(--e-color-surface-well-text);
+  padding: var(--hf-space-md);
+  background-color: var(--hf-color-surface-well);
+  color: var(--hf-color-surface-well-text);
 
   & + & {
-    margin-top: var(--e-space-sm);
+    margin-top: var(--hf-space-sm);
   }
 
   /* Dismiss button */
-  & e-button:last-of-type:has(button[type=remove]){
+  & hf-button:last-of-type:has(button[type=remove]){
     margin-left: auto;
   }
 
   /* Types */
   &[type="info"] {
-    background-color: var(--e-color-info);
-    color: var(--e-color-info-text);
+    background-color: var(--hf-color-info);
+    color: var(--hf-color-info-text);
   }
 
   &[type="success"] {
-    background-color: var(--e-color-success);
-    color: var(--e-color-success-text);
+    background-color: var(--hf-color-success);
+    color: var(--hf-color-success-text);
   }
 
   &[type="warn"] {
-    background-color: var(--e-color-warning);
-    color: var(--e-color-warning-text);
+    background-color: var(--hf-color-warning);
+    color: var(--hf-color-warning-text);
   }
 
   &[type="error"] {
-    background-color: var(--e-color-error);
-    color: var(--e-color-error-text);
+    background-color: var(--hf-color-error);
+    color: var(--hf-color-error-text);
   }
 }
 `
@@ -67,7 +67,7 @@ const scriptString = /*javascript*/`
 setupDismissButton(){
   let dismissBtn = this.querySelector("button[type=remove]");
   if (!dismissBtn) { 
-    const outerDismissBtn = document.createElement("e-button");
+    const outerDismissBtn = document.createElement("hf-button");
     outerDismissBtn.innerHTML = '<button type=remove aria-label="Dismiss Alert" ></button>'
     this.appendChild(outerDismissBtn)
     dismissBtn = this.querySelector("button[type=remove]");
@@ -79,7 +79,7 @@ setupDismissButton(){
 
   }
   cleanDismissButton(){
-    let dismissBtn = this.querySelector("e-button > button[type=remove]");
+    let dismissBtn = this.querySelector("hf-button > button[type=remove]");
     dismissBtn?.remove()
   }
 
@@ -117,11 +117,11 @@ ${markupString}
   class EAlert extends HTMLElement {
 ${indentChunk(scriptString)}
   }
-  if (!customElements.get('e-alert')) {customElements.define("e-alert", EAlert)}
+  if (!customElements.get('hf-alert')) {customElements.define("hf-alert", EAlert)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-alert', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-alert', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -135,7 +135,7 @@ ${indentChunk(scriptString, '    ')}
         ${markupString}
       \`}
 }
-if (!customElements.get('e-alert')) {customElements.define("e-alert", EAlert)}
+if (!customElements.get('hf-alert')) {customElements.define("hf-alert", EAlert)}
 `
 
 export default {

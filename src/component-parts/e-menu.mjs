@@ -3,7 +3,7 @@ import { funWrapHTMLElement } from "../wrappers.mjs"
 const elementHTML = /*html*/`
   <style scope="global">
     /* Base menu styles */
-    e-menu {
+    hf-menu {
         display: inline-block;
         position: relative;
 
@@ -16,19 +16,19 @@ const elementHTML = /*html*/`
         & > [slot="items"] {
             display: none;
             position: absolute;
-            transform: translateY(var(--e-space-xs));
-            background-color: var(--e-color-elevated-surface);
-            color: var(--e-color-surface-text);
-            border: 1px solid var(--e-color-gray-4);
-            border-radius: var(--e-border-radius-sm);
+            transform: translateY(var(--hf-space-xs));
+            background-color: var(--hf-color-elevated-surface);
+            color: var(--hf-color-surface-text);
+            border: 1px solid var(--hf-color-gray-4);
+            border-radius: var(--hf-border-radius-sm);
             width: max-content;
             z-index: 3000;
 
             /* Link children */
             & > a,
-            & > e-link {
+            & > hf-link {
                 display: block;
-                padding: var(--e-space-xs) var(--e-space-sm);
+                padding: var(--hf-space-xs) var(--hf-space-sm);
             }
         }
 
@@ -118,11 +118,11 @@ class MenuElement extends HTMLElement {
 
 }
 
-if (!customElements.get('e-menu')) { customElements.define("e-menu", MenuElement) };
+if (!customElements.get('hf-menu')) { customElements.define("hf-menu", MenuElement) };
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-menu', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-menu', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -191,7 +191,7 @@ export default class MenuElement extends CustomElement {
     return html\`
   <style scope="global">
     /* Base menu styles */
-    e-menu {
+    hf-menu {
         display: inline-block;
         position: relative;
 
@@ -204,19 +204,19 @@ export default class MenuElement extends CustomElement {
         & > [slot="items"] {
             display: none;
             position: absolute;
-            transform: translateY(var(--e-space-xs));
-            background-color: var(--e-color-elevated-surface);
-            color: var(--e-color-surface-text);
-            border: 1px solid var(--e-color-gray-4);
-            border-radius: var(--e-border-radius-sm);
+            transform: translateY(var(--hf-space-xs));
+            background-color: var(--hf-color-elevated-surface);
+            color: var(--hf-color-surface-text);
+            border: 1px solid var(--hf-color-gray-4);
+            border-radius: var(--hf-border-radius-sm);
             width: max-content;
             z-index: 3000;
 
             /* Link children */
             & > a,
-            & > e-link {
+            & > hf-link {
                 display: block;
-                padding: var(--e-space-xs) var(--e-space-sm);
+                padding: var(--hf-space-xs) var(--hf-space-sm);
             }
         }
 
@@ -233,7 +233,7 @@ export default class MenuElement extends CustomElement {
 
 }
 
-if (!customElements.get('e-menu')) { customElements.define("e-menu", MenuElement) };
+if (!customElements.get('hf-menu')) { customElements.define("e-menu", MenuElement) };
 `
 
 export default {

@@ -4,7 +4,7 @@ It is a work in progress.
 Many changes to come.
 Some components have been changed to take advantage of Enhance features.
 For instance M- uses many element styles (i.e. button).
-This version uses a custom element wrapper for many of those (i.e. `<e-button>`), but because Enhance expands the element you don't need to author the button inside e-button.
+This version uses a custom element wrapper for many of those (i.e. `<hf-button>`), but because Enhance expands the element you don't need to author the button inside hf-button.
 
 ## Opinions
 - Use attributes to handle state. Enhance includes application state in the form of `state.store`, but this should be reserved for applications. These components do not expect or use the store. This makes them more flexible in other environments where only Enhance SSR is used (including Enahance SSR WASM).
@@ -39,10 +39,10 @@ http://localhost:3333/docs has a repl/playground of the compoents with usage exa
 ## Global Assets
 A small global style file is needed for all the components.
 
-A simple way to include the global css is to add a `<e-theme></e-theme>` tag to every page.
+A simple way to include the global css is to add a `<hf-theme></hf-theme>` tag to every page.
 This tag does not render anything it instead adds a style tag to the head.
 
-Alternatively you can add it by putting the `e-global.css` in public folder and then in the head as follows. 
+Alternatively you can add it by putting the `hf-global.css` in public folder and then in the head as follows. 
 
 ```javascript
 // head.mjs
@@ -55,7 +55,7 @@ export default function Head() {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Enhance Starter Project</title>
       <link rel="icon" href="/_public/favicon.svg">
-      <link rel="stylesheet" href="/_public/e-global.css">
+      <link rel="stylesheet" href="/_public/hf-global.css">
       <meta name="description" content="The HTML first full stack web framework.">
     </head>
 `
@@ -74,38 +74,38 @@ The following recommendations show options for choosing a theme based on OS defa
 This preference can be persisted through local storage. 
 
 The primary way that components adapt to a light and dark them is by use of the scale of Gray (or other nutral) color.
-The user configuration requires custom property values for the neutral color from `--e-color-gray-0` to `--e-color-gray-10`.
+The user configuration requires custom property values for the neutral color from `--hf-color-gray-0` to `--hf-color-gray-10`.
 For light mode this range should be set with light on the low end and dark on the high end.
 For dark mode the range is reversed. 
 Other changes to the primary color and other supporting colors may need to be made depending on the theme.
 
 ```css
   /* Light Theme */
-  --e-color-gray-0:  hsl(0, 0%, 95%);
-  --e-color-gray-1:  hsl(0, 0%, 90%);
-  --e-color-gray-2:  hsl(0, 0%, 80%);
-  --e-color-gray-3:  hsl(0, 0%, 70%);
-  --e-color-gray-4:  hsl(0, 0%, 60%);
-  --e-color-gray-5: hsl(0, 0%, 50%);
-  --e-color-gray-6: hsl(0, 0%, 40%);
-  --e-color-gray-7: hsl(0, 0%, 30%);
-  --e-color-gray-8: hsl(0, 0%, 20%);
-  --e-color-gray-9: hsl(0, 0%, 10%);
-  --e-color-gray-10: hsl(0, 0%, 7%); 
+  --hf-color-gray-0:  hsl(0, 0%, 95%);
+  --hf-color-gray-1:  hsl(0, 0%, 90%);
+  --hf-color-gray-2:  hsl(0, 0%, 80%);
+  --hf-color-gray-3:  hsl(0, 0%, 70%);
+  --hf-color-gray-4:  hsl(0, 0%, 60%);
+  --hf-color-gray-5: hsl(0, 0%, 50%);
+  --hf-color-gray-6: hsl(0, 0%, 40%);
+  --hf-color-gray-7: hsl(0, 0%, 30%);
+  --hf-color-gray-8: hsl(0, 0%, 20%);
+  --hf-color-gray-9: hsl(0, 0%, 10%);
+  --hf-color-gray-10: hsl(0, 0%, 7%); 
 
 
   /* Dark Theme */
-  --e-color-gray-0: hsl(0, 0%, 7%); 
-  --e-color-gray-1: hsl(0, 0%, 10%);
-  --e-color-gray-2: hsl(0, 0%, 20%);
-  --e-color-gray-3: hsl(0, 0%, 30%);
-  --e-color-gray-4: hsl(0, 0%, 40%);
-  --e-color-gray-5: hsl(0, 0%, 50%);
-  --e-color-gray-6:  hsl(0, 0%, 60%);
-  --e-color-gray-7:  hsl(0, 0%, 70%);
-  --e-color-gray-8:  hsl(0, 0%, 80%);
-  --e-color-gray-9:  hsl(0, 0%, 90%);
-  --e-color-gray-10:  hsl(0, 0%, 95%);
+  --hf-color-gray-0: hsl(0, 0%, 7%); 
+  --hf-color-gray-1: hsl(0, 0%, 10%);
+  --hf-color-gray-2: hsl(0, 0%, 20%);
+  --hf-color-gray-3: hsl(0, 0%, 30%);
+  --hf-color-gray-4: hsl(0, 0%, 40%);
+  --hf-color-gray-5: hsl(0, 0%, 50%);
+  --hf-color-gray-6:  hsl(0, 0%, 60%);
+  --hf-color-gray-7:  hsl(0, 0%, 70%);
+  --hf-color-gray-8:  hsl(0, 0%, 80%);
+  --hf-color-gray-9:  hsl(0, 0%, 90%);
+  --hf-color-gray-10:  hsl(0, 0%, 95%);
 ```
 
 These custom properties can be applied at an application level in many possible ways. 
@@ -133,7 +133,7 @@ This script is intentionally minimal to make sure if a preference is stored it i
 /* If theme class is set for Dark it has high priority by the specificity */
 :root.dark-mode:not(#id-for-high-specificity) {
       /* Dark Theme */
-      --e-color-gray-0:  hsl(0, 0%, 7%);
+      --hf-color-gray-0:  hsl(0, 0%, 7%);
 }
 
 /* If no theme class is set on the document the theme toggle 
@@ -143,14 +143,14 @@ This script is intentionally minimal to make sure if a preference is stored it i
     content:'Dark Mode';
   }
       /* Dark Theme */
-      --e-color-gray-0: hsl(0, 0%, 7%); 
+      --hf-color-gray-0: hsl(0, 0%, 7%); 
 }
 :root:has(input[name=color-scheme][value=light]:checked) {
   #color-scheme::after{ 
     content:'Light Mode';
   }
   /* Light Theme */
-  --e-color-gray-0:  hsl(0, 0%, 95%);
+  --hf-color-gray-0:  hsl(0, 0%, 95%);
 }
 /* If the theme switcher auto is set it no specific theme 
    values are set allowing the default values to take over */
@@ -166,14 +166,14 @@ This script is intentionally minimal to make sure if a preference is stored it i
   color-scheme: light dark;
 
   /* Default Light Theme */
-  --e-color-gray-0:  hsl(0, 0%, 95%);
+  --hf-color-gray-0:  hsl(0, 0%, 95%);
 }
 
 /* A media query handles the OS default theme if set */
   @media ( prefers-color-scheme: dark ) {
     :root {
       /* Dark Theme */
-      --e-color-gray-0: hsl(0, 0%, 7%); 
+      --hf-color-gray-0: hsl(0, 0%, 7%); 
     }
   }
 

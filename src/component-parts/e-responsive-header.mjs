@@ -12,9 +12,9 @@ const elementRenderFunction = /*javascript*/`
     display: block;
     --default-sidebar-transition: translate 0.25s cubic-bezier(.86,0,.07,1);
     --default-header-height: 3em;
-    --default-header-background-color: var(--e-color-primary);
-    --default-header-color: var(--e-color-primary-text);
-    font-size: var(--e-header-font-size, var(--e-font-size-md));
+    --default-header-background-color: var(--hf-color-primary);
+    --default-header-color: var(--hf-color-primary-text);
+    font-size: var(--hf-header-font-size, var(--hf-font-size-md));
   }
 
   [slot=logo] {
@@ -23,9 +23,9 @@ const elementRenderFunction = /*javascript*/`
     margin-inline-end:1rem;
   }
 
-  header > e-row {
-    background-color: var(--e-header-bg-color, var(--default-header-background-color));
-    color: var(--e-header-color, var(--default-header-color));
+  header > hf-row {
+    background-color: var(--hf-header-bg-color, var(--default-header-background-color));
+    color: var(--hf-header-color, var(--default-header-color));
     padding-inline: 1rem;
     justify-items:center;
   }
@@ -65,15 +65,15 @@ const elementRenderFunction = /*javascript*/`
 
   .nav-menu  {
     position: fixed;
-    top: var(--e-header-height, var(--default-header-height));
+    top: var(--hf-header-height, var(--default-header-height));
     right: 0; /* 50vw for half screen */
     bottom: 0;
     left: 0;
     translate: -100% 0;
     transition: var(--layout-sidebar-transition, var(--default-sidebar-transition));
-    background-color: var(--e-header-bg-color, var(--default-header-background-color));
+    background-color: var(--hf-header-bg-color, var(--default-header-background-color));
     z-index: 1000;
-    /* border-right: 1px solid var(--e-color-gray-3); */
+    /* border-right: 1px solid var(--hf-color-gray-3); */
   }
 
   .nav-menu > * {
@@ -89,7 +89,7 @@ const elementRenderFunction = /*javascript*/`
   }
 
   .nav-menu * { 
-    color: var(--e-header-color, var(--default-header-color));
+    color: var(--hf-header-color, var(--default-header-color));
   }
 
   @media only screen and (min-width: \${breakpoint ? breakpoint : '48rem'}) {
@@ -122,15 +122,15 @@ const elementRenderFunction = /*javascript*/`
     border-bottom: 2px solid currentColor;
   }
 
-  e-col {
+  hf-col {
     display:flex;
     align-items:center;
   }
-  e-col + e-col {
+  hf-col + hf-col {
     justify-content:flex-end;
   }
 
-  e-col:has(nav.nav-menu > [slot=nav-items]:empty) > nav.mobile-opener {
+  hf-col:has(nav.nav-menu > [slot=nav-items]:empty) > nav.mobile-opener {
     display:none;
   }
 
@@ -141,7 +141,7 @@ const elementRenderFunction = /*javascript*/`
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     min-height:1em;
-    margin-block: calc((var(--e-header-height, var(--default-header-height)) - 1em)/2);
+    margin-block: calc((var(--hf-header-height, var(--default-header-height)) - 1em)/2);
   }
     a:has([slot=logo]) {
       display:flex; 
@@ -152,14 +152,14 @@ const elementRenderFunction = /*javascript*/`
 
 </style>
 <header>
-  <e-row>
-    <e-col span=2 >
+  <hf-row>
+    <hf-col span=2 >
     <a href="\${logoHref ? logoHref : '/'}" >
       <slot name=logo></slot>
       <slot name=domain></slot>
       </a>
-    </e-col>
-    <e-col span=10 >
+    </hf-col>
+    <hf-col span=10 >
         <nav class="mobile-opener">
           <input type="checkbox">
           <label for="nav-toggle">
@@ -169,10 +169,10 @@ const elementRenderFunction = /*javascript*/`
         <nav class="nav-menu">
           <slot name=nav-items></slot>
         </nav>
-    </e-col>
-  </e-row>
+    </hf-col>
+  </hf-row>
 </header>
-<e-h-rule></e-h-rule>
+<hf-h-rule></hf-h-rule>
 \`
 
 `
@@ -194,7 +194,7 @@ export default class EResponsiveHeader extends CustomElement {
     ${elementRenderFunction}
   }
 }
-if (!customElements.get('e-responsive-header')) { customElements.define('e-responsive-header', EResponsiveHeader) }
+if (!customElements.get('hf-responsive-header')) { customElements.define('hf-responsive-header', EResponsiveHeader) }
 `
 
 

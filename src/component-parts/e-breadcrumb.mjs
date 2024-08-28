@@ -1,21 +1,21 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-breadcrumb {
+hf-breadcrumb {
     display: block;
 }
-e-breadcrumb,
-e-breadcrumb > nav {
+hf-breadcrumb,
+hf-breadcrumb > nav {
     display: flex;
 }
 
-e-breadcrumb
+hf-breadcrumb
     > nav
-    > :is(e-link, a, e-crumb, span):not(:first-child)::before {
+    > :is(hf-link, a, hf-crumb, span):not(:first-child)::before {
     content: "/";
     display: inline-block; /* Needed to prevent this element from getting underlined */
-    margin: 0 var(--e-space-sm);
-    color: var(--e-color-gray-4);
+    margin: 0 var(--hf-space-sm);
+    color: var(--hf-color-gray-4);
 }
 `
 
@@ -28,9 +28,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-breadcrumb', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-breadcrumb', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-breadcrumb', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-breadcrumb', cssString, markupString })
 
 export default {
   elementHTML,

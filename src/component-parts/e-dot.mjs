@@ -2,7 +2,7 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /* Base styles */
-e-dot {
+hf-dot {
     display: inline-flex;
     align-items: center;
 
@@ -10,23 +10,23 @@ e-dot {
         content: "";
         width: 8px;
         height: 8px;
-        margin: var(--e-space-xs);
-        border-radius: var(--e-border-radius-full);
-        background-color: var(--e-color-gray-4);
+        margin: var(--hf-space-xs);
+        border-radius: var(--hf-border-radius-full);
+        background-color: var(--hf-color-gray-4);
     }
 
     /* Alert type */
     &[type="info"]::before {
-        background-color: var(--e-color-info-contrast);
+        background-color: var(--hf-color-info-contrast);
     }
     &[type="success"]::before {
-        background-color: var(--e-color-success-contrast);
+        background-color: var(--hf-color-success-contrast);
     }
     &[type="warn"]::before {
-        background-color: var(--e-color-warning-contrast);
+        background-color: var(--hf-color-warning-contrast);
     }
     &[type="error"]::before {
-        background-color: var(--e-color-error-contrast);
+        background-color: var(--hf-color-error-contrast);
     }
 }
 `
@@ -41,9 +41,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-dot', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-dot', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-dot', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-dot', cssString, markupString })
 
 export default {
   elementHTML,

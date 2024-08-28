@@ -2,13 +2,13 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /* Base code styles */
-e-code {
+hf-code {
   pre {
-    border-radius: var(--e-border-radius-md);
-    background-color: var(--e-color-surface-well);
-    color: var(--e-color-code-text);
+    border-radius: var(--hf-border-radius-md);
+    background-color: var(--hf-color-surface-well);
+    color: var(--hf-color-code-text);
     margin: 0;
-    padding: var(--e-space-xs) var(--e-space-sm);
+    padding: var(--hf-space-xs) var(--hf-space-sm);
   }
 }
 `
@@ -34,7 +34,7 @@ class ECodeBlock extends HTMLElement {
         this.setAttribute('enhanced', 'client')
       }
     }
-if (!customElements.get('e-code-block')) { customElements.define('e-code-block',ECodeBlock)}
+if (!customElements.get('hf-code-block')) { customElements.define('hf-code-block',ECodeBlock)}
 }
 `
 
@@ -51,9 +51,9 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-code-block', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-code-block', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-code-block', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-code-block', cssString, markupString })
 
 export default {
   elementHTML,

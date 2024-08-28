@@ -2,7 +2,7 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /* Base tabs styles */
-e-tabs {
+hf-tabs {
     display: flex;
     align-items: flex-start;
 
@@ -17,7 +17,7 @@ e-tabs {
     }
 
     /* Base tab styles */
-    & :is(e-link, e-button, button, a) {
+    & :is(hf-link, hf-button, button, a) {
         all: unset;
         display: inline-flex;
 
@@ -28,41 +28,41 @@ e-tabs {
     }
 
       &:has([aria-selected="true"]), &:is([aria-selected="true"]) {
-          border-bottom: 2px solid var(--e-color-primary);
+          border-bottom: 2px solid var(--hf-color-primary);
       }
       /* & :not([disabled]):not([aria-selected="true"]):hover { */
-      /*     border-bottom: 2px solid var(--e-color-gray-3); */
+      /*     border-bottom: 2px solid var(--hf-color-gray-3); */
       /*     text-decoration: none; */
       /* } */
 
       &:is(a, button) {
           all: unset;
           display: inline-flex;
-          color: var(--e-color-surface-text);
+          color: var(--hf-color-surface-text);
           font-weight: bold;
           text-align: center;
           white-space: nowrap;
-          padding: var(--e-space-xs) var(--e-space-lg);
+          padding: var(--hf-space-xs) var(--hf-space-lg);
           cursor: pointer;
 
           &:focus-visible {
-              outline: 2px solid var(--e-color-focus);
+              outline: 2px solid var(--hf-color-focus);
           }
 
           /* Hover state */
           &:not([disabled]):not([aria-selected="true"]):hover {
-              border-bottom: 2px solid var(--e-color-gray-3);
+              border-bottom: 2px solid var(--hf-color-gray-3);
               text-decoration: none;
           }
 
           /* Selected state */
           /* &[aria-selected="true"] { */
-          /*     border-bottom: 2px solid var(--e-color-primary-action); */
+          /*     border-bottom: 2px solid var(--hf-color-primary-action); */
           /* } */
 
           /* Disabled state */
           &[disabled] {
-              color: var(--e-color-disabled-fg);
+              color: var(--hf-color-disabled-fg);
               cursor: default;
           }
       }
@@ -70,31 +70,31 @@ e-tabs {
       & :is(a, button) {
           all: unset;
           display: inline-flex;
-          color: var(--e-color-gray-7);
+          color: var(--hf-color-gray-7);
           font-weight: bold;
           text-align: center;
           white-space: nowrap;
-          padding: var(--e-space-xs) var(--e-space-lg);
+          padding: var(--hf-space-xs) var(--hf-space-lg);
           cursor: pointer;
 
           &:focus-visible {
-              outline: 2px solid var(--e-color-focus);
+              outline: 2px solid var(--hf-color-focus);
           }
 
           /* Hover state */
           &:not([disabled]):not([aria-selected="true"]):hover {
-              border-bottom: 2px solid var(--e-color-gray-3);
+              border-bottom: 2px solid var(--hf-color-gray-3);
               text-decoration: none;
           }
 
           /* Selected state */
           /* &[aria-selected="true"] { */
-          /*     border-bottom: 2px solid var(--e-color-primary-action); */
+          /*     border-bottom: 2px solid var(--hf-color-primary-action); */
           /* } */
 
           /* Disabled state */
           &[disabled] {
-              color: var(--e-color-disabled-fg);
+              color: var(--hf-color-disabled-fg);
               cursor: default;
           }
       }
@@ -112,9 +112,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-tags', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-tags', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-tags', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-tags', cssString, markupString })
 
 export default {
   elementHTML,

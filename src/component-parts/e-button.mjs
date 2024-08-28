@@ -2,11 +2,11 @@ import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mj
 
 const cssString = /*css*/`
 /**********************************/
-  e-button {
+  hf-button {
     display: inline-block;
     & + & {
-      margin-left: var(--e-space-sm);
-      margin-top: var(--e-space-sm);
+      margin-left: var(--hf-space-sm);
+      margin-top: var(--hf-space-sm);
     }
 
     :is(button, a[role="button"]) {
@@ -18,7 +18,7 @@ const cssString = /*css*/`
 
 
 @media (max-width: 480px) {
-  e-button[responsive] {
+  hf-button[responsive] {
     width: 100%;
     & + & {
      margin-left: unset;
@@ -31,7 +31,7 @@ const cssString = /*css*/`
 
 
 /**********************************/
-  e-button {
+  hf-button {
       /*
       Ordinal attribute
       The ord attr is short for "ordinal number word".
@@ -41,66 +41,66 @@ const cssString = /*css*/`
       &[ord] :is(button, a[role="button"]) {
         /* display: inline-flex; */
         place-content: center;
-        border-radius: var(--e-border-radius-md);
+        border-radius: var(--hf-border-radius-md);
         cursor: pointer;
         background: none;
-        font-size: var(--e-font-size-md);
-        height: var(--e-input-min-height);
-        padding: var(--e-space-xs) var(--e-space-md);
+        font-size: var(--hf-font-size-md);
+        height: var(--hf-input-min-height);
+        padding: var(--hf-space-xs) var(--hf-space-md);
         display: flex;
         align-items: center;
         justify-content: center;
 
         /* Sibling buttons */
         + & {
-          margin-left: var(--e-space-sm);
+          margin-left: var(--hf-space-sm);
         }
 
         /* Disabled */
         &[disabled] {
           cursor: not-allowed;
-          border: 2px solid var(--e-color-disabled-bg);
-          color: var(--e-color-disabled-fg);
-          background-color: var(--e-color-disabled-bg);
+          border: 2px solid var(--hf-color-disabled-bg);
+          color: var(--hf-color-disabled-fg);
+          background-color: var(--hf-color-disabled-bg);
         }
       }
   }
 /**********************************/
 
 /**********************************/
-  e-button {
+  hf-button {
       /* Primary ordinal */
       &[ord="primary"] :is(button, a[role="button"]) {
-        border: 2px solid var(--e-color-primary);
-        background-color: var(--e-color-primary);
-        color: var(--e-color-primary-text);
+        border: 2px solid var(--hf-color-primary);
+        background-color: var(--hf-color-primary);
+        color: var(--hf-color-primary-text);
       }
 
       /* Secondary ordinal */
       &[ord="secondary"] :is(button, a[role="button"]) {
-        border: 2px solid var(--e-color-primary);
-        color: var(--e-color-primary);
+        border: 2px solid var(--hf-color-primary);
+        color: var(--hf-color-primary);
 
         &[aria-pressed="true"],
         &[aria-pressed="mixed"] {
-          background-color: var(--e-color-info);
+          background-color: var(--hf-color-info);
         }
       }
 
       /* Tertiary ordinal */
       &[ord="tertiary"] :is(button, a[role="button"]) {
-        border: 2px solid var(--e-color-surface-text);
-        color: var(--e-color-surface-text);
+        border: 2px solid var(--hf-color-surface-text);
+        color: var(--hf-color-surface-text);
       }
   }
 /**********************************/
 
 /**********************************/
-  e-button {
+  hf-button {
     /* Focus for all buttons */
     &[ord] :is(button, a[role="button"]):focus-visible,
     button[type="remove"]:focus-visible {
-      outline: 2px solid var(--e-color-focus);
+      outline: 2px solid var(--hf-color-focus);
       outline-offset: 0;
     }
 
@@ -116,7 +116,7 @@ const cssString = /*css*/`
 /**********************************/
 
 /**********************************/
-  e-button {
+  hf-button {
 
     /* Remove button (for close, dismiss, delete use cases) */
     button[type="remove"] {
@@ -124,7 +124,7 @@ const cssString = /*css*/`
       display: inline-flex;
       place-content: center;
       cursor: pointer;
-      width: var(--e-input-min-height);
+      width: var(--hf-input-min-height);
       font-size: 24px;
 
       &:active {
@@ -136,7 +136,7 @@ const cssString = /*css*/`
 
       /* Disabled */
       &[disabled] {
-        color: var(--e-color-disabled-fg);
+        color: var(--hf-color-disabled-fg);
         cursor: not-allowed;
       }
     }
@@ -145,10 +145,10 @@ const cssString = /*css*/`
 
 
   /* Button Group */
-[role="group"]:has(e-button) {
+[role="group"]:has(hf-button) {
   display: inline-flex;
 
-  & e-button:has(:is(button, a[role="button"])) {
+  & hf-button:has(:is(button, a[role="button"])) {
 
     & :is(button, a[role="button"]) {
         border-radius: 0;
@@ -157,14 +157,14 @@ const cssString = /*css*/`
     }
       
     &:first-of-type  :is(button, a[role="button"]){
-        border-radius: var(--e-border-radius-md) 0 0
-          var(--e-border-radius-md);
+        border-radius: var(--hf-border-radius-md) 0 0
+          var(--hf-border-radius-md);
         border-left-width: 2px;
       }
 
     &:last-of-type  :is(button, a[role="button"]){
-        border-radius: 0 var(--e-border-radius-md)
-          var(--e-border-radius-md) 0;
+        border-radius: 0 var(--hf-border-radius-md)
+          var(--hf-border-radius-md) 0;
         border-right-width: 2px;
       }
 
@@ -185,9 +185,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-button', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-button', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-button', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-button', cssString, markupString })
 
 export default {
   elementHTML,

@@ -1,21 +1,21 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-avatar {
+hf-avatar {
   --avatar-size: 2.5rem;
   --avatar-radius: 50%;
 
   display: inline-block;
   width: var(--avatar-size);
   height: var(--avatar-size);
-  background-color: var(--e-color-info); 
+  background-color: var(--hf-color-info); 
   background-size: cover;
   background-position: center;
   border-radius: var(--avatar-radius);
   overflow: hidden;
   text-align: center;
-  font-size: var(--e-font-size-md);
-  color: var(--e-color-info-text);
+  font-size: var(--hf-font-size-md);
+  color: var(--hf-color-info-text);
   line-height: var(--avatar-size);
   position: relative;
   display: flex;
@@ -24,25 +24,25 @@ e-avatar {
 }
 
 
-e-avatar[shape="circle"] { --avatar-radius: 50%; }
-e-avatar[shape="square"] { 
-  --avatar-radius: var(--e-border-radius-lg, 10px);
+hf-avatar[shape="circle"] { --avatar-radius: 50%; }
+hf-avatar[shape="square"] { 
+  --avatar-radius: var(--hf-border-radius-lg, 10px);
 }
 
-e-avatar[size="small"] {
+hf-avatar[size="small"] {
   --avatar-size: 1.5rem;
 }
-e-avatar[size="medium"] {
+hf-avatar[size="medium"] {
   --avatar-size: 2.5rem;
 }
-e-avatar[size="large"] {
+hf-avatar[size="large"] {
   --avatar-size: 5rem;
 }
-e-avatar[size="xlarge"] {
+hf-avatar[size="xlarge"] {
   --avatar-size: 10rem;
 }
 
-e-avatar img {
+hf-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -50,11 +50,11 @@ e-avatar img {
 }
 
 /* Fallback Text */
-e-avatar[text]::before {
+hf-avatar[text]::before {
   content: attr(text);
   font-size: calc(var(--avatar-size) * .4);
   font-weight: 700;
-  color: var(--e-color-info-text);
+  color: var(--hf-color-info-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ e-avatar[text]::before {
 }
 
 /* Fallback SVG */
-e-avatar:not([text])::before {
+hf-avatar:not([text])::before {
   text-align: center;
   width: 75%;
   height: 75%;
@@ -88,9 +88,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-avatar', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-avatar', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-avatar', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-avatar', cssString, markupString })
 
 export default {
   elementHTML,

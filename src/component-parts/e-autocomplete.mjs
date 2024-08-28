@@ -2,7 +2,7 @@ import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../
 
 const cssString = /*css*/`
 /* Base styles */
-e-autocomplete {
+hf-autocomplete {
     display: block;
 
     /* Matches container */
@@ -12,14 +12,14 @@ e-autocomplete {
         min-width: 200px;
 
         & > ul li:hover {
-            background-color: var(--e-color-gray-1);
+            background-color: var(--hf-color-gray-1);
         }
     }
 }
 
 /* When paired with label */
-fieldset label + e-autocomplete {
-    margin-top: var(--e-space-xs);
+fieldset label + hf-autocomplete {
+    margin-top: var(--hf-space-xs);
 }
 `
 const markupString = /*html*/`<slot></slot>`
@@ -174,11 +174,11 @@ ${markupString}
   class EAutoComplete extends HTMLElement {
 ${indentChunk(scriptString)}
   }
-  if (!customElements.get('e-autocomplete')) {customElements.define("e-autocomplete", EAutoComplete)}
+  if (!customElements.get('hf-autocomplete')) {customElements.define("hf-autocomplete", EAutoComplete)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-autocomplete', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-autocomplete', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -192,7 +192,7 @@ ${indentChunk(scriptString, '    ')}
         ${markupString}
       \`}
 }
-if (!customElements.get('e-autocomplete')) { customElements.define("e-autocomplete", AutoComplete) };
+if (!customElements.get('hf-autocomplete')) { customElements.define("hf-autocomplete", AutoComplete) };
 `
 
 export default {

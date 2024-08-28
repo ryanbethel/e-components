@@ -15,8 +15,8 @@
     "components.js",
     "/app/elements/e/",
     "/app/components/",
-    "/public/e-global-custom-properties.css",
-    "/public/e-global-basic-reset.css",
+    "/public/hf-global-custom-properties.css",
+    "/public/hf-global-basic-reset.css",
     "paramour-config.mjs"
   ],
   "license": "MIT",

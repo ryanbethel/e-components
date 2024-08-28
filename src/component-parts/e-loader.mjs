@@ -1,18 +1,18 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-loader {
+hf-loader {
     display: inline-flex;
     vertical-align: middle;
 
     &::before {
-        margin-inline-end: var(--e-space-xs);
+        margin-inline-end: var(--hf-space-xs);
         text-align: center;
                 width: 1.25em;
                 height: 1.25em;
                 /* position: absolute; */
-                /* top: var(--e-space-sm);
-                right: var(--e-space-sm);
+                /* top: var(--hf-space-sm);
+                right: var(--hf-space-sm);
                 transform: rotate(0deg);
                 transition: transform 250ms; */
       /* content: '✳'; */
@@ -28,11 +28,11 @@ e-loader {
     }
 
     &[loading]::before {
-        animation: 1.2s linear infinite e-loader;
+        animation: 1.2s linear infinite hf-loader;
     }
 }
 
-@keyframes e-loader {
+@keyframes hf-loader {
     0% {
         transform: rotate(0deg);
     }
@@ -52,9 +52,9 @@ ${indentChunk(cssString)}
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-loader', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-loader', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-loader', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-loader', cssString, markupString })
 
 export default {
   elementHTML,

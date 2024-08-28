@@ -1,73 +1,73 @@
-import eAlert from "./dist/elements-mjs/e-alert.mjs"
-import eAvatar from "./dist/elements-mjs/e-avatar.mjs"
-import eVRule from "./dist/elements-mjs/e-v-rule.mjs"
-import eHRule from "./dist/elements-mjs/e-h-rule.mjs"
-import eMenu from "./dist/elements-mjs/e-menu.mjs"
-import eAutocomplete from "./dist/elements-mjs/e-autocomplete.mjs"
-import eAccordion from "./dist/elements-mjs/e-accordion.mjs"
-import eBadge from "./dist/elements-mjs/e-badge.mjs"
-import eBlockquote from "./dist/elements-mjs/e-blockquote.mjs"
-import eBox from "./dist/elements-mjs/e-box.mjs"
-import eBreadcrumb from "./dist/elements-mjs/e-breadcrumb.mjs"
-import eButton from "./dist/elements-mjs/e-button.mjs"
-import eCode from "./dist/elements-mjs/e-code.mjs"
-import eCard from "./dist/elements-mjs/e-card.mjs"
-import eCodeBlock from "./dist/elements-mjs/e-code-block.mjs"
-import eCol from "./dist/elements-mjs/e-col.mjs"
-import eContainer from "./dist/elements-mjs/e-container.mjs"
-import eDetails from "./dist/elements-mjs/e-details.mjs"
-import eDialog from "./dist/elements-mjs/e-dialog.mjs"
-import eDot from "./dist/elements-mjs/e-dot.mjs"
-import eInputGroup from "./dist/elements-mjs/e-input-group.mjs"
-import eKeyboard from "./dist/elements-mjs/e-keyboard.mjs"
-import eLoader from "./dist/elements-mjs/e-loader.mjs"
-import eRow from "./dist/elements-mjs/e-row.mjs"
-import eSwitch from "./dist/elements-mjs/e-switch.mjs"
-import eTable from "./dist/elements-mjs/e-table.mjs"
-import eTabs from "./dist/elements-mjs/e-tabs.mjs"
-import eTag from "./dist/elements-mjs/e-tag.mjs"
-import eList from "./dist/elements-mjs/e-list.mjs"
-import eLink from "./dist/elements-mjs/e-link.mjs"
-import eResponsiveHeader from "./dist/elements-mjs/e-responsive-header.mjs"
-import eResponsiveSidebar from "./dist/elements-mjs/e-responsive-sidebar.mjs"
-import eThemeSwitch from "./dist/elements-mjs/e-theme-switch.mjs"
-import eThemeMenu from "./dist/elements-mjs/e-theme-menu.mjs"
+import eAlert from "./dist/elements-mjs/hf-alert.mjs"
+import eAvatar from "./dist/elements-mjs/hf-avatar.mjs"
+import eVRule from "./dist/elements-mjs/hf-v-rule.mjs"
+import eHRule from "./dist/elements-mjs/hf-h-rule.mjs"
+import eMenu from "./dist/elements-mjs/hf-menu.mjs"
+import eAutocomplete from "./dist/elements-mjs/hf-autocomplete.mjs"
+import eAccordion from "./dist/elements-mjs/hf-accordion.mjs"
+import eBadge from "./dist/elements-mjs/hf-badge.mjs"
+import eBlockquote from "./dist/elements-mjs/hf-blockquote.mjs"
+import eBox from "./dist/elements-mjs/hf-box.mjs"
+import eBreadcrumb from "./dist/elements-mjs/hf-breadcrumb.mjs"
+import eButton from "./dist/elements-mjs/hf-button.mjs"
+import eCode from "./dist/elements-mjs/hf-code.mjs"
+import eCard from "./dist/elements-mjs/hf-card.mjs"
+import eCodeBlock from "./dist/elements-mjs/hf-code-block.mjs"
+import eCol from "./dist/elements-mjs/hf-col.mjs"
+import eContainer from "./dist/elements-mjs/hf-container.mjs"
+import eDetails from "./dist/elements-mjs/hf-details.mjs"
+import eDialog from "./dist/elements-mjs/hf-dialog.mjs"
+import eDot from "./dist/elements-mjs/hf-dot.mjs"
+import eInputGroup from "./dist/elements-mjs/hf-input-group.mjs"
+import eKeyboard from "./dist/elements-mjs/hf-keyboard.mjs"
+import eLoader from "./dist/elements-mjs/hf-loader.mjs"
+import eRow from "./dist/elements-mjs/hf-row.mjs"
+import eSwitch from "./dist/elements-mjs/hf-switch.mjs"
+import eTable from "./dist/elements-mjs/hf-table.mjs"
+import eTabs from "./dist/elements-mjs/hf-tabs.mjs"
+import eTag from "./dist/elements-mjs/hf-tag.mjs"
+import eList from "./dist/elements-mjs/hf-list.mjs"
+import eLink from "./dist/elements-mjs/hf-link.mjs"
+import eResponsiveHeader from "./dist/elements-mjs/hf-responsive-header.mjs"
+import eResponsiveSidebar from "./dist/elements-mjs/hf-responsive-sidebar.mjs"
+import eThemeSwitch from "./dist/elements-mjs/hf-theme-switch.mjs"
+import eThemeMenu from "./dist/elements-mjs/hf-theme-menu.mjs"
 
 const elements = {
-  'e-alert': eAlert,
-  'e-avatar': eAvatar,
-  'e-autocomplete': eAutocomplete,
-  'e-button': eButton,
-  'e-code': eCode,
-  'e-card': eCard,
-  'e-code-block': eCodeBlock,
-  'e-link': eLink,
-  'e-h-rule': eHRule,
-  'e-v-rule': eVRule,
-  'e-switch': eSwitch,
-  'e-accordion': eAccordion,
-  'e-badge': eBadge,
-  'e-blockquote': eBlockquote,
-  'e-box': eBox,
-  'e-breadcrumb': eBreadcrumb,
-  'e-col': eCol,
-  'e-container': eContainer,
-  'e-details': eDetails,
-  'e-dialog': eDialog,
-  'e-dot': eDot,
-  'e-input-group': eInputGroup,
-  'e-keyboard': eKeyboard,
-  'e-loader': eLoader,
-  'e-list': eList,
-  'e-menu': eMenu,
-  'e-row': eRow,
-  'e-table': eTable,
-  'e-tabs': eTabs,
-  'e-tag': eTag,
-  'e-responsive-header': eResponsiveHeader,
-  'e-responsive-sidebar': eResponsiveSidebar,
-  'e-theme-switch': eThemeSwitch,
-  'e-theme-menu': eThemeMenu,
+  'hf-alert': eAlert,
+  'hf-avatar': eAvatar,
+  'hf-autocomplete': eAutocomplete,
+  'hf-button': eButton,
+  'hf-code': eCode,
+  'hf-card': eCard,
+  'hf-code-block': eCodeBlock,
+  'hf-link': eLink,
+  'hf-h-rule': eHRule,
+  'hf-v-rule': eVRule,
+  'hf-switch': eSwitch,
+  'hf-accordion': eAccordion,
+  'hf-badge': eBadge,
+  'hf-blockquote': eBlockquote,
+  'hf-box': eBox,
+  'hf-breadcrumb': eBreadcrumb,
+  'hf-col': eCol,
+  'hf-container': eContainer,
+  'hf-details': eDetails,
+  'hf-dialog': eDialog,
+  'hf-dot': eDot,
+  'hf-input-group': eInputGroup,
+  'hf-keyboard': eKeyboard,
+  'hf-loader': eLoader,
+  'hf-list': eList,
+  'hf-menu': eMenu,
+  'hf-row': eRow,
+  'hf-table': eTable,
+  'hf-tabs': eTabs,
+  'hf-tag': eTag,
+  'hf-responsive-header': eResponsiveHeader,
+  'hf-responsive-sidebar': eResponsiveSidebar,
+  'hf-theme-switch': eThemeSwitch,
+  'hf-theme-menu': eThemeMenu,
 }
 
 export default elements;

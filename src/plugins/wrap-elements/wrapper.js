@@ -29,7 +29,7 @@ export default class ${className} extends CustomElement {
     }
 }
 
-if (!customElements.get("e-${tag}")) { customElements.define("e-${tag}", ${className}) };
+if (!customElements.get("hf-${tag}")) { customElements.define("hf-${tag}", ${className}) };
 `
 }
 

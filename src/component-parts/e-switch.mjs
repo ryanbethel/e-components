@@ -1,7 +1,7 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-e-switch {
+hf-switch {
   /* Base switch styles */
   input[is=switch] {
     position: relative;
@@ -9,9 +9,9 @@ e-switch {
     height: 22px;
     appearance: none;
     margin: 0;
-    border-radius: var(--e-border-radius-full);
+    border-radius: var(--hf-border-radius-full);
     cursor: pointer;
-    background-color: var(--e-color-gray-3);
+    background-color: var(--hf-color-gray-3);
     transition: background-color ease-in 0.12s;
 
     &::before {
@@ -21,24 +21,24 @@ e-switch {
       height: 16px;
       top: 3px;
       left: 3px;
-      border-radius: var(--e-border-radius-full);
+      border-radius: var(--hf-border-radius-full);
       background-color: white;
       transition: all ease-in 0.12s;
     }
 
     &:focus-visible {
-      outline: 2px solid var(--e-color-focus);
+      outline: 2px solid var(--hf-color-focus);
       outline-offset: 0;
     }
 
     /* Checked state */
-    &:checked { background-color: var(--e-color-primary) }
+    &:checked { background-color: var(--hf-color-primary) }
     &:checked:before { left: 20px }
 
     /* Disabled state */
     &:disabled {
       cursor: not-allowed;
-      background-color: var(--e-color-disabled-bg);
+      background-color: var(--hf-color-disabled-bg);
     }
   }
 }
@@ -59,7 +59,7 @@ class ESwitch extends HTMLElement {
       }
     }
 }
-if (!customElements.get('e-switch')) { customElements.define('e-switch', ESwitch) }
+if (!customElements.get('hf-switch')) { customElements.define('hf-switch', ESwitch) }
 `
 
 
@@ -75,9 +75,9 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-switch', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-switch', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-switch', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-switch', cssString, markupString })
 
 export default {
   elementHTML,

@@ -1,14 +1,14 @@
 import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
 const cssString = /*css*/`
-  e-input-group { 
+  hf-input-group { 
     display: block;
 
     & + & {
-      margin-top: var(--e-space-xs);
+      margin-top: var(--hf-space-xs);
     }
 
-    & + :is(&, e-button, button[ord], a[role=button]) { margin-top: var(--e-space-md) }
+    & + :is(&, hf-button, button[ord], a[role=button]) { margin-top: var(--hf-space-md) }
 
     fieldset {
       margin: 0;
@@ -16,7 +16,7 @@ const cssString = /*css*/`
       border: none;
       position: relative;
 
-      & + :is(&, button[ord], a[role=button]) { margin-top: var(--e-space-md) }
+      & + :is(&, button[ord], a[role=button]) { margin-top: var(--hf-space-md) }
 
       & input:not([type=radio]):not([type=checkbox]),
       & :is(label, select) {
@@ -36,16 +36,16 @@ const cssString = /*css*/`
       & input:not([type=radio], [type=checkbox], [type=range]),
       & :is(select, textarea) {
         width: 100%;
-        min-height: var(--e-input-min-height);
-        font-size: var(--e-font-size-default);
+        min-height: var(--hf-input-min-height);
+        font-size: var(--hf-font-size-default);
         padding: 6px;
         border-radius: 0px;
-        background-color: var(--e-color-gray-0);
-        color: var(--e-color-gray-8);
+        background-color: var(--hf-color-gray-0);
+        color: var(--hf-color-gray-8);
       }
 
       & :is(input:not([is=switch]), select, textarea) {
-        border: 1px solid var(--e-color-gray-3);
+        border: 1px solid var(--hf-color-gray-3);
       }
 
       & select:not([multiple]) {
@@ -53,7 +53,7 @@ const cssString = /*css*/`
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='22px'%3E%3Ctext x='0' y='10' fill='gray'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right center;
-        padding-right: var(--e-space-lg);
+        padding-right: var(--hf-space-lg);
       }
 
       & textarea {
@@ -65,21 +65,21 @@ const cssString = /*css*/`
         appearance: none;
         outline: 0;
         width: 100%;
-        margin: var(--e-space-sm) 0;
-        height: var(--e-space-xs);
-        background-color: var(--e-color-gray-3);
-        border-radius: var(--e-border-radius-full);
+        margin: var(--hf-space-sm) 0;
+        height: var(--hf-space-xs);
+        background-color: var(--hf-color-gray-3);
+        border-radius: var(--hf-border-radius-full);
 
         &::-webkit-slider-thumb {
            appearance: none;
-           width: var(--e-space-md);
-           height: var(--e-space-md);
-           border: 1px solid var(--e-color-gray-4);
+           width: var(--hf-space-md);
+           height: var(--hf-space-md);
+           border: 1px solid var(--hf-color-gray-4);
            background-color: white;
-           border-radius: var(--e-border-radius-full);
+           border-radius: var(--hf-border-radius-full);
 
           &:focus-visible {
-             outline: 2px solid var(--e-color-focus);
+             outline: 2px solid var(--hf-color-focus);
           }
         }
 
@@ -94,31 +94,31 @@ const cssString = /*css*/`
 
       & :is(label, input, select, textarea, small) {
         & + & {
-          margin-top: var(--e-space-xs);
+          margin-top: var(--hf-space-xs);
         }
       }
 
       & input:not([type=range]):not([is=switch]),
       & :is(select, textarea) {
         &:focus {
-          outline: 2px solid var(--e-color-focus);
+          outline: 2px solid var(--hf-color-focus);
           outline-offset: 0;
-          border: 1px solid var(--e-color-primary);
+          border: 1px solid var(--hf-color-primary);
         }
       }
 
       & :is(input, select, textarea) {
         &:invalid,
         &[invalid] {
-          border-color: var(--e-color-error);
+          border-color: var(--hf-color-error);
 
           & ~ small {
-            color: var(--e-color-error);
+            color: var(--hf-color-error);
           }
         }
 
         & ~ small {
-          color: var(--e-color-gray-6);
+          color: var(--hf-color-gray-6);
         }
       }
 
@@ -151,7 +151,7 @@ class EInputGroup extends HTMLElement {
       }
     }
 }
-if (!customElements.get('e-input-group')) { customElements.define('e-input-group',EInputGroup)}
+if (!customElements.get('hf-input-group')) { customElements.define('hf-input-group',EInputGroup)}
 `
 
 
@@ -167,9 +167,9 @@ ${indentChunk(scriptString)}
 </script>
 `
 
-const elementFunctionString = funWrapHTMLElement({ tag: 'e-input-group', htmlString: elementHTML })
+const elementFunctionString = funWrapHTMLElement({ tag: 'hf-input-group', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({ tag: 'e-input-group', cssString, markupString })
+const componentFunctionString = wrapComponentCE({ tag: 'hf-input-group', cssString, markupString })
 
 export default {
   elementHTML,
