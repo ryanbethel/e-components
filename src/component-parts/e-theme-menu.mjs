@@ -1,31 +1,29 @@
-import { funWrapHTMLElement, wrapComponentCE, escString } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style>
+const cssString = /*css*/`
+e-theme-menu {
+  e-list {
+    padding: var(--e-space-sm);
+    font-size: var(--e-font-size-md);
+  }
+  e-list li {
+    padding: var(--e-space-xs) 0;
+  }
 
-e-list {
-  padding: var(--e-space-sm);
-  font-size: var(--e-font-size-md);
+  e-list e-menu label {
+    position: relative;
+  }
+  e-menu e-list label input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+  }
+  e-list label svg {
+    width: 1em;
+    height: 1em;
+  }
 }
-e-list li {
-  padding: var(--e-space-xs) 0;
-}
-
-e-list e-menu label {
-  position: relative;
-}
-e-menu e-list label input{
-  opacity: 0;
-  position: absolute;
-  left: 0;
-}
-e-list label svg {
-  width: 1em;
-  height: 1em;
-}
-
-</style>
-    `
+`
 
 const markupString = /*html*/`
   <e-menu>
@@ -72,47 +70,52 @@ const markupString = /*html*/`
 `
 
 
-const scriptString = /*html*/`
-  <script>
-    class DarkSwitch extends HTMLElement {
-      constructor() {
-        super();
-        const darkLightTheme = window.localStorage.getItem('dark-light-theme');
-        if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+const scriptString = /*javascript*/`
+class ThemeMenu extends HTMLElement {
+  constructor() {
+    super();
+    const darkLightTheme = window.localStorage.getItem('dark-light-theme');
+    if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+  }
+  connectedCallback() {
+      const isEnhanced = this.getAttribute('enhanced') === '✨'
+      // client-side rendering
+      if (!isEnhanced) {
+        this.innerHTML = \`${markupString}\`
+        this.setAttribute('enhanced', 'client')
       }
-      connectedCallback() {
-          const isEnhanced = this.getAttribute('enhanced') === '✨'
-          // client-side rendering
-          if (!isEnhanced) {
-            this.innerHTML = \`${markupString}\`
-            this.setAttribute('enhanced', 'client')
-          }
-        this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
-        this.themeSelector?.addEventListener('change', (e) => {
-          if (e.target.checked) {
-          localStorage.setItem('dark-light-theme', 'dark');
-          document.documentElement.classList.add('dark-mode')
-          } else {
-          localStorage.setItem('dark-light-theme', 'light');
-          document.documentElement.classList.remove('dark-mode')
-          }
-        });
-      } 
-    }
-    if (!customElements.get('e-dark-switch')) {customElements.define('e-dark-switch', DarkSwitch);}
-    </script>
-`
-const elementHTML = `
-${styleString}
-${markupString}
-${scriptString}
+    this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
+    this.themeSelector?.addEventListener('change', (e) => {
+      if (e.target.checked) {
+      localStorage.setItem('dark-light-theme', 'dark');
+      document.documentElement.classList.add('dark-mode')
+      } else {
+      localStorage.setItem('dark-light-theme', 'light');
+      document.documentElement.classList.remove('dark-mode')
+      }
+    });
+  } 
+}
+if (!customElements.get('e-theme-menu')) {customElements.define('e-theme-menu', ThemeMenu);}
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-theme-menu', htmlString:elementHTML})
+const elementHTML = `
+<style scope=global>
+${indentChunk(cssString)}
+</style>
+
+${markupString}
+
+<script type=module>
+${indentChunk(scriptString)}
+</script>
+`
+
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-theme-menu', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
-    class ThemeSwitch extends CustomElement {
+export default class ThemeMenu extends CustomElement {
       constructor() {
         super();
         const darkLightTheme = window.localStorage.getItem('dark-light-theme');
@@ -130,13 +133,15 @@ import CustomElement from '/_public/browser/custom-element.mjs'
           }
         });
       } 
-          render({html,state}){ 
+      render({html,state}){ 
         return html\`
-${escString(styleString)}
+<style scope=global>
+${indentChunk(escString(cssString))}
+</style>
 ${escString(markupString)}
-            \`
+    \`
     }
-    if (!customElements.get('e-dark-switch')) {customElements.define('e-dark-switch', DarkSwitch);}
+    if (!customElements.get('e-theme-menu')) {customElements.define('e-theme-menu', ThemeMenu);}
     `
 
 export default {

@@ -1,41 +1,41 @@
-import { funWrapHTMLElement, wrapComponentCE, escString } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style>
-input[type="checkbox"] {
-  opacity: 0;
-  position: absolute;
-}
+const cssString = /*css*/`
+e-theme-switch {
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+  }
 
-label[for=theme-toggle-checkbox] {
-  position: relative;
-  background-color: var(--e-color-primary);
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  padding: 3px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  label[for=theme-toggle-checkbox] {
+    position: relative;
+    background-color: var(--e-color-primary);
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    padding: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-label .ball {
-  background-color: var(--e-color-primary-text);
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
+  label .ball {
+    background-color: var(--e-color-primary-text);
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
 
-input#theme-toggle-checkbox:checked + label .ball {
-  transform: translateX(24px);
+  input#theme-toggle-checkbox:checked + label .ball {
+    transform: translateX(24px);
+  }
 }
-</style>
-    `
+`
 
 const markupString = /*html*/`
 <input type="checkbox" id="theme-toggle-checkbox" name="theme-toggle" >
@@ -48,46 +48,51 @@ const markupString = /*html*/`
 
 
 const scriptString = /*html*/`
-  <script>
-    class ThemeSwitch extends HTMLElement {
-      constructor() {
-        super();
-        const darkLightTheme = window.localStorage.getItem('dark-light-theme');
-        if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+class ThemeSwitch extends HTMLElement {
+  constructor() {
+    super();
+    const darkLightTheme = window.localStorage.getItem('dark-light-theme');
+    if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+  }
+  connectedCallback() {
+      const isEnhanced = this.getAttribute('enhanced') === '✨'
+      // client-side rendering
+      if (!isEnhanced) {
+        this.innerHTML = \`${markupString}\`
+        this.setAttribute('enhanced', 'client')
       }
-      connectedCallback() {
-          const isEnhanced = this.getAttribute('enhanced') === '✨'
-          // client-side rendering
-          if (!isEnhanced) {
-            this.innerHTML = \`${markupString}\`
-            this.setAttribute('enhanced', 'client')
-          }
-        this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
-        this.themeSelector?.addEventListener('change', (e) => {
-          if (e.target.checked) {
-          localStorage.setItem('dark-light-theme', 'dark');
-          document.documentElement.classList.add('dark-mode')
-          } else {
-          localStorage.setItem('dark-light-theme', 'light');
-          document.documentElement.classList.remove('dark-mode')
-          }
-        });
-      } 
-    }
-    if (!customElements.get('e-theme-switch')) {customElements.define('e-theme-switch', ThemeSwitch);}
-    </script>
-`
-const elementHTML = `
-${styleString}
-${markupString}
-${scriptString}
+    this.themeSelector = this.querySelector('input#theme-toggle-checkbox')
+    this.themeSelector?.addEventListener('change', (e) => {
+      if (e.target.checked) {
+      localStorage.setItem('dark-light-theme', 'dark');
+      document.documentElement.classList.add('dark-mode')
+      } else {
+      localStorage.setItem('dark-light-theme', 'light');
+      document.documentElement.classList.remove('dark-mode')
+      }
+    });
+  } 
+}
+if (!customElements.get('e-theme-switch')) {customElements.define('e-theme-switch', ThemeSwitch);}
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-theme-switch', htmlString:elementHTML})
+const elementHTML = `
+<style scope=global>
+${indentChunk(cssString)}
+</style>
+
+${markupString}
+
+<script type=module>
+${indentChunk(scriptString)}
+</script>
+`
+
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-theme-switch', htmlString: elementHTML })
 
 const componentFunctionString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
-    class ThemeSwitch extends CustomElement {
+export default class ThemeSwitch extends CustomElement {
       constructor() {
         super();
         const darkLightTheme = window.localStorage.getItem('dark-light-theme');
@@ -107,7 +112,9 @@ import CustomElement from '/_public/browser/custom-element.mjs'
       } 
     render({html,state}){ 
         return html\`
-${escString(styleString)}
+<style scope=global>
+${indentChunk(escString(cssString))}
+</style>
 ${escString(markupString)}
             \`
     }

@@ -1,38 +1,38 @@
-import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style scope="global">
-    e-details {
-        & details {
-            > summary {
-                cursor: pointer;
-                list-style: none; /* Hides caret in Firefox */
+const cssString = /*css*/`
+e-details {
+    & details {
+        > summary {
+            cursor: pointer;
+            list-style: none; /* Hides caret in Firefox */
 
-                &:focus {
-                    outline: none;
-                }
+            &:focus {
+                outline: none;
+            }
 
-                /* Hides caret in Chrome, Safari, etc. */
-                &::-webkit-details-marker {
-                    display: none;
-                }
+            /* Hides caret in Chrome, Safari, etc. */
+            &::-webkit-details-marker {
+                display: none;
             }
         }
     }
-</style>
+}
 `
 
 const markupString = /*html*/`<slot></slot>`
 
 
 const elementHTML = `
-${styleString}
+<style scope="global">
+${indentChunk(cssString)}
+</style>
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-details', htmlString:elementHTML})
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-details', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({tag:'e-details',styleString,markupString})
+const componentFunctionString = wrapComponentCE({ tag: 'e-details', cssString, markupString })
 
 export default {
   elementHTML,

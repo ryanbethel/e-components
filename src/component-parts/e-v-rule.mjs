@@ -1,49 +1,52 @@
-import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style scope=global>
-  e-v-rule { 
-      display:flex;
-      height:  auto;
+const cssString = /*css*/`
+e-v-rule { 
+    display:flex;
+    height:  auto;
 
-    hr {
-      background-color: var(--e-color-gray-3);
-      border: none;
-      margin: 0;
-        width: 1px;
-        height: auto;
-    }
+  hr {
+    background-color: var(--e-color-gray-3);
+    border: none;
+    margin: 0;
+      width: 1px;
+      height: auto;
   }
-</style>
+}
 `
 
 const markupString = /*html*/`<hr aria-orientation="vertical" />`
 
-const scriptString = /*html*/`
-<script>
-    class EBlockquote extends HTMLElement {
-        constructor() { super() }
-        connectedCallback() {
-          const isEnhanced = this.getAttribute('enhanced') === '✨'
-          // client-side rendering
-          if (!isEnhanced) {
-            this.innerHTML = '<hr aria-orientation="vertical" />'
-            this.setAttribute('enhanced', 'client')
-          }
-        }
+const scriptString = /*javascript*/`
+class EVRule extends HTMLElement {
+    constructor() { super() }
+    connectedCallback() {
+      const isEnhanced = this.hasAttribute('enhanced')
+      // client-side rendering
+      if (!isEnhanced) {
+        this.innerHTML = '<hr aria-orientation="vertical" />'
+        this.setAttribute('enhanced', 'client')
+      }
     }
-</script>
+}
+if (!customElements.get('e-v-rule')) { customElements.define('e-v-rule', EVRule) }
 `
 
 const elementHTML = `
-${styleString}
+<style scope=global>
+${indentChunk(cssString)}
+</style>
+
 ${markupString}
-${scriptString}
+
+<script type=module>
+${indentChunk(scriptString)}
+</script>
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-v-rule', htmlString:elementHTML})
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-v-rule', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({tag:'e-v-rule',styleString,markupString})
+const componentFunctionString = wrapComponentCE({ tag: 'e-v-rule', cssString, markupString })
 
 export default {
   elementHTML,

@@ -1,7 +1,6 @@
-import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style scope=global>
+const cssString = /*css*/`
   e-input-group { 
     display: block;
 
@@ -125,52 +124,56 @@ const styleString = /*html*/`
 
     }
   }
-</style>
     `
+
 const markupString = /*html*/`
 <fieldset>
   <slot></slot>
 </fieldset>`
 
-const scriptString = /*html*/`
-<script>
-    class EInputGroup extends HTMLElement {
-        constructor() { super() }
-        connectedCallback() {
-          const isEnhanced = this.getAttribute('enhanced') === '✨'
-          // client-side rendering
-          if (!isEnhanced) {
-            // should only one child and it is a fieldset once expanded
-            if (this.children.length !== 1 || this.children[0].tagName !== 'FIELDSET') {
-                const fieldset = document.createElement('fieldset')
-                const children = this.children
-                for (let i = 0; i < children.length; i++) {
-                    fieldset.appendChild(children[i])
-                }
-                this.appendChild(fieldset)
+const scriptString = /*javascript*/`
+class EInputGroup extends HTMLElement {
+    constructor() { super() }
+    connectedCallback() {
+      const isEnhanced = this.hasAttribute('enhanced')
+      // client-side rendering
+      if (!isEnhanced) {
+        // should only one child and it is a fieldset once expanded
+        if (this.children.length !== 1 || this.children[0].tagName !== 'FIELDSET') {
+            const fieldset = document.createElement('fieldset')
+            const children = this.children
+            for (let i = 0; i < children.length; i++) {
+                fieldset.appendChild(children[i])
             }
-            this.setAttribute('enhanced', 'client')
-          }
+            this.appendChild(fieldset)
         }
+        this.setAttribute('enhanced', 'client')
+      }
     }
-</script>
+}
+if (!customElements.get('e-input-group')) { customElements.define('e-input-group',EInputGroup)}
 `
-
 
 
 const elementHTML = `
-${styleString}
+<style scope=global>
+${indentChunk(cssString)}
+</style>
+
 ${markupString}
-${scriptString}
+
+<script type=module>
+${indentChunk(scriptString)}
+</script>
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-input-group', htmlString:elementHTML})
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-input-group', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({tag:'e-input-group',styleString,markupString})
+const componentFunctionString = wrapComponentCE({ tag: 'e-input-group', cssString, markupString })
 
 export default {
   elementHTML,
   elementFunctionString,
   componentFunctionString
-} 
+}
 

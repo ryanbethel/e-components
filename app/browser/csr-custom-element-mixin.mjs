@@ -17,20 +17,19 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
     this.checkSlotOnly = this.checkSlotOnly.bind(this)
     this.isSlotOnly = this.checkSlotOnly(this.template)
 
+    this.instanceID = this.getAttribute('instance-id')
+
+    if (!this.instanceID) { this.instanceID = this.generateID(7) }
+
     this.expandTemplate()
+    if (!this.enhanced) { this.isClientEnhanced = true }
 
     //rerender for state change
     // this.rerender = this.rerender.bind(this)
 
     //Make an array of slotted ranges
     this.findSlottedRanges = this.findSlottedRanges.bind(this)
-    if (this.enhanced) {
-      const instanceID = this.getAttribute('instance-id')
-      if (instanceID) {
-        this.slottedRanges = this.findSlottedRanges(this, instanceID)
-
-      }
-    }
+    if (this.enhanced) { this.slottedRanges = this.findSlottedRanges(this) }
   }
 
   checkSlotOnly(templateElement) {
@@ -57,7 +56,7 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
     return el
   }
 
-  findSlottedRanges(node, instanceID) {
+  findSlottedRanges(node, instanceID = this.instanceID) {
     const slots = {};
     let currentSlotName = '';
     let collecting = false;
@@ -67,8 +66,6 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
         const comment = node.nodeValue.trim();
         const startMatch = comment.match(/^slot start name="(.*?)" id="(.*?)"$/);
         const endMatch = comment.match(/^slot end name="(.*?)" id="(.*?)"$/);
-        console.log({ startMatch })
-        console.log({ endMatch })
 
         if (startMatch && startMatch[2] === instanceID) {
           // Slot start found
@@ -115,11 +112,11 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
     // If the Custom Element was already expanded by SSR it will have the "enhanced" attribute so do not replaceChildren
     if (!this.enhanced && !this.hasSlots) {
       // this.replaceChildren(this.scrubTemplate(this.template.content.cloneNode(true)))
-      this.replaceChildren(this.scrubTemplate(this.renderedTemplate.content.cloneNode(true)))
+      this.replaceChildren(this.scrubTemplate(renderedStateTemplate.content.cloneNode(true)))
       // If this Custom Element was added dynamically with JavaScript then use the template contents to expand the element
     } else if (!this.enhanced && this.hasSlots && !this.isSlotOnly) {
       // this.innerHTML = this.expandSlots(this.innerHTML, this.template.innerHTML)
-      this.innerHTML = this.expandSlots(this.innerHTML, this.scrubTemplate(renderedStateTemplate.innerHTML))
+      this.innerHTML = this.expandSlots(this.innerHTML, this.scrubTemplate(renderedStateTemplate.content.cloneNode(true)).innerHTML)
     }
   }
 
@@ -230,6 +227,21 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
       template.content.cloneNode(true)
     )
 
+    if (true /*markSlots*/) {
+      const slots = template.querySelectorAll('slot')
+      slots.forEach(slot => {
+        const slotName = slot.getAttribute('name') || '';
+        const startComment = document.createComment(`slot start name=${slotName} slot-id=${this.instanceID}`);
+        const endComment = document.createComment(`slot end name=${slotName} slot-id=${this.instanceID}`);
+        slot.parentNode.insertBefore(startComment, slot);
+        if (slot.nextSibling) {
+          slot.parentNode.insertBefore(endComment, slot.nextSibling);
+        } else {
+          slot.parentNode.appendChild(endComment);
+        }
+      });
+    }
+
     const children = Array.from(fragment.childNodes)
     let unnamedSlot = {}
     let namedSlots = {}
@@ -282,6 +294,19 @@ const CsrCustomElementMixin = (superclass) => class extends superclass {
     })
 
     return fragment.shadowRoot.innerHTML
+  }
+
+
+
+  generateID(length) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    const randomArray = new Uint8Array(length);
+    crypto.getRandomValues(randomArray);
+    randomArray.forEach((number) => {
+      result += chars[number % chars.length];
+    });
+    return result;
   }
 
 }

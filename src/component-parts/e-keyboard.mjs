@@ -1,61 +1,65 @@
-import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style scope="global">
-    e-keyboard {
-        kbd {
-            font-family: system-ui;
+const cssString = /*css*/`
+e-keyboard {
+    kbd {
+        font-family: system-ui;
 
-            &:not(:has(kbd)),
-            & kbd {
-                border-radius: 3px;
-                box-shadow: 0 1px 2px 0 var(--e-color-gray-5);
-                padding: 0 4px;
-                background: white;
-            }
+        &:not(:has(kbd)),
+        & kbd {
+            border-radius: 3px;
+            box-shadow: 0 1px 2px 0 var(--e-color-gray-5);
+            padding: 0 4px;
+            background: white;
         }
     }
-</style>
-    `
+}
+`
 
 const markupString = /*html*/`<kbd><slot></slot></kbd>`
 
-const scriptString = /*html*/`
-<script>
-    class EKeyboard extends HTMLElement {
-        constructor() { super() }
-        connectedCallback() {
-          // client-side rendering
-          if (!isEnhanced) {
-            const kbd = this.querySelector('kbd')
-            if (!blockquote) {
-                const kbd = document.createElement('kbd')
-                const children = this.children
-                for (let i = 0; i < children.length; i++) {
-                    kbd.appendChild(children[i])
-                }
-                this.appendChild(kbd)
+const scriptString = /*javascript*/`
+class EKeyboard extends HTMLElement {
+    constructor() { super() }
+    connectedCallback() {
+      const isEnhanced = this.hasAttribute('enhanced')
+      // client-side rendering
+      if (!isEnhanced) {
+        const kbd = this.querySelector('kbd')
+        if (!kbd) {
+            const kbd = document.createElement('kbd')
+            const children = this.children
+            for (let i = 0; i < children.length; i++) {
+                kbd.appendChild(children[i])
             }
-            this.setAttribute('enhanced', 'client')
-          }
+            this.appendChild(kbd)
         }
+        this.setAttribute('enhanced', 'client')
+      }
     }
-</script>
+}
+if (!customElements.get('e-keyboard')) { customElements.define('e-keyboard',EKeyboard)}
 `
 
 const elementHTML = `
-${styleString}
+<style scope=global>
+${indentChunk(cssString)}
+</style>
+
 ${markupString}
-${scriptString}
+
+<script type=module>
+${indentChunk(scriptString)}
+</script>
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-keyboard', htmlString:elementHTML})
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-keyboard', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({tag:'e-keyboard',styleString,markupString})
+const componentFunctionString = wrapComponentCE({ tag: 'e-keyboard', cssString, markupString })
 
 export default {
   elementHTML,
   elementFunctionString,
   componentFunctionString
-} 
+}
 

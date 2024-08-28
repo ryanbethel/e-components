@@ -12,22 +12,21 @@ const RerenderMixin = (superclass) => class extends superclass {
   }
 
   process() {
-    const tmp = this.render({
+    const newReneredState = this.render({
       html: this.html,
       state: this.state
     })
-    const updated = document.createElement('div')
-    updated.innerHTML = tmp.trim()
-    const root = this.shadowRoot
-      ? this.shadowRoot
-      : this
-    morphdom(
-      root,
-      updated,
-      {
-        childrenOnly: true
+    const oldRenderedState = this.renderedState || ''
+    if (newReneredState !== oldRenderedState) {
+      const renderedStateTemplate = document.createElement('template')
+      renderedStateTemplate.innerHTML = this.newRenderedState
+      if (!this.hasSlots) {
+        this.replaceChildren(this.scrubTemplate(renderedStateTemplate.content.cloneNode(true)))
+      } else if (this.hasSlots && !this.isSlotOnly) {
+        // First Put back the slotted content????
+        this.innerHTML = this.expandSlots(this.innerHTML, this.scrubTemplate(renderedStateTemplate.content.cloneNode(true)).innerHTML)
       }
-    )
+    }
   }
 }
 export default RerenderMixin

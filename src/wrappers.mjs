@@ -6,7 +6,7 @@ export function funWrapHTMLElement({ tag, htmlString }) {
     }
   `
 }
-export function wrapComponentCE({ tag, styleString, markupString }) {
+export function wrapComponentCE({ tag, cssString, markupString }) {
   const className = kebabToPascal(tag)
   const funString = /*javascript*/`
 import CustomElement from '/_public/browser/custom-element.mjs'
@@ -14,7 +14,9 @@ export default class ${className} extends CustomElement {
     constructor(args){ super(args) }
     render({html}){
         return html\` 
-${escString(styleString)}
+<style scope=global>
+${indentChunk(escString(cssString))}
+</style>
 ${escString(markupString)}
           \`
     } 
@@ -22,6 +24,13 @@ ${escString(markupString)}
 if (!customElements.get("${tag}")) { customElements.define("${tag}", ${className}) };
 `
   return funString
+}
+
+export function indentChunk(str, indent = '  ') {
+  return str
+    .split('\n')
+    .map(line => indent + line)
+    .join('\n');
 }
 
 function kebabToCamel(str) {

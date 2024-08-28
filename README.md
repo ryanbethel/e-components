@@ -62,4 +62,119 @@ export default function Head() {
 }
 ```
 
+## Acknolegements
+- M-Dash
+- Phosphor Icons
 
+
+## Color Themes (Light and Dark Mode)
+The components are built with theming in mind. 
+By choosing appropriate colors and adjusting custom properties a working light and dark can be applied. 
+The following recommendations show options for choosing a theme based on OS default or user selection.
+This preference can be persisted through local storage. 
+
+The primary way that components adapt to a light and dark them is by use of the scale of Gray (or other nutral) color.
+The user configuration requires custom property values for the neutral color from `--e-color-gray-0` to `--e-color-gray-10`.
+For light mode this range should be set with light on the low end and dark on the high end.
+For dark mode the range is reversed. 
+Other changes to the primary color and other supporting colors may need to be made depending on the theme.
+
+```css
+  /* Light Theme */
+  --e-color-gray-0:  hsl(0, 0%, 95%);
+  --e-color-gray-1:  hsl(0, 0%, 90%);
+  --e-color-gray-2:  hsl(0, 0%, 80%);
+  --e-color-gray-3:  hsl(0, 0%, 70%);
+  --e-color-gray-4:  hsl(0, 0%, 60%);
+  --e-color-gray-5: hsl(0, 0%, 50%);
+  --e-color-gray-6: hsl(0, 0%, 40%);
+  --e-color-gray-7: hsl(0, 0%, 30%);
+  --e-color-gray-8: hsl(0, 0%, 20%);
+  --e-color-gray-9: hsl(0, 0%, 10%);
+  --e-color-gray-10: hsl(0, 0%, 7%); 
+
+
+  /* Dark Theme */
+  --e-color-gray-0: hsl(0, 0%, 7%); 
+  --e-color-gray-1: hsl(0, 0%, 10%);
+  --e-color-gray-2: hsl(0, 0%, 20%);
+  --e-color-gray-3: hsl(0, 0%, 30%);
+  --e-color-gray-4: hsl(0, 0%, 40%);
+  --e-color-gray-5: hsl(0, 0%, 50%);
+  --e-color-gray-6:  hsl(0, 0%, 60%);
+  --e-color-gray-7:  hsl(0, 0%, 70%);
+  --e-color-gray-8:  hsl(0, 0%, 80%);
+  --e-color-gray-9:  hsl(0, 0%, 90%);
+  --e-color-gray-10:  hsl(0, 0%, 95%);
+```
+
+These custom properties can be applied at an application level in many possible ways. 
+The following is a suggested approach that allows for operating system defaults to be used and overridden by if desired.
+
+To persist the users preference while avoiding a flash of the wrong color theme as the site is initially loaded requires some effort.
+This example persists the user preference in local storage.
+Because it uses JavaScript it is a progressive enhancement.
+If JavaScript fails to load the fallback default theme is still a working theme.
+
+To avoid the flash of the wrong theme the following script should be in the docuemnt head, or somewhere before any of the body begins to load. 
+This checks local storage for a theme preference and applies a class to the document (`<html>`) element.
+This local storage preference is set by the theme picker show further down. 
+This script is intentionally minimal to make sure if a preference is stored it is used before any content is shown. 
+
+```html
+<script>
+  const darkLightTheme = window.localStorage.getItem('dark-light-theme');
+  if (darkLightTheme === 'dark') { document.documentElement.classList.add('dark-mode'); } 
+</script>
+```
+
+
+```css
+/* If theme class is set for Dark it has high priority by the specificity */
+:root.dark-mode:not(#id-for-high-specificity) {
+      /* Dark Theme */
+      --e-color-gray-0:  hsl(0, 0%, 7%);
+}
+
+/* If no theme class is set on the document the theme toggle 
+   can be used to set theme or leave the theme as auto       */
+:root:has(input[name=color-scheme][value=dark]:checked) {
+  #color-scheme::after{ 
+    content:'Dark Mode';
+  }
+      /* Dark Theme */
+      --e-color-gray-0: hsl(0, 0%, 7%); 
+}
+:root:has(input[name=color-scheme][value=light]:checked) {
+  #color-scheme::after{ 
+    content:'Light Mode';
+  }
+  /* Light Theme */
+  --e-color-gray-0:  hsl(0, 0%, 95%);
+}
+/* If the theme switcher auto is set it no specific theme 
+   values are set allowing the default values to take over */
+:root:has(input[name=color-scheme][value=auto]:checked) {
+  #color-scheme::after{ 
+    content:'Auto Mode';
+  }
+}
+
+/* Default theme values are set for when nothing is chosen */
+:root {
+  /* Colors */
+  color-scheme: light dark;
+
+  /* Default Light Theme */
+  --e-color-gray-0:  hsl(0, 0%, 95%);
+}
+
+/* A media query handles the OS default theme if set */
+  @media ( prefers-color-scheme: dark ) {
+    :root {
+      /* Dark Theme */
+      --e-color-gray-0: hsl(0, 0%, 7%); 
+    }
+  }
+
+```

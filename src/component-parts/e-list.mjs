@@ -1,8 +1,6 @@
-import { funWrapHTMLElement, wrapComponentCE } from "../wrappers.mjs"
+import { funWrapHTMLElement, wrapComponentCE, indentChunk } from "../wrappers.mjs"
 
-const styleString = /*html*/`
-<style scope=global>
-  
+const cssString = /*css*/`
 e-list {
   /* Ordered and unordered base styles */
   ul, ol, dl { margin: 0 }
@@ -37,20 +35,21 @@ e-list {
     }
   }
 }
-</style>
 `
 
 const markupString = /*html*/`<slot></slot>`
 
 
 const elementHTML = `
-${styleString}
+<style scope=global>
+${indentChunk(cssString)}
+</style>
 ${markupString}
 `
 
-const elementFunctionString = funWrapHTMLElement({tag:'e-list', htmlString:elementHTML})
+const elementFunctionString = funWrapHTMLElement({ tag: 'e-list', htmlString: elementHTML })
 
-const componentFunctionString = wrapComponentCE({tag:'e-list',styleString,markupString})
+const componentFunctionString = wrapComponentCE({ tag: 'e-list', cssString, markupString })
 
 export default {
   elementHTML,

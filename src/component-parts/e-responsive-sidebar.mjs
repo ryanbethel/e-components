@@ -1,5 +1,7 @@
-const elementFunctionString = /*javascript*/` 
-export default function eNavBar({ html, state }) {
+import { funWrapHTMLElement, wrapComponentCE, escString, indentChunk } from "../wrappers.mjs"
+
+
+const elementRenderFunction = /*javascript*/` 
   const breakpoint = state.attr?.breakpoint
   const logoHref = state.attr?.['logo-href']
   return html\`
@@ -199,9 +201,34 @@ export default function eNavBar({ html, state }) {
   </e-col>
 </e-row>
 \`
+`
+
+
+
+
+const elementFunctionString = /*javascript*/`
+export default function eResponsiveSidebar({ html, state }) {
+${elementRenderFunction}
 }
 `
 
-export default {elementFunctionString}
+const componentFunctionString = /*javascript*/`
+import CustomElement from '/_public/browser/custom-element.mjs'
+export default class EResponsiveSidebar extends CustomElement {
+
+  constructor() {
+    super();
+  }
+  render({html,state}){
+    ${elementRenderFunction}
+  }
+}
+if (!customElements.get('e-responsive-sidebar')) { customElements.define('e-responsive-sidebar', EResponsiveSidebar) }
+`
 
 
+
+export default {
+  elementFunctionString,
+  componentFunctionString
+}
